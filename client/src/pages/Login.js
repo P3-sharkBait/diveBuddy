@@ -8,7 +8,7 @@ const Login = (props) => {
   let newAccount = false;
   function signUpButton() {
     e.preventDefault();
-    let newAccount = true;
+    newAccount = true;
     return newAccount;
   }
   // conditionally render loginForm or signupForm
