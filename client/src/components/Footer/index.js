@@ -1,14 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="w-100 mt-auto bg-secondary p-4">
       <div className="container text-center mb-2">
-        <button className="btn btn-sm btn-info m-2">
-          About/Donate
-        </button>
+        <Link className="btn-light p-0" to="/about">
+          <button className="btn btn-sm btn-light">About/Donate</button>
+        </Link>
         <button className="btn btn-sm btn-light m-2">
-          GitHub Repo
+          <a
+            href="https://github.com/P3-sharkBait/diveBuddy"
+            title="GitHub"
+            className=""
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
         </button>
       </div>
       <div className="container text-center mb-2">

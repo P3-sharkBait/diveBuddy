@@ -18,22 +18,22 @@ const Header = () => {
           <p className="m-0">All of your logs, in one convenient spot.</p>
         </div>
         <div>
-          <button className="btn btn-sm btn-light m-2">
-            Feed
-          </button>
-          <button className="btn btn-sm btn-light m-2">
-            Dashboard
-          </button>
+          <Link className="btn-light p-0" to="/feed">
+            <button className="btn btn-sm btn-light m-2">Feed</button>
+          </Link>
+          <Link className="btn-light p-0" to="/dashboard">
+            <button className="btn btn-sm btn-light m-2">Dashboard</button>
+          </Link>
           {Auth.loggedIn() ? (
             <>
               <span>Hey there, {Auth.getProfile().data.username}!</span>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <button className="btn btn-sm btn-info m-2" onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link className="btn btn-sm btn-info m-2" to="/login">
+              <Link className="btn btn-sm btn-info m-2" to="/">
                 Login
               </Link>
             </>
