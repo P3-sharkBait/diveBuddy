@@ -28,7 +28,7 @@ export const QUERY_USERS = gql`
       surfaceInt
       startLetterGroup
       maxDepth
-      residialNitrogenTime
+      residualNitrogenTime
       actualDiveTime
     }
   }

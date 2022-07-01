@@ -90,7 +90,7 @@ const logSchema = new Schema({
     type: Number
   },
 
-  residialNitrogenTime: {
+  residualNitrogenTime: {
     type: Number
   },
 
@@ -134,6 +134,6 @@ logSchema.virtual('TotalNitrogenTime').get(function () {
 
 
 
-const Log = model('Log', logSchema);
+// const Log = model('Log', logSchema);
 
-module.exports = Log;
+module.exports = logSchema;

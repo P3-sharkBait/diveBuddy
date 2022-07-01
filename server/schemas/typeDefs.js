@@ -30,7 +30,7 @@ const typeDefs = gql`
     surfaceInt: Int,
     startLetterGroup: String
     maxDepth: Int
-    residialNitrogenTime: Int
+    residualNitrogenTime: Int
     actualDiveTime: Int
     
   }
@@ -42,14 +42,38 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
+    userFriend(username: [String!]): User
     user(username: String!): User
-    
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    
+    addLog(
+      username: String!
+      diveNumber: Int!,
+      location: String,
+      dateTime: String,
+      breathingMixture: String,
+      tankType: String,
+      tankCapacity: Int,
+      startPressure: Int,
+      endPressure: Int,
+      ballast: Int,
+      extraEquipment: String,
+      suit: String,
+      weatherCond: String,
+      airTemp: Int,
+      waterType: String,
+      underwaterVisibility: Int,
+      waterTemp: Int,
+      waterCond: String,
+      surfaceInt: Int,
+      startLetterGroup: String,
+      maxDepth: Int,
+      residualNitrogenTime: Int,
+      actualDiveTime: Int
+    ): User
   }
 `;
 

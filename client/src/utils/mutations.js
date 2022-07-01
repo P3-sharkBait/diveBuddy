@@ -24,41 +24,38 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!, $thoughtAuthor: String!) {
-    addThought(thoughtText: $thoughtText, thoughtAuthor: $thoughtAuthor) {
+export const ADD_LOG = gql`
+  mutation Mutation($username: String!, $diveNumber: Int!, $location: String, $dateTime: String, $breathingMixture: String, $tankType: String, $tankCapacity: Int, $startPressure: Int, $endPressure: Int, $ballast: Int, $extraEquipment: String, $suit: String, $weatherCond: String, $airTemp: Int, $waterType: String, $underwaterVisibility: Int, $waterTemp: Int, $waterCond: String, $surfaceInt: Int, $startLetterGroup: String, $maxDepth: Int, $residualNitrogenTime: Int, $actualDiveTime: Int) {
+    addLog(username: $username, diveNumber: $diveNumber, location: $location, dateTime: $dateTime, breathingMixture: $breathingMixture, tankType: $tankType, tankCapacity: $tankCapacity, startPressure: $startPressure, endPressure: $endPressure, ballast: $ballast, extraEquipment: $extraEquipment, suit: $suit, weatherCond: $weatherCond, airTemp: $airTemp, waterType: $waterType, underwaterVisibility: $underwaterVisibility, waterTemp: $waterTemp, waterCond: $waterCond, surfaceInt: $surfaceInt, startLetterGroup: $startLetterGroup, maxDepth: $maxDepth, residualNitrogenTime: $residualNitrogenTime, actualDiveTime: $actualDiveTime) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-      }
+      username
+      email
+      password
+      logs {
+        diveNumber
+        location
+        dateTime
+        breathingMixture
+        tankType
+        tankCapacity
+        startPressure
+        endPressure
+        ballast
+        extraEquipment
+        suit
+        WeatherCond
+        airTemp
+        waterType
+        underwaterVisibility
+        waterTemp
+        waterCond
+        surfaceInt
+        startLetterGroup
+        maxDepth
+        residualNitrogenTime
+        actualDiveTime
     }
   }
+}
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment(
-    $thoughtId: ID!
-    $commentText: String!
-    $commentAuthor: String!
-  ) {
-    addComment(
-      thoughtId: $thoughtId
-      commentText: $commentText
-      commentAuthor: $commentAuthor
-    ) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
-    }
-  }
-`;

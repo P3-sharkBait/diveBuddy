@@ -5,12 +5,15 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find().populate('logs');
+    },
+    userFriend: async (parent, { username }) => {
+
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username }).populate('logs');
     },
-    
+
 
   },
 
@@ -37,7 +40,40 @@ const resolvers = {
 
       return { token, user };
     },
-    
+    addLog: async (parent, { username, diveNumber, location, dateTime, breathingMixture, tankType, tankCapacity, startPressure, endPressure, ballast, extraEquipment, suit, weatherCond, airTemp, waterType, underwaterVisibility, waterTemp, waterCond, surfaceInt, startLetterGroup, maxDepth, residualNitrogenTime,actualDiveTime }) => {
+      const logInput = {
+        diveNumber: diveNumber,
+        location: location,
+        dateTime: dateTime,
+        breathingMixture: breathingMixture,
+        tankType: tankType,
+        tankCapacity: tankCapacity,
+        startPressure: startPressure,
+        endPressure: endPressure,
+        ballast: ballast,
+        extraEquipment: extraEquipment,
+        suit: suit,
+        weatherCond: weatherCond,
+        airTemp: airTemp,
+        waterType: waterType,
+        underwaterVisibility: underwaterVisibility,
+        waterTemp: waterTemp,
+        waterCond: waterCond,
+        surfaceInt: surfaceInt,
+        startLetterGroup: startLetterGroup,
+        maxDepth: maxDepth,
+        residualNitrogenTime: residualNitrogenTime,
+        actualDiveTime: actualDiveTime
+      }
+      return await User.findOneAndUpdate(
+        { username: username },
+        { $addToSet: { logs: logInput } },
+        {
+          new: true,
+          runValidators: true,
+        }
+      )
+    },
   },
 };
 
