@@ -33,7 +33,7 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link className="btn btn-sm btn-info m-2" to="/">
+              <Link className="btn btn-sm btn-info m-2" to="/login">
                 Login
               </Link>
             </>
