@@ -1,37 +1,40 @@
-import React from 'react';
+import React from "react";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Pages
-import Home from './pages/Home';
-import Login from './pages/Login';
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Feed from "./pages/Feed"
+// import Dashboard from './pages/Dashboard'
+import NotFound from './pages/NotFound.js'
 
 // Components
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 // import SignupForm from './components/SignupForm';
 // import LoginForm from './components/LoginForm';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -51,22 +54,11 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-              {/* <Route 
-                path="/signup" 
-                element={<Signup />} 
-              />
-              <Route 
-                path="/thoughts/:thoughtId" 
-                element={<SingleThought />}  
-              /> */}
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/feed" element={<Feed />} />
+              {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+              <Route path="/*" element={<NotFound />} />
             </Routes>
           </div>
           <Footer />
