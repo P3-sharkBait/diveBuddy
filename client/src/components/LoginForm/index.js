@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
-
 import Auth from "../../utils/auth";
 
 const LoginForm = (props) => {
@@ -52,31 +51,33 @@ const LoginForm = (props) => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="********"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: "pointer" }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
+              <div>
+                <form onSubmit={handleFormSubmit}>
+                  <input
+                    className="form-input"
+                    placeholder="email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="********"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                  />
+                  <button
+                    className="btn btn-block btn-primary"
+                    style={{ cursor: "pointer" }}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
             )}
 
             {error && (

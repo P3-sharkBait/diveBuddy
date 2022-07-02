@@ -1,27 +1,55 @@
-import e from "express";
 import React, { useState } from "react";
-import { LoginForm } from "../components/LoginForm/index";
-import { SignupForm } from "../components/SignupForm/index";
+import LoginForm from "../components/LoginForm";
+import SignupForm from "../components/SignupForm";
 
-// newAccount false renders loginForm, newAccount true (only possible via button click) renders signupForm
-const Login = (props) => {
-  let newAccount = false;
-  function signUpButton() {
-    e.preventDefault();
-    newAccount = true;
-    return newAccount;
-  }
+// need a click event in LoginForm.js to change state here.
+
+export default function Login() {
+  const [currentForm, setForm] = useState("login");
+  const renderForm = () => {
+    if (currentForm !== "login") {
+      return (
+        <>
+          <SignupForm />
+          <>
+            {" "}
+            <button
+              id="backToLogin-btn"
+              className="btn btn-sm btn-info mx-2"
+              onClick={() => setForm("login")}
+            >
+              Already Registered?
+            </button>{" "}
+          </>
+        </>
+      );
+    }
+    return (
+      <>
+        <LoginForm />
+        <>
+          {" "}
+          <button
+            id="createAccount-btn"
+            className="btn btn-sm btn-info mx-2"
+            onClick={() => setForm("signup")}
+          >
+            Create Account
+          </button>{" "}
+        </>
+      </>
+    );
+  };
+
+  const handleFormChange = (form) => setForm(form);
+
   // conditionally render loginForm or signupForm
   return (
     <main className="flex-row justify-center mb-4">
       <div className="container text-center">
-        <button onClick={signUpButton()}>
-          Create Account
-        </button>
-
+        {handleFormChange}
+        {renderForm()}
       </div>
     </main>
   );
-};
-
-export default Login;
+}
