@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+logSchema = require('./Log');
 
 const userSchema = new Schema({
   username: {
@@ -19,12 +20,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Thought',
-    },
-  ],
+  logs: [logSchema],
 });
 
 userSchema.pre('save', async function (next) {
