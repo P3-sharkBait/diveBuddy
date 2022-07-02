@@ -11,8 +11,8 @@ const typeDefs = gql`
 
   type Log {
     diveNumber: Int
-    location: Int
-    dateTime: Int
+    location: String
+    dateTime: String
     breathingMixture: String
     tankType: String
     tankCapacity: Int
@@ -42,7 +42,7 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    userFriend(username: [String!]): User
+    userFriend(username: [String!]): [User]
     user(username: String!): User
   }
 
@@ -74,6 +74,7 @@ const typeDefs = gql`
       residualNitrogenTime: Int,
       actualDiveTime: Int
     ): User
+    removeUser(email: String!, password: String!): Auth
   }
 `;
 

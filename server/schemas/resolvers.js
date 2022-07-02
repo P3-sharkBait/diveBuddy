@@ -8,7 +8,7 @@ const resolvers = {
       return User.find().populate('logs');
     },
     userFriend: async (parent, { username }) => {
-
+      return User.find({ username: [username] }).populate('logs');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('logs');
@@ -40,7 +40,7 @@ const resolvers = {
 
       return { token, user };
     },
-    addLog: async (parent, { username, diveNumber, location, dateTime, breathingMixture, tankType, tankCapacity, startPressure, endPressure, ballast, extraEquipment, suit, weatherCond, airTemp, waterType, underwaterVisibility, waterTemp, waterCond, surfaceInt, startLetterGroup, maxDepth, residualNitrogenTime,actualDiveTime }) => {
+    addLog: async (parent, { username, diveNumber, location, dateTime, breathingMixture, tankType, tankCapacity, startPressure, endPressure, ballast, extraEquipment, suit, weatherCond, airTemp, waterType, underwaterVisibility, waterTemp, waterCond, surfaceInt, startLetterGroup, maxDepth, residualNitrogenTime, actualDiveTime }) => {
       const logInput = {
         diveNumber: diveNumber,
         location: location,
@@ -73,6 +73,19 @@ const resolvers = {
           runValidators: true,
         }
       )
+    },
+    removeUser: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new AuthenticationError('No user found with this email address');
+      }
+      const correctPw = await user.isCorrectPassword(password);
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+      return await User.findOneAndDelete(
+        { email: email },
+      );
     },
   },
 };

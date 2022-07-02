@@ -15,11 +15,11 @@ const logSchema = new Schema({
   },
 
   location: {
-    type: Number
+    type: String
   },
 
   dateTime: {
-    type: Number
+    type: String
   },
 
   breathingMixture: {
