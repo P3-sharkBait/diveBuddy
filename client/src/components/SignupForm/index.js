@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
+import { ADD_USER } from '../../utils/mutations';
 
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 
-const Signup = () => {
+const SignupForm = () => {
   const [formState, setFormState] = useState({
     username: '',
     email: '',
@@ -97,4 +97,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignupForm;
