@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import LoginForm from "../components/LoginForm";
-import SignupForm from "../components/SignupForm";
+import LoginForm from "../components/Login/LoginForm";
+import SignupForm from "../components/Login/SignupForm";
 
 // need a click event in LoginForm.js to change state here.
 
