@@ -75,6 +75,7 @@ const typeDefs = gql`
       actualDiveTime: Int
     ): User
     removeUser(email: String!, password: String!): Auth
+    removeLog(email: String!, password: String!, diveNumber: Int!): Auth
   }
 `;
 
