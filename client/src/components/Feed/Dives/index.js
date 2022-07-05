@@ -1,3 +1,7 @@
+// Component that displays all the logs that you and your friends have entered.
+// Will conditionally render just yours, or all depending on which filter is selected.
+
+
 <div className="bg-primary text-light mb-4 py-3 flex-row align-center">
   <div className="container flex-row justify-space-between-lg justify-center align-center">
     <div>

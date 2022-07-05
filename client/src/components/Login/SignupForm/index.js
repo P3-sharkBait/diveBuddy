@@ -66,7 +66,7 @@ export default function SignupForm() {
             {data ? (
               <p>
                 {successMessage()}{" "}
-                <Link to="/dashboard">View Your Account.</Link>
+                <Link to="/login">Return to Login.</Link>
               </p>
             ) : (
               <div>
