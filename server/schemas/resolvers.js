@@ -1,22 +1,20 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Log } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find().populate('logs');
+    },
+    userFriend: async (parent, { username }) => {
+      return User.find({ username: [username] }).populate('logs');
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username }).populate('logs');
     },
-    thoughts: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
-    },
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
-    },
+
+
   },
 
   Mutation: {
@@ -42,36 +40,51 @@ const resolvers = {
 
       return { token, user };
     },
-    addThought: async (parent, { thoughtText, thoughtAuthor }) => {
-      const thought = await Thought.create({ thoughtText, thoughtAuthor });
-
-      await User.findOneAndUpdate(
-        { username: thoughtAuthor },
-        { $addToSet: { thoughts: thought._id } }
-      );
-
-      return thought;
-    },
-    addComment: async (parent, { thoughtId, commentText, commentAuthor }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
-        {
-          $addToSet: { comments: { commentText, commentAuthor } },
-        },
+    addLog: async (parent, { username, diveNumber, location, dateTime, breathingMixture, tankType, tankCapacity, startPressure, endPressure, ballast, extraEquipment, suit, weatherCond, airTemp, waterType, underwaterVisibility, waterTemp, waterCond, surfaceInt, startLetterGroup, maxDepth, residualNitrogenTime, actualDiveTime }) => {
+      const logInput = {
+        diveNumber: diveNumber,
+        location: location,
+        dateTime: dateTime,
+        breathingMixture: breathingMixture,
+        tankType: tankType,
+        tankCapacity: tankCapacity,
+        startPressure: startPressure,
+        endPressure: endPressure,
+        ballast: ballast,
+        extraEquipment: extraEquipment,
+        suit: suit,
+        weatherCond: weatherCond,
+        airTemp: airTemp,
+        waterType: waterType,
+        underwaterVisibility: underwaterVisibility,
+        waterTemp: waterTemp,
+        waterCond: waterCond,
+        surfaceInt: surfaceInt,
+        startLetterGroup: startLetterGroup,
+        maxDepth: maxDepth,
+        residualNitrogenTime: residualNitrogenTime,
+        actualDiveTime: actualDiveTime
+      }
+      return await User.findOneAndUpdate(
+        { username: username },
+        { $addToSet: { logs: logInput } },
         {
           new: true,
           runValidators: true,
         }
-      );
+      )
     },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
-    },
-    removeComment: async (parent, { thoughtId, commentId }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
-        { $pull: { comments: { _id: commentId } } },
-        { new: true }
+    removeUser: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new AuthenticationError('No user found with this email address');
+      }
+      const correctPw = await user.isCorrectPassword(password);
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+      return await User.findOneAndDelete(
+        { email: email },
       );
     },
   },

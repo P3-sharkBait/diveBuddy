@@ -6,22 +6,33 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    thoughts: [Thought]!
+    logs: [Log]!
   }
 
-  type Thought {
-    _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
-  }
-
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
+  type Log {
+    diveNumber: Int
+    location: String
+    dateTime: String
+    breathingMixture: String
+    tankType: String
+    tankCapacity: Int
+    startPressure: Int
+    endPressure: Int
+    ballast: String
+    extraEquipment: String
+    suit: String
+    WeatherCond: String
+    airTemp: Int
+    waterType: String
+    underwaterVisibility: Int
+    waterTemp: Int
+    waterCond: String
+    surfaceInt: Int,
+    startLetterGroup: String
+    maxDepth: Int
+    residualNitrogenTime: Int
+    actualDiveTime: Int
+    
   }
 
   type Auth {
@@ -31,22 +42,39 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
+    userFriend(username: [String!]): [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
-    addComment(
-      thoughtId: ID!
-      commentText: String!
-      commentAuthor: String!
-    ): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addLog(
+      username: String!
+      diveNumber: Int!,
+      location: String,
+      dateTime: String,
+      breathingMixture: String,
+      tankType: String,
+      tankCapacity: Int,
+      startPressure: Int,
+      endPressure: Int,
+      ballast: Int,
+      extraEquipment: String,
+      suit: String,
+      weatherCond: String,
+      airTemp: Int,
+      waterType: String,
+      underwaterVisibility: Int,
+      waterTemp: Int,
+      waterCond: String,
+      surfaceInt: Int,
+      startLetterGroup: String,
+      maxDepth: Int,
+      residualNitrogenTime: Int,
+      actualDiveTime: Int
+    ): User
+    removeUser(email: String!, password: String!): Auth
   }
 `;
 
