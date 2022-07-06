@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Feed from "./pages/Feed"
+import ADDLOG from "./pages/AddLog"
 // import Dashboard from './pages/Dashboard'
 import NotFound from './pages/NotFound.js'
 
@@ -59,6 +60,8 @@ function App() {
               <Route path="/feed" element={<Feed />} />
               {/* <Route path="/dashboard" element={<Dashboard />} /> */}
               <Route path="/*" element={<NotFound />} />
+              <Route path="/addLog" element={<ADDLOG />} />
+
             </Routes>
           </div>
           <Footer />
