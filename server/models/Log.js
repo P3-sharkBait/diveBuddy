@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 const endingLetterGroup = require('../utils/endingLetterGroup');
+const newStartingLetterGroup = require('../utils/newStartingLetterGroup');
 
 const logSchema = new Schema({
 
@@ -82,7 +83,11 @@ const logSchema = new Schema({
     type: Number
   },
 
-  startLetterGroup: {
+  nextSurfaceInt: {
+    type: Number
+  },
+
+  previousEndLetter: {
     type: String
   },
 
@@ -130,7 +135,16 @@ logSchema.virtual('EndingLetterGroup').get(function () {
 logSchema.virtual('TotalNitrogenTime').get(function () {
   return this.actualDiveTime + this.residialNitrogenTime;
 });
-//
+//create function to output residualNitrogenTime programatically
+
+//Next Starting Letter Group
+//require SI in Minutes?
+logSchema.virtual('NewStartingLetterGroup').get(function () {
+  const ELG = this.EndingLetterGroup;
+  const SI = this.nextSurfaceInt;
+
+  return newStartingLetterGroup(ELG, SI);
+})
 
 
 
