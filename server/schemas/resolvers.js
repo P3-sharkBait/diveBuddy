@@ -129,6 +129,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
   },
+  //resolver for adding to friends list
 };
 
 module.exports = resolvers;
