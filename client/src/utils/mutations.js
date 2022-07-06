@@ -148,3 +148,42 @@ export const REMOVE_USER = gql`
   }
 }
 `;
+
+export const REMOVE_LOG = gql`
+  mutation Mutation($email: String!, $password: String!, $diveNumber: Int!) {
+  removeLog(email: $email, password: $password, diveNumber: $diveNumber) {
+    token
+    user {
+      _id
+      username
+      email
+      password
+      logs {
+        diveNumber
+        location
+        dateTime
+        breathingMixture
+        tankType
+        tankCapacity
+        startPressure
+        endPressure
+        ballast
+        extraEquipment
+        suit
+        WeatherCond
+        airTemp
+        waterType
+        underwaterVisibility
+        waterTemp
+        waterCond
+        surfaceInt
+        nextSurfaceInt
+        previousEndLetter
+        maxDepth
+        residualNitrogenTime
+        actualDiveTime
+      }
+    }
+  }
+}
+`;
