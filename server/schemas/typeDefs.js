@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
     logs: [Log]!
+    friends: [String]
   }
 
   type Log {
@@ -31,6 +32,7 @@ const typeDefs = gql`
     nextSurfaceInt: Int
     previousEndLetter: String
     maxDepth: Int
+    nextDepth: Int
     residualNitrogenTime: Int
     actualDiveTime: Int
     
@@ -52,28 +54,29 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addLog(
       username: String!
-      diveNumber: Int!,
-      location: String,
-      dateTime: String,
-      breathingMixture: String,
-      tankType: String,
-      tankCapacity: Int,
-      startPressure: Int,
-      endPressure: Int,
-      ballast: Int,
-      extraEquipment: String,
-      suit: String,
-      weatherCond: String,
-      airTemp: Int,
-      waterType: String,
-      underwaterVisibility: Int,
-      waterTemp: Int,
-      waterCond: String,
-      surfaceInt: Int,
-      nextSurfaceInt: Int,
-      previousEndLetter: String,
-      maxDepth: Int,
-      residualNitrogenTime: Int,
+      diveNumber: Int!
+      location: String
+      dateTime: String
+      breathingMixture: String
+      tankType: String
+      tankCapacity: Int
+      startPressure: Int
+      endPressure: Int
+      ballast: String
+      extraEquipment: String
+      suit: String
+      WeatherCond: String
+      airTemp: Int
+      waterType: String
+      underwaterVisibility: Int
+      waterTemp: Int
+      waterCond: String
+      surfaceInt: Int
+      nextSurfaceInt: Int
+      previousEndLetter: String
+      maxDepth: Int
+      nextDepth: Int
+      residualNitrogenTime: Int
       actualDiveTime: Int
     ): User
     removeUser(email: String!, password: String!): Auth
