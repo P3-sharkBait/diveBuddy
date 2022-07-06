@@ -18,7 +18,7 @@ export default function Login() {
               className="btn btn-sm btn-info mx-2"
               onClick={() => setForm("login")}
             >
-              Already Registered?
+              Return to Login
             </button>{" "}
           </>
         </>

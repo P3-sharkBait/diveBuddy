@@ -28,7 +28,6 @@ export const LOGIN_USER = gql`
         waterTemp
         waterCond
         surfaceInt
-        startLetterGroup
         maxDepth
         residualNitrogenTime
         actualDiveTime
@@ -66,7 +65,6 @@ export const ADD_USER = gql`
         waterTemp
         waterCond
         surfaceInt
-        startLetterGroup
         maxDepth
         residualNitrogenTime
         actualDiveTime
