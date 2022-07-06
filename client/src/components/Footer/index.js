@@ -1,32 +1,30 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
   return (
     <footer className="w-100 mt-auto bg-secondary p-4">
-      <div className="container text-center mb-5">
-        {location.pathname !== '/' && (
-          <button
-            className="btn btn-dark mb-3"
-            onClick={() => navigate(-1)}
+      <div className="container text-center mb-2">
+        <Link className="btn-light p-0" to="/about">
+          <button className="btn btn-sm btn-light">About/Donate</button>
+        </Link>
+        <button className="btn btn-sm btn-light m-2">
+          <a
+            href="https://github.com/P3-sharkBait/diveBuddy"
+            title="GitHub"
+            className=""
+            target="_blank"
+            rel="noreferrer"
           >
-            &larr; Go Back
-          </button>
-        )}
-        <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
-          by the Tech Thoughts team.
-        </h4>
+            GitHub
+          </a>
+        </button>
+      </div>
+      <div className="container text-center mb-2">
+        <p>
+          &copy; 2022 Andrew Moody, Abeer Naeem, William Qualls, Nat Triffo, &
+          Theo Ward
+        </p>
       </div>
     </footer>
   );
