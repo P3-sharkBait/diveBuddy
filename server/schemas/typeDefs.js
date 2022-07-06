@@ -27,8 +27,9 @@ const typeDefs = gql`
     underwaterVisibility: Int
     waterTemp: Int
     waterCond: String
-    surfaceInt: Int,
-    startLetterGroup: String
+    surfaceInt: Int
+    nextSurfaceInt: Int
+    previousEndLetter: String
     maxDepth: Int
     residualNitrogenTime: Int
     actualDiveTime: Int
@@ -69,7 +70,8 @@ const typeDefs = gql`
       waterTemp: Int,
       waterCond: String,
       surfaceInt: Int,
-      startLetterGroup: String,
+      nextSurfaceInt: Int,
+      previousEndLetter: String,
       maxDepth: Int,
       residualNitrogenTime: Int,
       actualDiveTime: Int
