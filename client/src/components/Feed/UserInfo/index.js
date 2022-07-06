@@ -1,23 +1,21 @@
-// A component to show the username and profile photo of the person logged in.
-// Should have a link baked into the username/photo to get to that user's dashboard.
+import React from "react";
+import { Link } from "react-router-dom";
 
-<div className="bg-primary text-light mb-4 py-3 flex-row align-center">
-  <div className="container flex-row justify-space-between-lg justify-center align-center">
-    <div>
-      {Auth.loggedIn() ? (
-        <>
-          <span>Hey there, {Auth.getProfile().data.username}!</span>
-          <button className="btn btn-sm btn-info m-2" onClick={logout}>
-            Logout
-          </button>
-        </>
-      ) : (
-        <>
-          <Link className="btn btn-sm btn-info m-2" to="/login">
-            Login
-          </Link>
-        </>
-      )}
+const UserInfo = (props) => {
+  return (
+    <div className="bg-primary text-light mb-4 py-3">
+      <div className="container flex-column justify-center align-center">
+        <div id="userInfoContainer" className="flex-column justify-center align-center">
+          <div id="userFeedInfo">
+            <Link to="/dashboard">
+              <img alt="User avatar"></img>
+              <p>USERNAME</p>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>;
+  );
+};
+
+export default UserInfo;
