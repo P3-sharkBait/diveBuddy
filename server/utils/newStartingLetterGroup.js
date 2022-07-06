@@ -1,11 +1,11 @@
 const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
-    if (endingLetter == 'A') {
+    if (endingLetter === 'A') {
         if (nextSurfaceInt < 1440) {
             return 'A'
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'B') {
+    } else if (endingLetter === 'B') {
         if (10 <= nextSurfaceInt <= 76) {
             return 'B'
         } else if (77 <= nextSurfaceInt < 1440) {
@@ -13,7 +13,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'C') {
+    } else if (endingLetter === 'C') {
         if (10 <= nextSurfaceInt <= 55) {
             return 'C'
         } else if (56 <= nextSurfaceInt <= 131) {
@@ -23,7 +23,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'D') {
+    } else if (endingLetter === 'D') {
         if (10 <= nextSurfaceInt <= 52) {
             return 'D'
         } else if (53 <= nextSurfaceInt <= 107) {
@@ -35,7 +35,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'E') {
+    } else if (endingLetter === 'E') {
         if (10 <= nextSurfaceInt <= 52) {
             return 'E'
         } else if (53 <= nextSurfaceInt <= 104) {
@@ -49,7 +49,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'F') {
+    } else if (endingLetter === 'F') {
         if (10 <= nextSurfaceInt <= 52) {
             return 'F'
         } else if (53 <= nextSurfaceInt <= 104) {
@@ -65,7 +65,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'G') {
+    } else if (endingLetter === 'G') {
         if (10 <= nextSurfaceInt <= 52) {
             return 'G'
         } else if (53 <= nextSurfaceInt <= 104) {
@@ -83,7 +83,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'H') {
+    } else if (endingLetter === 'H') {
         if (10 <= nextSurfaceInt <= 52) {
             return 'H'
         } else if (53 <= nextSurfaceInt <= 104) {
@@ -103,7 +103,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'I') {
+    } else if (endingLetter === 'I') {
         if (10 <= nextSurfaceInt <= 52) {
             return 'I'
         } else if (53 <= nextSurfaceInt <= 104) {
@@ -125,7 +125,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'J') {
+    } else if (endingLetter === 'J') {
         if (10 <= nextSurfaceInt <= 52) {
             return 'J'
         } else if (53 <= nextSurfaceInt <= 104) {
@@ -149,7 +149,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'K') {
+    } else if (endingLetter === 'K') {
         if (10 <= nextSurfaceInt <= 52) {
             return 'K'
         } else if (10 <= nextSurfaceInt <= 104) {
@@ -175,7 +175,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'L') {
+    } else if (endingLetter === 'L') {
         if (10 <= nextSurfaceInt <= 52) {
             return 'L'
         } else if (10 <= nextSurfaceInt <= 104) {
@@ -203,7 +203,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'M') {
+    } else if (endingLetter === 'M') {
         if (10 <= nextSurfaceInt <= 52) {
             return 'M'
         } else if (10 <= nextSurfaceInt <= 104) {
@@ -233,7 +233,7 @@ const newStartingLetterGroup = function (endingLetter, nextSurfaceInt) {
         } else {
             return 'No Group'
         }
-    } else if (endingLetter == 'N') {
+    } else if (endingLetter === 'N') {
         if (10 <= nextSurfaceInt <= 52) {
             return 'N'
         } else if (53 <= nextSurfaceInt <= 104) {
