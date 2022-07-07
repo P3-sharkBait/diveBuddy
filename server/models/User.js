@@ -21,6 +21,12 @@ const userSchema = new Schema({
     minlength: 5,
   },
   logs: [logSchema],
+  friends: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    }
+  ]
 });
 
 userSchema.pre('save', async function (next) {

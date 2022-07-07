@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../../utils/mutations";
 
@@ -13,7 +12,6 @@ export default function SignupForm() {
   
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
       [name]: value,
@@ -23,29 +21,22 @@ export default function SignupForm() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
-    // try {
-    //   const { data } = await login({
-    //     variables: { ...formState },
-    //   });
-    // } catch (e) {
-    //   console.error(e);
-    // }
-
-    // clear form values
-    setFormState({
-      username: "",
-      email: "",
-      password: "",
-    });
+    try {
+      const { data } = await signup({
+        variables: { ...formState },
+      });
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const successMessage = () => {
     return (
       <div>
-        <h1>
-          Congratulations, {formState.username}! You are now a memeber of Dive
+        <h3>
+          Congratulations! You are now a member of Dive
           Buddy!
-        </h1>
+        </h3>
       </div>
     );
   };
@@ -64,18 +55,17 @@ export default function SignupForm() {
           <h4 className="card-header bg-dark text-light p-2">Create Account</h4>
           <div className="card-body">
             {data ? (
-              <p>
+              <div>
                 {successMessage()}{" "}
-                <Link to="/login">Return to Login.</Link>
-              </p>
+              </div>
             ) : (
               <div>
                 <form onSubmit={handleFormSubmit}>
                   <input
                     className="form-input"
                     placeholder="username"
-                    name="email"
-                    type="email"
+                    name="username"
+                    type="username"
                     value={formState.username}
                     onChange={handleChange}
                   />

@@ -49,7 +49,7 @@ const resolvers = {
 
       return { token, user };
     },
-    addLog: async (parent, { username, diveNumber, location, dateTime, breathingMixture, tankType, tankCapacity, startPressure, endPressure, ballast, extraEquipment, suit, weatherCond, airTemp, waterType, underwaterVisibility, waterTemp, waterCond, surfaceInt, nextSurfaceInt, previousEndLetter, maxDepth, residualNitrogenTime, actualDiveTime }, context) => {
+    addLog: async (parent, { username, diveNumber, location, dateTime, breathingMixture, tankType, tankCapacity, startPressure, endPressure, ballast, extraEquipment, suit, weatherCond, airTemp, waterType, underwaterVisibility, waterTemp, waterCond, surfaceInt, nextSurfaceInt, previousEndLetter, maxDepth, nextDepth, residualNitrogenTime, actualDiveTime }, context) => {
       const logInput = {
         diveNumber: diveNumber,
         location: location,
@@ -72,6 +72,7 @@ const resolvers = {
         nextSurfaceInt: nextSurfaceInt,
         previousEndLetter: previousEndLetter,
         maxDepth: maxDepth,
+        nextDepth: nextDepth,
         residualNitrogenTime: residualNitrogenTime,
         actualDiveTime: actualDiveTime
       }

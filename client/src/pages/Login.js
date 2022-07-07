@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import LoginForm from "../components/Login/LoginForm";
 import SignupForm from "../components/Login/SignupForm";
 
-// need a click event in LoginForm.js to change state here.
 
 export default function Login() {
   const [currentForm, setForm] = useState("login");
@@ -18,7 +17,7 @@ export default function Login() {
               className="btn btn-sm btn-info mx-2"
               onClick={() => setForm("login")}
             >
-              Already Registered?
+              Return to Login
             </button>{" "}
           </>
         </>
@@ -43,7 +42,6 @@ export default function Login() {
 
   const handleFormChange = (form) => setForm(form);
 
-  // conditionally render loginForm or signupForm
   return (
     <main className="flex-row justify-center mb-4">
       <div className="container text-center">

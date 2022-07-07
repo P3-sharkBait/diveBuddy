@@ -2,6 +2,8 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 const endingLetterGroup = require('../utils/endingLetterGroup');
 const newStartingLetterGroup = require('../utils/newStartingLetterGroup');
+const NextResidualNitrogenTime = require('../utils/NextResidualNitrogenTime');
+const NextMaxDiveTime = require('../utils/NewMaxDiveTime');
 
 const logSchema = new Schema({
 
@@ -95,6 +97,10 @@ const logSchema = new Schema({
     type: Number
   },
 
+  nextDepth: {
+    type: Number
+  },
+  
   residualNitrogenTime: {
     type: Number
   },
@@ -133,10 +139,15 @@ logSchema.virtual('EndingLetterGroup').get(function () {
 });
 //Total Nitrogen Time
 logSchema.virtual('TotalNitrogenTime').get(function () {
-  return this.actualDiveTime + this.residialNitrogenTime;
+  return this.actualDiveTime + this.residualNitrogenTime;
 });
 //create function to output residualNitrogenTime programatically
+logSchema.virtual('NextResidualNitrogenTime').get(function (){
+  const NLG = this.NewStartingLetterGroup;
+  const nextDepth = this.nextDepth;
 
+  return NextResidualNitrogenTime(NLG, nextDepth);
+})
 //Next Starting Letter Group
 //require SI in Minutes?
 logSchema.virtual('NewStartingLetterGroup').get(function () {
@@ -144,6 +155,12 @@ logSchema.virtual('NewStartingLetterGroup').get(function () {
   const SI = this.nextSurfaceInt;
 
   return newStartingLetterGroup(ELG, SI);
+})
+logSchema.virtual('NextMaxDiveTime').get(function (){
+  const NLG = this.NewStartingLetterGroup;
+  const nextDepth = this.nextDepth;
+
+  return NextMaxDiveTime(NLG, nextDepth);
 })
 
 
