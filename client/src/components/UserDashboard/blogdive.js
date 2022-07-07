@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 
-const BlogList = ({blogs, title}) => {
+const BlogList = ({Dive, Dashboard}) => {
     
     return ( 
-        <div className="blog-list">
-            <h2>{title}</h2>
-            {blogs.map(blog => (
+        <div className="dive-list">
+            <h2>{Dashboard}</h2>
+            {Dive.map(blog => (
                 <div className="blog-dive-preview" key={blog.id}>
-                    <Link to={`/blogs/${blog.id}`}>
-                        <h2>{dive.title}</h2>
+                    <Link to={`/dashboard/${blog.id}`}>
+                        <h2>{Dive.title}</h2>
                         <p>Written by {blog.author}</p>
                     </Link>
                 </div>
