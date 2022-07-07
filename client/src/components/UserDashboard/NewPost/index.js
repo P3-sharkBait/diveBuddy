@@ -1,34 +1,49 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useQuery } from "@apollo/client";
+import { LOGIN_USER } from "../../../utils/mutations";
 
 const NewPost = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    // const [author, setAuthor] = useState('Shubham');
+    const [author, setAuthor] = useState('');
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const blog = { title, body, author };
+        const blog = { title, body, author};
+
+        const handleFormSubmit = async (event) => {
+            event.preventDefault();
+            console.log(formState);
+            try {
+              const { data } = await login({
+                variables: { ...formState },
+              });
+        
+              Auth.login(data.login.token);
+            } catch (e) {
+              console.error(e);
+            }
 
         setIsPending(true);
 
-        fetch('http://localhost:8000/blogs', {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(blog)
-        }).then(() => {
-            setIsPending(false);
-            history.push('/');
-        })
+        // fetch('http://localhost:3000/dashboard', {
+        //     method: 'POST',
+        //     headers: {"Content-Type": "application/json"},
+        //     body: JSON.stringify(blog)
+        // }).then(() => {
+        //     setIsPending(false);
+        //     history.push('/');
+        // })
     }
 
     return ( 
         <div className="create">
             <h2>Add New Dive</h2>
             <form onSubmit={handleSubmit}>
-                <label>Add Form</label>
+                <label>Add Blog</label>
                 <input 
                     type="text"
                     required
@@ -45,10 +60,7 @@ const NewPost = () => {
                 <select
                     value={author}
                     onChange={(e) => setAuthor(e.target.value)}
-                >
-                    {/* <option value="Shubham">Shubham</option>
-                    <option value="Satyam">Satyam</option>
-                    <option value="Anmol">Anmol</option> */}
+            >
                 </select>
                 {!isPending && <button>Add Blog</button>}
                 {isPending && <button disabled>Adding Blog</button>}
@@ -56,5 +68,5 @@ const NewPost = () => {
         </div>
      );
 }
- 
+
 export default NewPost;
