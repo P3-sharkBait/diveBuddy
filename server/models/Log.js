@@ -46,7 +46,7 @@ const logSchema = new Schema({
   },
 
   ballast: {
-    type: Number
+    type: String
   },
 
   extraEquipment: {
