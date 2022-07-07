@@ -5,10 +5,11 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async (parent, args, context) => {
-      if (context.user) {
+      //remember to add context back
+      // if (context.user) {
         return User.find().populate('logs');
-      }
-      throw new AuthenticationError('You need to be logged in!');
+      // }
+      // throw new AuthenticationError('You need to be logged in!');
     },
     userFriend: async (parent, { username }, context) => {
       if (context.user) {
@@ -130,6 +131,16 @@ const resolvers = {
     },
   },
   //resolver for adding to friends list
+  // addFriend: async (parent, {username, id}, context) => {
+  //   return await User.findOneAndUpdate(
+  //     { username: username },
+  //     { $addToSet: { friends: id } },
+  //     {
+  //       new: true,
+  //       runValidators: true,
+  //     }
+  //   )
+  // }
 };
 
 module.exports = resolvers;

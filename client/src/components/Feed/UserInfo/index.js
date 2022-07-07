@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Auth from '../../../utils/auth';
 
 const UserInfo = (props) => {
   return (
@@ -9,7 +10,7 @@ const UserInfo = (props) => {
           <div id="userFeedInfo">
             <Link to="/dashboard">
               <img alt="User avatar"></img>
-              <p>USERNAME</p>
+              <p>{Auth.getProfile().data.username}</p>
             </Link>
           </div>
         </div>
