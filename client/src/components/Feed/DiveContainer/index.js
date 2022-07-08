@@ -17,7 +17,7 @@ const DiveContainer = (props) => {
             <div>Loading...</div>
           ) : (
             <>
-              <Link className="btn btn-md btn-info m-2" to="/">
+              <Link className="btn btn-md btn-info m-2" to="/addLog">
                 Add Log
               </Link>
               <Dives users={users} title="Dive On In" />
