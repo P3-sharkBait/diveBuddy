@@ -35,7 +35,9 @@ const typeDefs = gql`
     nextDepth: Int
     residualNitrogenTime: Int
     actualDiveTime: Int
-    
+    pressureUsed: Int
+    SAC: Float
+    pressureAtDepth: Float    
   }
 
   type Auth {

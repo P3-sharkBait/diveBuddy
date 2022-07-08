@@ -118,35 +118,35 @@ const logSchema = new Schema({
   });
 //pressure used
 logSchema.virtual('pressureUsed').get(function () {
-  return this.startPressure - this.endPressure;
+  return this.startPressure - this.endPressure || 0;
 });
 //surface air consumption
 logSchema.virtual('SAC').get(function () {
   const PSIperMin = this.pressureUsed;
-  return PSIperMin / this.pressureAtDepth;
+  return PSIperMin / this.pressureAtDepth || 0;
 });
 //absolute pressure at depth
 logSchema.virtual('pressureAtDepth').get(function () {
   const depthPressure = this.maxDepth / 33;
-  return depthPressure + 1;
+  return depthPressure + 1 || 0;
 });
 //Ending Letter Group
 logSchema.virtual('EndingLetterGroup').get(function () {
   const TNT = this.TotalNitrogenTime;
   const depth = this.maxDepth;
 
-  return endingLetterGroup(depth, TNT);
+  return endingLetterGroup(depth, TNT) || "No Letter Group";
 });
 //Total Nitrogen Time
 logSchema.virtual('TotalNitrogenTime').get(function () {
-  return this.actualDiveTime + this.residualNitrogenTime;
+  return this.actualDiveTime + this.residualNitrogenTime || 0;
 });
 //create function to output residualNitrogenTime programatically
 logSchema.virtual('NextResidualNitrogenTime').get(function (){
   const NLG = this.NewStartingLetterGroup;
   const nextDepth = this.nextDepth;
 
-  return NextResidualNitrogenTime(NLG, nextDepth);
+  return NextResidualNitrogenTime(NLG, nextDepth) || 0;
 })
 //Next Starting Letter Group
 //require SI in Minutes?
@@ -154,13 +154,13 @@ logSchema.virtual('NewStartingLetterGroup').get(function () {
   const ELG = this.EndingLetterGroup;
   const SI = this.nextSurfaceInt;
 
-  return newStartingLetterGroup(ELG, SI);
+  return newStartingLetterGroup(ELG, SI) || "No Letter Group";
 })
 logSchema.virtual('NextMaxDiveTime').get(function (){
   const NLG = this.NewStartingLetterGroup;
   const nextDepth = this.nextDepth;
 
-  return NextMaxDiveTime(NLG, nextDepth);
+  return NextMaxDiveTime(NLG, nextDepth) || 0;
 })
 
 

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const DiveContainer = (props) => {
   const { loading, data } = useQuery(QUERY_USERS);
   const users = data?.users || [];
-  console.log(users);
+  console.log(data);
 
   return (
     <div className="bg-primary text-light mb-4 py-3 flex-row align-center">
