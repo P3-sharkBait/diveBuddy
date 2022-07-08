@@ -1,0 +1,320 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { ADD_LOG } from "../../utils/mutations";
+import Auth from '../../utils/auth';
+
+const LogForm = (props) => {
+  const [formState, setFormState] = useState({
+    diveNumber: "",
+    location: "",
+    dateTime: "",
+    breathingMixture: "",
+    tankType: "",
+    tankCapacity: "",
+    startPressure: "",
+    endPressure: "",
+    ballast: "",
+    extraEquipment: "",
+    suit: "",
+    weatherCond: "",
+    airTemp: "",
+    waterType: "",
+    underwaterVisibility: "",
+    waterTemp: "",
+    waterCond: "",
+    surfaceInt: "",
+    nextSurfaceInt: "",
+    previousEndLetter: "",
+    maxDepth: "",
+    residualNitrogenTime: "",
+    actualDiveTime: "",
+  });
+
+  const [addLog, { error, data }] = useMutation(ADD_LOG);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    var realValue = ""
+
+    if (parseInt(value) > 0 ) {
+       realValue = parseInt(value)
+    } else {
+       realValue = value
+    }
+    console.log(name, realValue)
+
+    setFormState({
+      ...formState,
+      [name]: realValue,
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    const username = Auth.getProfile().data.username
+    console.log({username:username, ...formState})
+    console.log(username)
+    try {
+
+      const { data } = await addLog({
+        variables: {username:username, ...formState },
+      });
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      diveNumber: "",
+      location: "",
+      dateTime: "",
+      breathingMixture: "",
+      tankType: "",
+      tankCapacity: "",
+      startPressure: "",
+      endPressure: "",
+      ballast: "",
+      extraEquipment: "",
+      suit: "",
+      weatherCond: "",
+      airTemp: "",
+      waterType: "",
+      underwaterVisibility: "",
+      waterTemp: "",
+      waterCond: "",
+      surfaceInt: "",
+      nextSurfaceInt: "",
+      previousEndLetter: "",
+      maxDepth: "",
+      residualNitrogenTime: "",
+      actualDiveTime: "",
+    });
+  };
+
+  return (
+    <main className="flex-row justify-center mb-4">
+      <div className="col-12 col-lg-10">
+        <div className="card">
+          <h4 className="card-header bg-dark text-light p-2">Dive Info</h4>
+          <div className="card-body">
+            {data ? (
+              <p>
+                Success! You may now head{" "}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+              <div>
+                <form onSubmit={handleFormSubmit}>
+                  <input
+                    className="form-input"
+                    // placeholder="Dive Number2"
+                    name="diveNumber"
+                    type="number"
+                    value={formState.diveNumber}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Location"
+                    name="location"
+                    type="text"
+                    value={formState.location}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Date"
+                    name="dateTime"
+                    type="text"
+                    value={formState.dateTime}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Breathing Mixture"
+                    name="breathingMixture"
+                    type="text"
+                    value={formState.breathingMixture}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Tank Type"
+                    name="tankType"
+                    type="text"
+                    value={formState.tankType}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Tank Capacity"
+                    name="tankCapacity"
+                    type="number"
+                    value={formState.tankCapacity}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Starting Pressure"
+                    name="startPressure"
+                    type="number"
+                    value={formState.startPressure}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Ending Pressure"
+                    name="endPressure"
+                    type="number"
+                    value={formState.endPressure}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Ballast"
+                    name="ballast"
+                    type="text"
+                    value={formState.ballast}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Extra Equipment"
+                    name="extraEquipment"
+                    type="text"
+                    value={formState.extraEquipment}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Suit"
+                    name="suit"
+                    type="text"
+                    value={formState.suit}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Weather Condition"
+                    name="weatherCond"
+                    type="text"
+                    value={formState.weatherCond}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Air Temp"
+                    name="airTemp"
+                    type="number"
+                    value={formState.airTemp}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Water Type"
+                    name="waterType"
+                    type="text"
+                    value={formState.waterType}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Underwater Visibility"
+                    name="underwaterVisibility"
+                    type="number"
+                    value={formState.underwaterVisibility}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Water Temp"
+                    name="waterTemp"
+                    type="number"
+                    value={formState.waterTemp}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Water Condition"
+                    name="waterCond"
+                    type="text"
+                    value={formState.waterCond}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="SurfaceInt"
+                    name="surfaceInt"
+                    type="number"
+                    value={formState.surfaceInt}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="NextSurfaceInt"
+                    name="nextSurfaceInt"
+                    type="number"
+                    value={formState.nextSurfaceInt}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Previous End Letter"
+                    name="previousEndLetter"
+                    type="text"
+                    value={formState.previousEndLetter}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Mac Depth"
+                    name="maxDepth"
+                    type="number"
+                    value={formState.maxDepth}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="Residual Nitrogen Time"
+                    name="residualNitrogenTime"
+                    type="number"
+                    value={formState.residualNitrogenTime}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="form-input"
+                    placeholder="actual Dive Time"
+                    name="actualDiveTime"
+                    type="number"
+                    value={formState.actualDiveTime}
+                    onChange={handleChange}
+                  />
+
+                  <button
+                    className="btn btn-block btn-primary"
+                    style={{ cursor: "pointer" }}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+            )}
+
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+export default LogForm;

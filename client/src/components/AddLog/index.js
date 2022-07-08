@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_LOG } from "../../utils/mutations";
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const LogForm = (props) => {
   const [formState, setFormState] = useState({
+    input:""
+  });
+
+  const [answerState, setAnswerState] = useState({
     diveNumber: "",
     location: "",
     dateTime: "",
@@ -31,22 +35,83 @@ const LogForm = (props) => {
     actualDiveTime: "",
   });
 
+  const questions = [
+    "diveNumber",
+    "location",
+    "dateTime",
+    "breathingMixture",
+    "tankType",
+    "tankCapacity",
+    "startPressure",
+    "endPressure",
+    "ballast",
+    "extraEquipment",
+    "suit",
+    "weatherCond",
+    "airTemp",
+    "waterType",
+    "underwaterVisibility",
+    "waterTemp",
+    "waterCond",
+    "surfaceInt",
+    "nextSurfaceInt",
+    "previousEndLetter",
+    "maxDepth",
+    "residualNitrogenTime",
+    "actualDiveTime",
+  ];
+
+  const type = [
+    "number",
+    "text",
+    "text",
+    "text",
+    "text",
+    "number",
+    "number",
+    "number",
+    "text",
+    "text",
+    "text",
+    "text",
+    "number",
+    "text",
+    "number",
+    "number",
+    "text",
+    "number",
+    "number",
+    "text",
+    "number",
+    "number",
+    "number",
+  ];
+
+  var i = 0;
+
+  const [qState, setQstate] = useState({ q: questions[i] });
+  const [typeState, setTypestate] = useState({ type: type[i]});
+
   const [addLog, { error, data }] = useMutation(ADD_LOG);
 
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-    var realValue = ""
+    var realValue = "";
 
-    if (parseInt(value) > 0 ) {
-       realValue = parseInt(value)
+    if (parseInt(value) > 0) {
+      realValue = parseInt(value);
     } else {
-       realValue = value
+      realValue = value;
     }
-    console.log(name, realValue)
+    console.log(name, realValue);
 
     setFormState({
-      ...formState,
+      input: realValue,
+    });
+
+    setAnswerState({
+      ...answerState,
       [name]: realValue,
     });
   };
@@ -54,45 +119,55 @@ const LogForm = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-    const username = Auth.getProfile().data.username
-    console.log({username:username, ...formState})
-    console.log(username)
-    try {
-
-      const { data } = await addLog({
-        variables: {username:username, ...formState },
+    const t = questions.indexOf(qState.q);
+    console.log(t);
+    if (t<22) {
+      setQstate({ q: questions[t + 1] });
+      setTypestate({ type: type[t + 1] });
+      setFormState({
+        input:""
       });
-    } catch (e) {
-      console.error(e);
-    }
 
-    // clear form values
-    setFormState({
-      diveNumber: "",
-      location: "",
-      dateTime: "",
-      breathingMixture: "",
-      tankType: "",
-      tankCapacity: "",
-      startPressure: "",
-      endPressure: "",
-      ballast: "",
-      extraEquipment: "",
-      suit: "",
-      weatherCond: "",
-      airTemp: "",
-      waterType: "",
-      underwaterVisibility: "",
-      waterTemp: "",
-      waterCond: "",
-      surfaceInt: "",
-      nextSurfaceInt: "",
-      previousEndLetter: "",
-      maxDepth: "",
-      residualNitrogenTime: "",
-      actualDiveTime: "",
-    });
+    } else {
+      console.log(answerState);
+      const username = Auth.getProfile().data.username;
+      console.log({ username: username, ...answerState });
+      console.log(username);
+      try {
+        const { data } = await addLog({
+          variables: { username: username, ...answerState },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+
+      // clear form values
+      setAnswerState({
+        diveNumber: "",
+        location: "",
+        dateTime: "",
+        breathingMixture: "",
+        tankType: "",
+        tankCapacity: "",
+        startPressure: "",
+        endPressure: "",
+        ballast: "",
+        extraEquipment: "",
+        suit: "",
+        weatherCond: "",
+        airTemp: "",
+        waterType: "",
+        underwaterVisibility: "",
+        waterTemp: "",
+        waterCond: "",
+        surfaceInt: "",
+        nextSurfaceInt: "",
+        previousEndLetter: "",
+        maxDepth: "",
+        residualNitrogenTime: "",
+        actualDiveTime: "",
+      });
+    }
   };
 
   return (
@@ -109,188 +184,13 @@ const LogForm = (props) => {
             ) : (
               <div>
                 <form onSubmit={handleFormSubmit}>
+                  {qState.q}
                   <input
                     className="form-input"
-                    // placeholder="Dive Number2"
-                    name="diveNumber"
-                    type="number"
-                    value={formState.diveNumber}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Location"
-                    name="location"
-                    type="text"
-                    value={formState.location}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Date"
-                    name="dateTime"
-                    type="text"
-                    value={formState.dateTime}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Breathing Mixture"
-                    name="breathingMixture"
-                    type="text"
-                    value={formState.breathingMixture}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Tank Type"
-                    name="tankType"
-                    type="text"
-                    value={formState.tankType}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Tank Capacity"
-                    name="tankCapacity"
-                    type="number"
-                    value={formState.tankCapacity}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Starting Pressure"
-                    name="startPressure"
-                    type="number"
-                    value={formState.startPressure}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Ending Pressure"
-                    name="endPressure"
-                    type="number"
-                    value={formState.endPressure}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Ballast"
-                    name="ballast"
-                    type="text"
-                    value={formState.ballast}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Extra Equipment"
-                    name="extraEquipment"
-                    type="text"
-                    value={formState.extraEquipment}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Suit"
-                    name="suit"
-                    type="text"
-                    value={formState.suit}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Weather Condition"
-                    name="weatherCond"
-                    type="text"
-                    value={formState.weatherCond}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Air Temp"
-                    name="airTemp"
-                    type="number"
-                    value={formState.airTemp}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Water Type"
-                    name="waterType"
-                    type="text"
-                    value={formState.waterType}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Underwater Visibility"
-                    name="underwaterVisibility"
-                    type="number"
-                    value={formState.underwaterVisibility}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Water Temp"
-                    name="waterTemp"
-                    type="number"
-                    value={formState.waterTemp}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Water Condition"
-                    name="waterCond"
-                    type="text"
-                    value={formState.waterCond}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="SurfaceInt"
-                    name="surfaceInt"
-                    type="number"
-                    value={formState.surfaceInt}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="NextSurfaceInt"
-                    name="nextSurfaceInt"
-                    type="number"
-                    value={formState.nextSurfaceInt}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Previous End Letter"
-                    name="previousEndLetter"
-                    type="text"
-                    value={formState.previousEndLetter}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Mac Depth"
-                    name="maxDepth"
-                    type="number"
-                    value={formState.maxDepth}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="Residual Nitrogen Time"
-                    name="residualNitrogenTime"
-                    type="number"
-                    value={formState.residualNitrogenTime}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input"
-                    placeholder="actual Dive Time"
-                    name="actualDiveTime"
-                    type="number"
-                    value={formState.actualDiveTime}
+                    placeholder={typeState.type}
+                    name={qState.q}
+                    type={typeState.type}
+                    value={formState.input}
                     onChange={handleChange}
                   />
 
@@ -299,7 +199,7 @@ const LogForm = (props) => {
                     style={{ cursor: "pointer" }}
                     type="submit"
                   >
-                    Submit
+                    Next
                   </button>
                 </form>
               </div>
