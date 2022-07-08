@@ -32,6 +32,14 @@ export const QUERY_USERS = gql`
         nextDepth
         residualNitrogenTime
         actualDiveTime
+        pressureUsed
+        SAC
+        pressureAtDepth
+        EndingLetterGroup
+        TotalNitrogenTime
+        NextResidualNitrogenTime
+        NewStartingLetterGroup
+        NextMaxDiveTime        
       }
     }
   }
@@ -69,6 +77,14 @@ export const QUERY_ME = gql`
         nextDepth
         residualNitrogenTime
         actualDiveTime
+        pressureUsed
+        SAC
+        pressureAtDepth
+        EndingLetterGroup
+        TotalNitrogenTime
+        NextResidualNitrogenTime
+        NewStartingLetterGroup
+        NextMaxDiveTime
       }
       friends
     }

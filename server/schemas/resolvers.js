@@ -23,8 +23,6 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-
-
   },
 
   Mutation: {
@@ -90,7 +88,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     removeUser: async (parent, { email, password }, context) => {
-      if (context.user) {
+      // if (context.user) {
         const user = await User.findOne({ email });
         if (!user) {
           throw new AuthenticationError('No user found with this email address');
@@ -102,8 +100,8 @@ const resolvers = {
         return await User.findOneAndDelete(
           { email: email },
         );
-      }
-      throw new AuthenticationError('You need to be logged in!');
+      // }
+      // throw new AuthenticationError('You need to be logged in!');
     },
     removeLog: async (parent, { email, password, diveNumber }, context) => {
       if (context.user) {

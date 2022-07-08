@@ -35,7 +35,14 @@ const typeDefs = gql`
     nextDepth: Int
     residualNitrogenTime: Int
     actualDiveTime: Int
-    
+    pressureUsed: Int
+    SAC: Float
+    pressureAtDepth: Float
+    EndingLetterGroup: String
+    TotalNitrogenTime: Int
+    NextResidualNitrogenTime: Int
+    NewStartingLetterGroup: String
+    NextMaxDiveTime: Int    
   }
 
   type Auth {
