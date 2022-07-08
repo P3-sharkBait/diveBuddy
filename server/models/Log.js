@@ -144,7 +144,7 @@ logSchema.virtual('TotalNitrogenTime').get(function () {
 //create function to output residualNitrogenTime programatically
 logSchema.virtual('NextResidualNitrogenTime').get(function (){
   const NLG = this.NewStartingLetterGroup;
-  const nextDepth = this.nextDepth;
+  const nextDepth = this.nextDepth || 0;
 
   return NextResidualNitrogenTime(NLG, nextDepth) || 0;
 })
@@ -158,7 +158,7 @@ logSchema.virtual('NewStartingLetterGroup').get(function () {
 })
 logSchema.virtual('NextMaxDiveTime').get(function (){
   const NLG = this.NewStartingLetterGroup;
-  const nextDepth = this.nextDepth;
+  const nextDepth = this.nextDepth || 0;
 
   return NextMaxDiveTime(NLG, nextDepth) || 0;
 })

@@ -34,7 +34,12 @@ export const QUERY_USERS = gql`
         actualDiveTime
         pressureUsed
         SAC
-        pressureAtDepth        
+        pressureAtDepth
+        EndingLetterGroup
+        TotalNitrogenTime
+        NextResidualNitrogenTime
+        NewStartingLetterGroup
+        NextMaxDiveTime        
       }
     }
   }
