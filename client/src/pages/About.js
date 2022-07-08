@@ -6,19 +6,19 @@ import andrewPic from "../images/andrewPic.jpeg";
 import abeerPic from "../images/abeerPic.png";
 import willPic from "../images/willPic.jpg";
 import natPic from "../images/natPic.JPG";
-// import theoPic from "../images/theoPic.JPG"
+import theoPic from "../images/theoPic.jpg";
 
 const About = (props) => {
   return (
-    <div>
+    <div className="w-auto">
       <div
         id="devContainer"
         className="container flex-column justify-center mb-4 align-center w-auto"
       >
         <h2 className="text-center">The Dev Team</h2>
         <Link className="btn btn-md btn-info m-2 justify-content-center" to="/">
-            Donate to Ocean Conservation
-          </Link>
+          Donate to Ocean Conservation
+        </Link>
         <div className="devInfo flex-row flex-no-wrap justify-spacebetween m-2">
           <div className="flex-column justify-center mx-2">
             <h3>Andrew Moody</h3>
@@ -53,11 +53,18 @@ const About = (props) => {
           </div>
         </div>
         <div className="devInfo flex-row flex-no-wrap justify-spacebetween m-2">
-          <div className="flex-column justify-center">
+          <div className="flex-column justify-center mx-2">
             <h3>Theo Ward</h3>
-            <p>Theo Bio</p>
+            <p>
+              My name is Theo. In my time outside of work and class, I’m an avid
+              endurance athlete. I can regularly be found running or cycling
+              along Chicago’s lakefront and generally enjoying the outdoors. On
+              top of that I love to play strategy games with my partner and
+              friends. My top three right now are called Gloomhaven, Scythe, and
+              Betrayal at the House on the Hill!o
+            </p>
           </div>
-          <img src={null} alt="Theo Ward" className="devPic"></img>
+          <img src={theoPic} alt="Theo Ward" className="devPic"></img>
         </div>
       </div>
     </div>
