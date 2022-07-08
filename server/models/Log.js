@@ -122,7 +122,7 @@ logSchema.virtual('pressureUsed').get(function () {
 });
 //surface air consumption
 logSchema.virtual('SAC').get(function () {
-  const PSIperMin = this.pressureUsed;
+  const PSIperMin = this.pressureUsed / this.actualDiveTime;
   return PSIperMin / this.pressureAtDepth || 0;
 });
 //absolute pressure at depth

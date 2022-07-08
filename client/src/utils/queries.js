@@ -77,6 +77,14 @@ export const QUERY_ME = gql`
         nextDepth
         residualNitrogenTime
         actualDiveTime
+        pressureUsed
+        SAC
+        pressureAtDepth
+        EndingLetterGroup
+        TotalNitrogenTime
+        NextResidualNitrogenTime
+        NewStartingLetterGroup
+        NextMaxDiveTime
       }
       friends
     }
