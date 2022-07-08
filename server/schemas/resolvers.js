@@ -6,10 +6,10 @@ const resolvers = {
   Query: {
     users: async (parent, args, context) => {
       //remember to add context back
-      // if (context.user) {
+      if (context.user) {
         return User.find().populate('logs');
-      // }
-      // throw new AuthenticationError('You need to be logged in!');
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     userFriend: async (parent, { username }, context) => {
       if (context.user) {
@@ -18,10 +18,10 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     user: async (parent, { username }, context) => {
-      if (context.user) {
+      // if (context.user) {
         return User.findOne({ username }).populate('logs');
-      }
-      throw new AuthenticationError('You need to be logged in!');
+      // }
+      // throw new AuthenticationError('You need to be logged in!');
     },
   },
 
@@ -75,7 +75,7 @@ const resolvers = {
         residualNitrogenTime: residualNitrogenTime,
         actualDiveTime: actualDiveTime
       }
-      if (context.user) {
+      // if (context.user) {
         return await User.findOneAndUpdate(
           { username: username },
           { $addToSet: { logs: logInput } },
@@ -84,8 +84,8 @@ const resolvers = {
             runValidators: true,
           }
         )
-      }
-      throw new AuthenticationError('You need to be logged in!');
+      // }
+      // throw new AuthenticationError('You need to be logged in!');
     },
     removeUser: async (parent, { email, password }, context) => {
       // if (context.user) {

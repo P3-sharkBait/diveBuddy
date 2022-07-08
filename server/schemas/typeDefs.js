@@ -19,7 +19,7 @@ const typeDefs = gql`
     tankCapacity: Int
     startPressure: Int
     endPressure: Int
-    ballast: String
+    ballast: Int
     extraEquipment: String
     suit: String
     WeatherCond: String
@@ -69,7 +69,7 @@ const typeDefs = gql`
       tankCapacity: Int
       startPressure: Int
       endPressure: Int
-      ballast: String
+      ballast: Int
       extraEquipment: String
       suit: String
       WeatherCond: String

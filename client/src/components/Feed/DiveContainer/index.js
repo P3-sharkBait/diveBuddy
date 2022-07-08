@@ -4,31 +4,52 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USERS, QUERY_ME } from "../../../utils/queries";
 import { Link } from "react-router-dom";
 
-const DiveContainer = (props) => {
+const DiveContainer = ({filterState}) => {
+  console.log(filterState);
   const { loading, data } = useQuery(QUERY_USERS);
   const users = data?.users || [];
-  const {loadingMe, myData} = useQuery(QUERY_ME);
-  const me = data?.user || [];
-  console.log(data);
-
-  return (
-    <div className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div id="diveContainer">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <>
-              <Link className="btn btn-md btn-info m-2" to="/addLog">
-                Add Log
-              </Link>
-              <Dives users={users} title="Dive On In" />
-            </>
-          )}
+  // const { loadingMe, myData } = useQuery(QUERY_ME);
+  // const me = myData?.user || [];
+  // console.log(myData);
+  // if (filterState === 'All') {
+    return (
+      <div className="bg-primary text-light mb-4 py-3 flex-row align-center">
+        <div className="container flex-row justify-space-between-lg justify-center align-center">
+          <div id="diveContainer">
+            {loading ? (
+              <div>Loading...</div>
+            ) : (
+              <>
+                <Link className="btn btn-md btn-info m-2" to="/addLog">
+                  Add Log
+                </Link>
+                <Dives users={users} title="Dive On In" />
+              </>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  // } else {
+    // return (
+    //   <div className="bg-primary text-light mb-4 py-3 flex-row align-center">
+    //     <div className="container flex-row justify-space-between-lg justify-center align-center">
+    //       <div id="diveContainer">
+    //         {loadingMe ? (
+    //           <div>Loading...</div>
+    //         ) : (
+    //           <>
+    //             <Link className="btn btn-md btn-info m-2" to="/addLog">
+    //               Add Log
+    //             </Link>
+    //             <Dives users={me} title="Dive On In" />
+    //           </>
+    //         )}
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
+  // }
 };
 
 export default DiveContainer;
