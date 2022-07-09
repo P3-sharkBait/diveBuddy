@@ -165,6 +165,6 @@ logSchema.virtual('NextMaxDiveTime').get(function (){
 
 
 
-// const Log = model('Log', logSchema);
+const Log = model('Log', logSchema);
 
-module.exports = logSchema;
+module.exports = Log;

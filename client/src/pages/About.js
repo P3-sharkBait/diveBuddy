@@ -61,7 +61,7 @@ const About = (props) => {
               along Chicago’s lakefront and generally enjoying the outdoors. On
               top of that I love to play strategy games with my partner and
               friends. My top three right now are called Gloomhaven, Scythe, and
-              Betrayal at the House on the Hill!o
+              Betrayal at the House on the Hill!
             </p>
           </div>
           <img src={theoPic} alt="Theo Ward" className="devPic"></img>
