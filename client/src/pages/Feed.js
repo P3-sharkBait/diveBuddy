@@ -8,7 +8,7 @@ import DiveContainer from "../components/Feed/DiveContainer"
 // If user is logged in, render their feed. Else, redirect them to Login page. 
 
 const Feed = (props) => {
-  const [filterState, setFilterState] = useState('Me');
+  const [filterState, setFilterState] = useState('All');
   console.log(filterState);
   return (
     <main className="flex-column justify-center mb-4">

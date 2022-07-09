@@ -1710,3 +1710,7 @@ label form [type="radio"] {
     align-content: center;
   }
 }
+
+.hideInfo {
+  display: none
+}

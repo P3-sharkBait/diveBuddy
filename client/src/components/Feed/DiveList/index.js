@@ -1,4 +1,21 @@
+import React from "react";
+import { useState } from "react";
+
 const DiveList = ({ logs = [] }) => {
+    const [hideInfo, setHideInfo] = useState('Hidden');
+    const handleClick = event => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (hideInfo === 'Hidden'){
+            document.querySelectorAll('.hideInfo').forEach(item => item.style.display = 'Block');
+            event.target.innerHTML = 'Show Less';
+            setHideInfo('Visible');
+        } else {
+            document.querySelectorAll('.hideInfo').forEach(item => item.style.display = 'none');
+            event.target.innerHTML = 'Show More';
+            setHideInfo('Hidden');
+        }
+    }
     if (!logs.length) {
         return <h3></h3>;
     }
@@ -17,12 +34,12 @@ const DiveList = ({ logs = [] }) => {
                             <div className="p-3 bg-dark text-light">
                                 <div className="card-header">
                                     <h6>Dive Number {log.diveNumber}</h6>
-                                    <h5> Location {log.location || 'No Location Specified'}</h5>
+                                    <h5 className="hideInfo"> Location {log.location || 'No Location Specified'}</h5>
                                 </div>
                                 <div className="card-body">
-                                    <p>Breathing Mix {log.breathingMixture}</p>
-                                    <p>{log.tankType} Tank</p>
-                                    <ul>
+                                    <p className="hideInfo">Breathing Mix {log.breathingMixture}</p>
+                                    <p className="hideInfo">{log.tankType} Tank</p>
+                                    <ul className="hideInfo">
                                         <li>
                                             <ul>
                                                 Rated Capacity
@@ -43,9 +60,9 @@ const DiveList = ({ logs = [] }) => {
                                         </li>
                                     </ul>
                                     <p>Pressure Used {log.pressureUsed}</p>
-                                    <p>Surface Air Consumption {log.SAC}</p>
+                                    <p className="hideInfo">Surface Air Consumption {log.SAC}</p>
                                 </div>
-                                <div className="card-body">
+                                <div className="card-body hideInfo">
                                     <p>Weight {log.ballast}</p>
                                     <p>Suit Type: {log.suit || 'No additional suit'}</p>
                                     <section>
@@ -53,7 +70,7 @@ const DiveList = ({ logs = [] }) => {
                                         <p>{log.extraEquipment}</p>
                                     </section>
                                 </div>
-                                <div className="card-body">
+                                <div className="card-body hideInfo">
                                     <ul>
                                         Air Temperature and Surface Weather
                                         <li>
@@ -64,7 +81,7 @@ const DiveList = ({ logs = [] }) => {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="card-body">
+                                <div className="card-body hideInfo">
                                     <ul>
                                         Water Temperature and Conditions
                                         <li>
@@ -83,7 +100,7 @@ const DiveList = ({ logs = [] }) => {
                                 </div>
                                 <div className="card-body">
                                     <ul>
-                                        <li>
+                                        <li className="hideInfo">
                                             <ul>
                                                 Starting Letter Group
                                                 <li>{log.previousEndLetter || 'No Starting Letter'}</li>
@@ -108,7 +125,7 @@ const DiveList = ({ logs = [] }) => {
                                         <li>Total Nitrogen Time {log.TotalNitrogenTime}</li>
                                     </ul>
                                 </div>
-                                <div className="card-body">
+                                <div className="card-body hideInfo">
                                     <h6>Next Dive Planning</h6>
                                     <ul>
                                         <li>
@@ -137,6 +154,7 @@ const DiveList = ({ logs = [] }) => {
                                         </li>
                                     </ul>
                                 </div>
+                                <button className="btn btn-sm btn-light m-2" onClick={handleClick}>Show More</button>
                             </div>
                         </div>
                     ))}
