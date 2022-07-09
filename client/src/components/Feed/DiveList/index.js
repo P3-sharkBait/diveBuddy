@@ -2,11 +2,6 @@ const DiveList = ({ logs = [] }) => {
     if (!logs.length) {
         return <h3></h3>;
     }
-    logs.map((log) => {
-        console.log(log.startPressure);
-        console.log(log.endPressure);
-        console.log(log.pressureUsed);
-    })
     return (
         <>
             <h3
