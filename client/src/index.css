@@ -461,6 +461,11 @@ button:hover {
   min-width: 100vw;
 }
 
+.devPic {
+  height: 400px;
+  width: auto;
+}
+
 /* MARGIN/PADDING UTILS */
 /* Margin - all sides */
 .m-0 {

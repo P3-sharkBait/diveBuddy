@@ -1,0 +1,17 @@
+[
+  {
+    "name": "$1 Donation",
+    "description": "Donate $1 to Diving With A Purpose. - DWP is a 501c3 organization dedicated to the conservation and protection of submerged heritage resources by providing education, training, certification and field experience to adults and youth in the fields of maritime archaeology and ocean conservation. Our special focus is the protection, documentation and interpretation of African slave trade shipwrecks and the maritime history and culture of African-Americans who formed a core of labor and expertise for America’s maritime enterprises.",
+    "price": 1.0
+  },
+  {
+    "name": "$5 Donation",
+    "description": "Donate $1 to Diving With A Purpose. - DWP is a 501c3 organization dedicated to the conservation and protection of submerged heritage resources by providing education, training, certification and field experience to adults and youth in the fields of maritime archaeology and ocean conservation. Our special focus is the protection, documentation and interpretation of African slave trade shipwrecks and the maritime history and culture of African-Americans who formed a core of labor and expertise for America’s maritime enterprises.",
+    "price": 5.0
+  },
+  {
+    "name": "$10 Donation",
+    "description": "Donate $1 to Diving With A Purpose. - DWP is a 501c3 organization dedicated to the conservation and protection of submerged heritage resources by providing education, training, certification and field experience to adults and youth in the fields of maritime archaeology and ocean conservation. Our special focus is the protection, documentation and interpretation of African slave trade shipwrecks and the maritime history and culture of African-Americans who formed a core of labor and expertise for America’s maritime enterprises.",
+    "price": 10.0
+  }
+]

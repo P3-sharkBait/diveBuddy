@@ -11,16 +11,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Feed from "./pages/Feed"
-import ADDLOG from "./pages/AddLog"
-import Dashboard from './pages/Dashboard'
-import NotFound from './pages/NotFound.js'
+import Feed from "./pages/Feed";
+import AddLog from "./pages/AddLog";
+import Dashboard from "./pages/Dashboard";
+import About from "./pages/About.js";
+import NotFound from "./pages/NotFound.js";
 
 // Components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-// import SignupForm from './components/SignupForm';
-// import LoginForm from './components/LoginForm';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -59,9 +58,9 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/feed" element={<Feed />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/about" element={<About />} />
               <Route path="/*" element={<NotFound />} />
-              <Route path="/addLog" element={<ADDLOG />} />
-
+              <Route path="/addLog" element={<AddLog />} />
             </Routes>
           </div>
           <Footer />
