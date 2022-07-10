@@ -21,7 +21,7 @@ const typeDefs = gql`
     email: String
     password: String
     logs: [Log]!
-    friends: [String]
+    friends: [User]
   }
   type Checkout {
     session: ID
@@ -35,7 +35,7 @@ const typeDefs = gql`
     tankCapacity: Int
     startPressure: Int
     endPressure: Int
-    ballast: String
+    ballast: Int
     extraEquipment: String
     suit: String
     WeatherCond: String
@@ -91,7 +91,7 @@ const typeDefs = gql`
       tankCapacity: Int
       startPressure: Int
       endPressure: Int
-      ballast: String
+      ballast: Int
       extraEquipment: String
       suit: String
       WeatherCond: String
@@ -110,6 +110,7 @@ const typeDefs = gql`
     ): User
     removeUser(email: String!, password: String!): Auth
     removeLog(email: String!, password: String!, diveNumber: Int!): Auth
+    addFriend(username: String!, _id: String!): User
     addOrder(products: [ID]!): Order
     updateUser(
       firstName: String
@@ -118,7 +119,8 @@ const typeDefs = gql`
       password: String
     ): User
     updateProduct(_id: ID!, quantity: Int!): Product
+
   }
-`;
+;
 
 module.exports = typeDefs;

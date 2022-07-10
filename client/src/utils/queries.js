@@ -86,7 +86,9 @@ export const QUERY_ME = gql`
         NewStartingLetterGroup
         NextMaxDiveTime
       }
-      friends
+      friends {
+        username
+      }
     }
   }
 `;

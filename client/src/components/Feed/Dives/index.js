@@ -16,13 +16,6 @@ const Dives = (
   if (!users.length) {
     return <h3>No Logs Yet</h3>;
   }
-  users.map((user) => {
-    user.logs.forEach(log => {
-      console.log(user.logs);
-      console.log(log);
-      console.log(log.diveNumber);
-    })
-  })
   return (
     <div className="bg-primary text-light mb-4 py-3 flex-row align-center">
       {showTitle && <h3>{title}</h3>}
@@ -33,10 +26,8 @@ const Dives = (
             <div className="card mb-3">
               <DiveList logs={user.logs} />
             </div>
-          ))}
-        {/* <div id="logContainer">
-          Pretty pre-formatted logs.
-        </div> */}
+          ))
+        }
       </div>
     </div>
   );

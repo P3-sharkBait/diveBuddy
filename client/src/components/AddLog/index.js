@@ -70,7 +70,7 @@ const LogForm = (props) => {
     "number",
     "number",
     "number",
-    "text",
+    "number",
     "text",
     "text",
     "text",

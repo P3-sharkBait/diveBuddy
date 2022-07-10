@@ -7,7 +7,7 @@ const Home = (props) => {
     <main className="flex-column justify-center mb-4">
       <div id="bgPic">
         <div className="container text-center">
-          <Link className="btn btn-md btn-info m-2" to="/login">
+          <Link className="btn btn-md btn-info m-2" to="/feed">
             Dive In!
           </Link>
         </div>
