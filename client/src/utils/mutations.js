@@ -35,7 +35,9 @@ export const LOGIN_USER = gql`
           residualNitrogenTime
           actualDiveTime
         }
-        friends
+        friends {
+          username
+        }
       }
     }
   }
@@ -83,7 +85,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_LOG = gql`
-  mutation addLog($username: String!, $diveNumber: Int!, $location: String,   $dateTime: String, $breathingMixture: String, $tankType: String, $tankCapacity: Int, $startPressure: Int, $endPressure: Int, $ballast: String, $extraEquipment: String, $suit: String, $weatherCond: String, $airTemp: Int, $waterType: String, $underwaterVisibility: Int, $waterTemp: Int, $waterCond: String, $surfaceInt: Int, $nextSurfaceInt: Int, $previousEndLetter: String, $maxDepth: Int, $nextDepth: Int, $residualNitrogenTime: Int, $actualDiveTime: Int) {
+  mutation addLog($username: String!, $diveNumber: Int!, $location: String, $dateTime: String, $breathingMixture: String, $tankType: String, $tankCapacity: Int, $startPressure: Int, $endPressure: Int, $ballast: Int, $extraEquipment: String, $suit: String, $weatherCond: String, $airTemp: Int, $waterType: String, $underwaterVisibility: Int, $waterTemp: Int, $waterCond: String, $surfaceInt: Int, $nextSurfaceInt: Int, $previousEndLetter: String, $maxDepth: Int, $nextDepth: Int, $residualNitrogenTime: Int, $actualDiveTime: Int) {
     addLog(username: $username, diveNumber: $diveNumber, location: $location, dateTime: $dateTime, breathingMixture: $breathingMixture, tankType: $tankType, tankCapacity: $tankCapacity, startPressure: $startPressure, endPressure: $endPressure, ballast: $ballast, extraEquipment: $extraEquipment, suit: $suit, WeatherCond: $weatherCond, airTemp: $airTemp, waterType: $waterType, underwaterVisibility: $underwaterVisibility, waterTemp: $waterTemp, waterCond: $waterCond, surfaceInt: $surfaceInt, nextSurfaceInt: $nextSurfaceInt, previousEndLetter: $previousEndLetter, maxDepth: $maxDepth, nextDepth: $nextDepth, residualNitrogenTime: $residualNitrogenTime, actualDiveTime: $actualDiveTime) {
       _id
       username
@@ -114,8 +116,18 @@ export const ADD_LOG = gql`
         nextDepth
         residualNitrogenTime
         actualDiveTime
+        pressureUsed
+        SAC
+        pressureAtDepth
+        EndingLetterGroup
+        TotalNitrogenTime
+        NextResidualNitrogenTime
+        NewStartingLetterGroup
+        NextMaxDiveTime
       }
-      friends
+      friends {
+        username
+      }
     }
   }
 `;
