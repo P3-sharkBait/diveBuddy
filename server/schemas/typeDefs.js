@@ -7,7 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
     logs: [Log]!
-    friends: [String]
+    friends: [User]
   }
 
   type Log {
@@ -88,6 +88,7 @@ const typeDefs = gql`
     ): User
     removeUser(email: String!, password: String!): Auth
     removeLog(email: String!, password: String!, diveNumber: Int!): Auth
+    addFriend(username: String!, _id: String!): User
   }
 `;
 

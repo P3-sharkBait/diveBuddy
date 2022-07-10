@@ -6,20 +6,14 @@ const resolvers = {
   Query: {
     users: async (parent, args, context) => {
       //remember to add context back
-      if (context.user) {
-        return User.find().populate('logs');
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
-    userFriend: async (parent, { username }, context) => {
-      if (context.user) {
-        return User.find({ username: [username] }).populate('logs');
-      }
-      throw new AuthenticationError('You need to be logged in!');
+      // if (context.user) {
+        return User.find().populate('logs').populate('friends');
+      // }
+      // throw new AuthenticationError('You need to be logged in!');
     },
     user: async (parent, { username }, context) => {
       // if (context.user) {
-        return User.findOne({ username }).populate('logs');
+      return User.findOne({ username }).populate('logs').populate('friends');
       // }
       // throw new AuthenticationError('You need to be logged in!');
     },
@@ -76,30 +70,30 @@ const resolvers = {
         actualDiveTime: actualDiveTime
       }
       // if (context.user) {
-        return await User.findOneAndUpdate(
-          { username: username },
-          { $addToSet: { logs: logInput } },
-          {
-            new: true,
-            runValidators: true,
-          }
-        )
+      return await User.findOneAndUpdate(
+        { username: username },
+        { $addToSet: { logs: logInput } },
+        {
+          new: true,
+          runValidators: true,
+        }
+      )
       // }
       // throw new AuthenticationError('You need to be logged in!');
     },
     removeUser: async (parent, { email, password }, context) => {
       // if (context.user) {
-        const user = await User.findOne({ email });
-        if (!user) {
-          throw new AuthenticationError('No user found with this email address');
-        }
-        const correctPw = await user.isCorrectPassword(password);
-        if (!correctPw) {
-          throw new AuthenticationError('Incorrect credentials');
-        }
-        return await User.findOneAndDelete(
-          { email: email },
-        );
+      const user = await User.findOne({ email });
+      if (!user) {
+        throw new AuthenticationError('No user found with this email address');
+      }
+      const correctPw = await user.isCorrectPassword(password);
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+      return await User.findOneAndDelete(
+        { email: email },
+      );
       // }
       // throw new AuthenticationError('You need to be logged in!');
     },
@@ -127,18 +121,19 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    //resolver for adding to friends list
+    addFriend: async (parent, { _id, username }, context) => {
+      return await User.findOneAndUpdate(
+        { username: username },
+        { $addToSet: { friends: _id } },
+        {
+          new: true,
+          runValidators: true,
+        }
+      )
+    }
   },
-  //resolver for adding to friends list
-  // addFriend: async (parent, {username, id}, context) => {
-  //   return await User.findOneAndUpdate(
-  //     { username: username },
-  //     { $addToSet: { friends: id } },
-  //     {
-  //       new: true,
-  //       runValidators: true,
-  //     }
-  //   )
-  // }
+  
 };
 
 module.exports = resolvers;
