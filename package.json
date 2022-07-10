@@ -14,10 +14,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "stripe": "^9.12.0"
   },
   "dependencies": {
     "apollo3-cache-persist": "^0.14.1",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "stripe": "^9.12.0"
   }
 }
