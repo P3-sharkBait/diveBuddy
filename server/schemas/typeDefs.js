@@ -59,7 +59,7 @@ const typeDefs = gql`
     TotalNitrogenTime: Int
     NextResidualNitrogenTime: Int
     NewStartingLetterGroup: String
-    NextMaxDiveTime: Int    
+    NextMaxDiveTime: Int
   }
 
   type Auth {
@@ -119,8 +119,6 @@ const typeDefs = gql`
       password: String
     ): User
     updateProduct(_id: ID!, quantity: Int!): Product
-
   }
-;
-
+`;
 module.exports = typeDefs;
