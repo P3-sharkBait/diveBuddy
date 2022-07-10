@@ -25,6 +25,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
+
     // stripe
     products: async (parent, { name }) => {
       const params = {};
@@ -95,6 +96,7 @@ const resolvers = {
       return { session: session.id };
     },
     // end stripe
+
   },
 
   Mutation: {
@@ -215,7 +217,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     removeUser: async (parent, { email, password }, context) => {
-      if (context.user) {
+      // if (context.user) {
         const user = await User.findOne({ email });
         if (!user) {
           throw new AuthenticationError(
@@ -226,9 +228,12 @@ const resolvers = {
         if (!correctPw) {
           throw new AuthenticationError("Incorrect credentials");
         }
-        return await User.findOneAndDelete({ email: email });
-      }
-      throw new AuthenticationError("You need to be logged in!");
+
+        return await User.findOneAndDelete(
+          { email: email },
+        );
+      // }
+      // throw new AuthenticationError('You need to be logged in!');
     },
     removeLog: async (parent, { email, password, diveNumber }, context) => {
       if (context.user) {

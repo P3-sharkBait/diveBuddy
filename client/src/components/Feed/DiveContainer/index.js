@@ -1,13 +1,15 @@
 import React from "react";
 import Dives from "../Dives";
 import { useQuery } from "@apollo/client";
-import { QUERY_USERS } from "../../../utils/queries";
+import { QUERY_USERS, QUERY_ME } from "../../../utils/queries";
 import { Link } from "react-router-dom";
 
 const DiveContainer = (props) => {
   const { loading, data } = useQuery(QUERY_USERS);
   const users = data?.users || [];
-  console.log(users);
+  const {loadingMe, myData} = useQuery(QUERY_ME);
+  const me = data?.user || [];
+  console.log(data);
 
   return (
     <div className="bg-primary text-light mb-4 py-3 flex-row align-center">

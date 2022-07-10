@@ -1,4 +1,4 @@
-const NextMaxDiveTime = function (newStartingLetterGroup, nextDepth) {
+const NextMaxDiveTime = function (newStartingLetterGroup, depth) {
     if (newStartingLetterGroup === 'A') {
         if (depth <= 20) {
             return 434

@@ -1,4 +1,4 @@
-const NextResidualNitrogenTime = function (newStartingLetterGroup, nextDepth) {
+const NextResidualNitrogenTime = function (newStartingLetterGroup, depth) {
     if (newStartingLetterGroup === 'A') {
         if (depth <= 20) {
             return 27
