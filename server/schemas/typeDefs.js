@@ -49,7 +49,6 @@ const typeDefs = gql`
     nextDepth: Int
     residualNitrogenTime: Int
     actualDiveTime: Int
-
     pressureUsed: Int
     SAC: Float
     pressureAtDepth: Float
@@ -115,7 +114,7 @@ const typeDefs = gql`
       email: String
       password: String
     ): User
-    updateProduct(_id: ID!, quantity: Intz!): Product
+    updateProduct(_id: ID!, quantity: Int!): Product
   }
 `;
 
