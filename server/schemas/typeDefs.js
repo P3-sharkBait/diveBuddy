@@ -20,6 +20,7 @@ const typeDefs = gql`
     password: String
     logs: [Log]!
     friends: [User]
+    orders: [Order]
   }
   type Checkout {
     session: ID
