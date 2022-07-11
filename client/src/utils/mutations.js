@@ -1,4 +1,4 @@
-// import { gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 // export const LOGIN_USER = gql`
 //   mutation Login($email: String!, $password: String!) {
@@ -84,46 +84,46 @@ export const LOGIN_USER = gql`
 `;
 
 
-// export const ADD_USER = gql`
-//   mutation addUser($username: String!, $email: String!, $password: String!) {
-//     addUser(username: $username, email: $email, password: $password) {
-//       token
-//       user {
-//         _id
-//         username
-//         email
-//         password
-//         logs {
-//           diveNumber
-//           location
-//           dateTime
-//           breathingMixture
-//           tankType
-//           tankCapacity
-//           startPressure
-//           endPressure
-//           ballast
-//           extraEquipment
-//           suit
-//           WeatherCond
-//           airTemp
-//           waterType
-//           underwaterVisibility
-//           waterTemp
-//           waterCond
-//           surfaceInt
-//           nextSurfaceInt
-//           previousEndLetter
-//           maxDepth
-//           nextDepth
-//           residualNitrogenTime
-//           actualDiveTime
-//         }
-//         friends
-//       }
-//     }
-//   }
-// `;
+export const ADD_USER = gql`
+  mutation addUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
+      token
+      user {
+        _id
+        username
+        email
+        password
+        logs {
+          diveNumber
+          location
+          dateTime
+          breathingMixture
+          tankType
+          tankCapacity
+          startPressure
+          endPressure
+          ballast
+          extraEquipment
+          suit
+          WeatherCond
+          airTemp
+          waterType
+          underwaterVisibility
+          waterTemp
+          waterCond
+          surfaceInt
+          nextSurfaceInt
+          previousEndLetter
+          maxDepth
+          nextDepth
+          residualNitrogenTime
+          actualDiveTime
+        }
+        friends
+      }
+    }
+  }
+`;
 
 
 // export const ADD_LOG = gql`

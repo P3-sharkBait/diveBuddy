@@ -28,7 +28,7 @@ const userSchema = new Schema({
       ref: 'User',
     }
   ],
-  orders: [Order.schema]
+  // orders: [Order.schema]
 });
 
 userSchema.pre('save', async function (next) {

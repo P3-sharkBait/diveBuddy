@@ -3,18 +3,6 @@ const { gql } = require("apollo-server-express");
 // LINE 65 MAY BE CAUSING THE ISSUES.
 
 const typeDefs = gql`
-  type Product {
-    _id: ID
-    name: String
-    description: String
-    price: Float
-    category: String
-  }
-  type Order {
-    _id: ID
-    purchaseDate: String
-    products: [Product]
-  }
   type User {
     _id: ID
     username: String
@@ -22,9 +10,6 @@ const typeDefs = gql`
     password: String
     logs: [Log]!
     friends: [User]
-  }
-  type Checkout {
-    session: ID
   }
   type Log {
     diveNumber: Int
@@ -68,14 +53,9 @@ const typeDefs = gql`
   }
 
   type Query {
-    products: [Product]
-    product(_id: ID!): Product
     users: [User]
     userFriend(username: [String!]): [User]
     user(username: String!): User
-    userOrder(purchaseDate: [String!]): Order
-    order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
@@ -111,14 +91,41 @@ const typeDefs = gql`
     removeUser(email: String!, password: String!): Auth
     removeLog(email: String!, password: String!, diveNumber: Int!): Auth
     addFriend(username: String!, _id: String!): User
-    addOrder(products: [ID]!): Order
-    updateUser(
-      firstName: String
-      lastName: String
-      email: String
-      password: String
-    ): User
-    updateProduct(_id: ID!, quantity: Int!): Product
   }
 `;
 module.exports = typeDefs;
+
+// type Product {
+//   _id: ID
+//   name: String
+//   description: String
+//   price: Float
+//   category: String
+// }
+// type Order {
+//   _id: ID
+//   purchaseDate: String
+//   products: [Product]
+// }
+
+// need a type for Checkout as well
+
+// Mutation
+// addOrder(products: [ID]!): Order
+//     updateUser(
+//       firstName: String
+//       lastName: String
+//       email: String
+//       password: String
+//     ): User
+//     updateProduct(_id: ID!, quantity: Int!): Product
+
+// Query
+// products: [Product]
+//     product(_id: ID!): Product
+//     users: [User]
+//     userFriend(username: [String!]): [User]
+//     user(username: String!): User
+//     userOrder(purchaseDate: [String!]): Order
+//     order(_id: ID!): Order
+//     checkout(products: [ID]!): Checkout
