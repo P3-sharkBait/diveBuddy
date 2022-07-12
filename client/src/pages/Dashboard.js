@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { Link } from "react-router-dom";
 import Auth from '../utils/auth';
-import newCard from '../components/newCard';
+import NewCard from '../components/NewCard';
 
 function Dashboard({ logs = [] }) {
   const username = Auth.getProfile().data.username;
@@ -36,7 +36,7 @@ function Dashboard({ logs = [] }) {
           <div className="card text-dark shadow m-2 align-center">
             <div className="card-body">
               {/* <ul>{diveLists}</ul>   */}
-              < newCard />
+              < NewCard />
               {/* todo button to nav to dive details */}
 
             </div>
