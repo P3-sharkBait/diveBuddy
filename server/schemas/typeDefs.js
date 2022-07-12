@@ -1,5 +1,6 @@
 const { gql } = require("apollo-server-express");
 
+
 const typeDefs = gql`
   type Product {
     _id: ID
@@ -57,7 +58,7 @@ const typeDefs = gql`
     TotalNitrogenTime: Int
     NextResidualNitrogenTime: Int
     NewStartingLetterGroup: String
-    NextMaxDiveTime: Int    
+    NextMaxDiveTime: Int
   }
 
   type Auth {
@@ -71,6 +72,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     userOrder: User
+
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
   }
@@ -118,5 +120,4 @@ const typeDefs = gql`
     updateProduct(_id: ID!, quantity: Int!): Product
   }
 `;
-
 module.exports = typeDefs;
