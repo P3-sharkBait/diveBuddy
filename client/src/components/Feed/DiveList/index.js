@@ -120,7 +120,7 @@ const DiveList = ({ logs = [] }) => {
                                                 <li>Surface Interval {log.nextSurfaceInt}</li>
                                             </ul>
                                         </li>
-                                        <li>Residual Nitrogen Time {log.residualNitrogenTime}</li>
+                                        <li>Residual Nitrogen Time {log.residualNitrogenTime || "No Residual Nitrogen Time from last Dive"}</li>
                                         <li>Actual Dive Time {log.actualDiveTime}</li>
                                         <li>Total Nitrogen Time {log.TotalNitrogenTime}</li>
                                     </ul>
