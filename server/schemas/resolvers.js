@@ -22,74 +22,74 @@ const resolvers = {
 
 
     // // stripe
-    // products: async (parent, { name }) => {
-    //   const params = {};
+    products: async (parent, { name }) => {
+      const params = {};
 
-    //   if (name) {
-    //     params.name = {
-    //       $regex: name,
-    //     };
-    //   }
+      if (name) {
+        params.name = {
+          $regex: name,
+        };
+      }
 
-    //   return await Product.find(params);
-    // },
-    // product: async (parent, { _id }) => {
-    //   return await Product.findById(_id);
-    // },
-    // userOrder: async (parent, args, context) => {
-    //   if (context.user) {
-    //     const user = await User.findById(context.user._id);
+      return await Product.find(params);
+    },
+    product: async (parent, { _id }) => {
+      return await Product.findById(_id);
+    },
+    userOrder: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id);
 
-    //     user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
-    //     return user;
-    //   }
+        return user;
+      }
 
-    //   throw new AuthenticationError("Not logged in");
-    // },
-    // order: async (parent, { _id }, context) => {
-    //   if (context.user) {
-    //     const user = await User.findById(context.user._id);
+      throw new AuthenticationError("Not logged in");
+    },
+    order: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id);
 
-    //     return user.orders.id(_id);
-    //   }
+        return user.orders.id(_id);
+      }
 
-    //   throw new AuthenticationError("Not logged in");
-    // },
-    // checkout: async (parent, args, context) => {
-    //   const url = new URL(context.headers.referer).origin;
-    //   const order = new Order({ products: args.products });
-    //   const line_items = [];
+      throw new AuthenticationError("Not logged in");
+    },
+    checkout: async (parent, args, context) => {
+      const url = new URL(context.headers.referer).origin;
+      const order = new Order({ products: args.products });
+      const line_items = [];
 
-    //   const { products } = await order.populate("products");
+      const { products } = await order.populate("products");
 
-    //   for (let i = 0; i < products.length; i++) {
-    //     const product = await stripe.products.create({
-    //       name: products[i].name,
-    //       description: products[i].description,
-    //     });
+      for (let i = 0; i < products.length; i++) {
+        const product = await stripe.products.create({
+          name: products[i].name,
+          description: products[i].description,
+        });
 
-    //     const price = await stripe.prices.create({
-    //       product: product.id,
-    //       unit_amount: products[i].price * 100,
-    //       currency: "usd",
-    //     });
+        const price = await stripe.prices.create({
+          product: product.id,
+          unit_amount: products[i].price * 100,
+          currency: "usd",
+        });
 
-    //     line_items.push({
-    //       price: price.id,
-    //     });
-    //   }
+        line_items.push({
+          price: price.id,
+        });
+      }
 
-    //   const session = await stripe.checkout.sessions.create({
-    //     payment_method_types: ["card"],
-    //     line_items,
-    //     mode: "payment",
-    //     success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-    //     cancel_url: `${url}/`,
-    //   });
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items,
+        mode: "payment",
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`,
+      });
 
-    //   return { session: session.id };
-    // },
+      return { session: session.id };
+    },
     // // end stripe
 
   },
