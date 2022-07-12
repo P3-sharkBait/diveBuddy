@@ -82,7 +82,12 @@ export const ADD_USER = gql`
           residualNitrogenTime
           actualDiveTime
         }
-        friends
+        friends {
+          username
+        }
+        orders {
+          _id
+        }
       }
     }
   }
@@ -175,7 +180,12 @@ export const REMOVE_USER = gql`
           residualNitrogenTime
           actualDiveTime
         }
-        friends
+        friends {
+          username
+        }
+        orders {
+          _id
+        }
       }
     }
   }
@@ -215,8 +225,13 @@ export const REMOVE_LOG = gql`
           nextDepth
           residualNitrogenTime
           actualDiveTime
-       }
-       friends
+        }
+        friends {
+          username
+        }
+        orders {
+          _id
+        }
       }
     }
   }
