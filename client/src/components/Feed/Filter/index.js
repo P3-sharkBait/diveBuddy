@@ -12,6 +12,10 @@ const Filter = (props) => {
           <button className="btn btn-sm btn-light m-2">All</button>
           <button className="btn btn-sm btn-light m-2">Me</button>
         </div>
+
+       
+
+
       </div>
     </div>
   );

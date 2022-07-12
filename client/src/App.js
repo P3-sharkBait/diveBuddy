@@ -13,7 +13,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Feed from "./pages/Feed"
 import ADDLOG from "./pages/AddLog"
-// import Dashboard from './pages/Dashboard'
+import Dashboard from './pages/Dashboard'
 import NotFound from './pages/NotFound.js'
 
 // Components
@@ -58,7 +58,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/feed" element={<Feed />} />
-              {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/*" element={<NotFound />} />
               <Route path="/addLog" element={<ADDLOG />} />
 
