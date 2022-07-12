@@ -10,7 +10,7 @@ import theoPic from "../images/theoPic.jpg";
 
 const About = (props) => {
   return (
-    <div className="w-auto">
+    <div className="subBG w-auto">
       <div
         id="devContainer"
         className="container flex-column justify-center mb-4 align-center w-auto"

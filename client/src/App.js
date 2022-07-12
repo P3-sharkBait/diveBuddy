@@ -21,6 +21,9 @@ import NotFound from "./pages/NotFound.js";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+
+
+
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -52,19 +55,19 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           {/* don't render header on Home Page */}
           <Header />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/feed" element={<Feed />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/*" element={<NotFound />} />
-              <Route path="/addLog" element={<AddLog />} />
-            </Routes>
+            <div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/feed" element={<Feed />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/addLog" element={<AddLog />} />
+                <Route path="/*" element={<NotFound />} />
+              </Routes>
+            </div>
           </div>
           <Footer />
-        </div>
       </Router>
     </ApolloProvider>
   );

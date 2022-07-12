@@ -220,7 +220,7 @@ const LogForm = (props) => {
   if (display === "one") {
     console.log(display)
     return (
-      <main className="flex-row justify-center mb-4">
+      <main className="subBG flex-row justify-center mb-4">
         <div className="col-12 col-lg-10">
           <div className="card">
             <h4 className="card-header bg-dark text-light p-2">Dive Info</h4>
@@ -289,7 +289,7 @@ const LogForm = (props) => {
   } else if (display === "All") {
     console.log(display)
     return (
-      <main className="flex-row justify-center mb-4">
+      <main className="subBG flex-row justify-center mb-4">
         <div className="col-12 col-lg-10">
           <div className="card">
             <h4 className="card-header bg-dark text-light p-2">Dive Info</h4>

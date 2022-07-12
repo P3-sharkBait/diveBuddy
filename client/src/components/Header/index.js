@@ -9,13 +9,13 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+    <header className="text-dark mb-4 py-3 flex-row align-center">
+      <div id="header" className="container flex-row justify-space-between-lg justify-center align-center">
         <div className="text-center">
           <Link className="text-light" to="/">
-            <h1 className="m-0">Dive Buddy</h1>
+            <h1 className="m-0 text-dark" id="headerName">Dive Buddy</h1>
           </Link>
-          <p className="m-0">All of your logs, in one convenient spot.</p>
+          <p className="m-2" id="headerSubtitle">All of your logs, in one convenient spot.</p>
         </div>
         <div>
           <Link className="btn-light p-0" to="/feed">
