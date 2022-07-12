@@ -11,7 +11,7 @@ const Feed = (props) => {
   const [filterState, setFilterState] = useState('All');
   console.log(filterState);
   return (
-    <main className="flex-column justify-center mb-4">
+    <main className="subBG flex-column justify-center mb-4">
         <div className="container text-center">
           {/* Will replace with user's actual username. */}
           <div className="flex-row justify-center">

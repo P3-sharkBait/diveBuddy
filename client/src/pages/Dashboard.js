@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Dashboard = (props) => {
   return (
-    <div>
+    <div className="subBG">
         The Dashboard
     </div>
   );

@@ -171,7 +171,7 @@ const LogForm = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <main className="subBG flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
           <h4 className="card-header bg-dark text-light p-2">Dive Info</h4>
@@ -184,7 +184,7 @@ const LogForm = (props) => {
             ) : (
               <div>
                 <form onSubmit={handleFormSubmit}>
-                  {qState.q}
+                  <h6 className="text-center">{qState.q}</h6>
                   <input
                     className="form-input"
                     placeholder={typeState.type}
