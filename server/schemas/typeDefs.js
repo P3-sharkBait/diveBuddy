@@ -1,6 +1,5 @@
 const { gql } = require("apollo-server-express");
 
-// LINE 65 MAY BE CAUSING THE ISSUES.
 
 const typeDefs = gql`
   type Product {
@@ -22,6 +21,7 @@ const typeDefs = gql`
     password: String
     logs: [Log]!
     friends: [User]
+    orders: [Order]
   }
   type Checkout {
     session: ID
@@ -51,7 +51,6 @@ const typeDefs = gql`
     nextDepth: Int
     residualNitrogenTime: Int
     actualDiveTime: Int
-
     pressureUsed: Int
     SAC: Float
     pressureAtDepth: Float
@@ -71,9 +70,9 @@ const typeDefs = gql`
     products: [Product]
     product(_id: ID!): Product
     users: [User]
-    userFriend(username: [String!]): [User]
     user(username: String!): User
-    userOrder(purchaseDate: [String!]): Order
+    userOrder: User
+
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
   }

@@ -208,6 +208,9 @@ export const ADD_LOG = gql`
       friends {
         username
       }
+      orders {
+        _id
+      }
     }
   }
 `;
