@@ -45,6 +45,10 @@ const typeDefs = gql`
     NewStartingLetterGroup: String
     NextMaxDiveTime: Int
   }
+  
+  type Checkout {
+    session: ID
+  }
 
   type Auth {
     token: ID!
