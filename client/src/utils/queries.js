@@ -93,41 +93,6 @@ export const QUERY_ME = gql`
   }
 `;
 
-export const QUERY_FRIENDS = gql`
-  query UserFriend($username: [String!]) {
-  user(username: $username) {
-    _id
-    username
-    email
-    password
-    logs {
-      diveNumber
-      location
-      dateTime
-      breathingMixture
-      tankType
-      tankCapacity
-      startPressure
-      endPressure
-      ballast
-      extraEquipment
-      suit
-      WeatherCond
-      airTemp
-      waterType
-      underwaterVisibility
-      waterTemp
-      waterCond
-      surfaceInt
-      startLetterGroup
-      maxDepth
-      residialNitrogenTime
-      actualDiveTime
-    }
-  }
-}
-`;
-
 export const QUERY_PRODUCTS = gql`
   query getProducts($category: ID) {
     products(category: $category) {
@@ -196,4 +161,3 @@ export const QUERY_USER = gql`
     }
   }
 `;
-

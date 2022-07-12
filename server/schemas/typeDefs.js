@@ -1,6 +1,5 @@
 const { gql } = require("apollo-server-express");
 
-// LINE 65 MAY BE CAUSING THE ISSUES.
 
 const typeDefs = gql`
   type User {
@@ -10,6 +9,7 @@ const typeDefs = gql`
     password: String
     logs: [Log]!
     friends: [User]
+    orders: [Order]
   }
   type Log {
     diveNumber: Int
@@ -36,7 +36,6 @@ const typeDefs = gql`
     nextDepth: Int
     residualNitrogenTime: Int
     actualDiveTime: Int
-
     pressureUsed: Int
     SAC: Float
     pressureAtDepth: Float
@@ -54,8 +53,12 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    userFriend(username: [String!]): [User]
     user(username: String!): User
+
+    userOrder: User
+
+    order(_id: ID!): Order
+    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
@@ -94,38 +97,3 @@ const typeDefs = gql`
   }
 `;
 module.exports = typeDefs;
-
-// type Product {
-//   _id: ID
-//   name: String
-//   description: String
-//   price: Float
-//   category: String
-// }
-// type Order {
-//   _id: ID
-//   purchaseDate: String
-//   products: [Product]
-// }
-
-// need a type for Checkout as well
-
-// Mutation
-// addOrder(products: [ID]!): Order
-//     updateUser(
-//       firstName: String
-//       lastName: String
-//       email: String
-//       password: String
-//     ): User
-//     updateProduct(_id: ID!, quantity: Int!): Product
-
-// Query
-// products: [Product]
-//     product(_id: ID!): Product
-//     users: [User]
-//     userFriend(username: [String!]): [User]
-//     user(username: String!): User
-//     userOrder(purchaseDate: [String!]): Order
-//     order(_id: ID!): Order
-//     checkout(products: [ID]!): Checkout

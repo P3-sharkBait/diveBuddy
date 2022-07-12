@@ -34,7 +34,7 @@ const logSchema = new Schema({
   },
 
   tankCapacity: {
-    type: Number
+    type: Number,
   },
 
   startPressure: {
