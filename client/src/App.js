@@ -21,9 +21,6 @@ import NotFound from "./pages/NotFound.js";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-
-
-
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -55,19 +52,41 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           {/* don't render header on Home Page */}
           <Header />
-            <div>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/feed" element={<Feed />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/addLog" element={<AddLog />} />
-                <Route path="/*" element={<NotFound />} />
-              </Routes>
-            </div>
+          <div>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/feed" element={<Feed />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/addLog" element={<AddLog />} />
+              <Route path="/*" element={<NotFound />} />
+            </Routes>
           </div>
-          <Footer />
+        </div>
+        <svg>
+          <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+            <feTurbulence
+              id="bgFilter"
+              numOctaves={3}
+              seed="2"
+              baseFrequency="0.02 0.05"
+            ></feTurbulence>
+            <feDisplacementMap
+              scale="20"
+              in="SourceGraphic"
+            ></feDisplacementMap>
+            <animate
+              xlinkHref="#bgFilter"
+              attributeName="baseFrequency"
+              dur="60s"
+              keyTimes="0;0.5;1"
+              values="0.01 0.05;0.03 0.08;0.01 0.05"
+              repeatCount="indefinite"
+            ></animate>
+          </filter>
+        </svg>
+        <Footer />
       </Router>
     </ApolloProvider>
   );
