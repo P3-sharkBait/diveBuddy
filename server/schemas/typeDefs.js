@@ -2,6 +2,18 @@ const { gql } = require("apollo-server-express");
 
 
 const typeDefs = gql`
+  type Product {
+    _id: ID
+    name: String
+    description: String
+    price: Float
+    category: String
+  }
+  type Order {
+    _id: ID
+    purchaseDate: String
+    products: [Product]
+  }
   type User {
     _id: ID
     username: String
@@ -10,6 +22,9 @@ const typeDefs = gql`
     logs: [Log]!
     friends: [User]
     orders: [Order]
+  }
+  type Checkout {
+    session: ID
   }
   type Log {
     diveNumber: Int
@@ -45,10 +60,6 @@ const typeDefs = gql`
     NewStartingLetterGroup: String
     NextMaxDiveTime: Int
   }
-  
-  type Checkout {
-    session: ID
-  }
 
   type Auth {
     token: ID!
@@ -56,9 +67,10 @@ const typeDefs = gql`
   }
 
   type Query {
+    products: [Product]
+    product(_id: ID!): Product
     users: [User]
     user(username: String!): User
-
     userOrder: User
 
     order(_id: ID!): Order
@@ -98,6 +110,14 @@ const typeDefs = gql`
     removeUser(email: String!, password: String!): Auth
     removeLog(email: String!, password: String!, diveNumber: Int!): Auth
     addFriend(username: String!, _id: String!): User
+    addOrder(products: [ID]!): Order
+    updateUser(
+      firstName: String
+      lastName: String
+      email: String
+      password: String
+    ): User
+    updateProduct(_id: ID!, quantity: Int!): Product
   }
 `;
 module.exports = typeDefs;
