@@ -7,7 +7,12 @@ import Test from "../components/DataBase Checker";
 export default function ADDLOG() {
   return (
     <>
-      <LogForm />
+      <div className="water"></div>
+      <main className="container flex-column justify-center">
+        <div className="content">
+          <LogForm />
+        </div>
+      </main>
     </>
   );
 }
