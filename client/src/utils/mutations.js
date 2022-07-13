@@ -82,7 +82,12 @@ export const ADD_USER = gql`
           residualNitrogenTime
           actualDiveTime
         }
-        friends
+        friends {
+          username
+        }
+        orders {
+          _id
+        }
       }
     }
   }
@@ -175,49 +180,65 @@ export const REMOVE_USER = gql`
           residualNitrogenTime
           actualDiveTime
         }
-        friends
+        friends {
+          username
+        }
+        orders {
+          _id
+        }
       }
     }
   }
 `;
 
 export const REMOVE_LOG = gql`
-  mutation removeLog($email: String!, $password: String!, $diveNumber: Int!) {
-    removeLog(email: $email, password: $password, diveNumber: $diveNumber) {
-      token
-      user {
-        _id
-        username
-        email
-        password
-        logs {
-          diveNumber
-          location
-          dateTime
-          breathingMixture
-          tankType
-          tankCapacity
-          startPressure
-          endPressure
-          ballast
-          extraEquipment
-          suit
-          WeatherCond
-          airTemp
-          waterType
-          underwaterVisibility
-          waterTemp
-          waterCond
-          surfaceInt
-          nextSurfaceInt
-          previousEndLetter
-          maxDepth
-          nextDepth
-          residualNitrogenTime
-          actualDiveTime
-       }
-       friends
-      }
+  mutation removeLog($id: ID) {
+  removeLog(_id: $id) {
+    _id
+    username
+    email
+    password
+    logs {
+      _id
+      diveNumber
+      location
+      dateTime
+      breathingMixture
+      tankType
+      tankCapacity
+      startPressure
+      endPressure
+      ballast
+      extraEquipment
+      suit
+      WeatherCond
+      airTemp
+      waterType
+      underwaterVisibility
+      waterTemp
+      waterCond
+      surfaceInt
+      nextSurfaceInt
+      previousEndLetter
+      maxDepth
+      nextDepth
+      residualNitrogenTime
+      actualDiveTime
+      pressureUsed
+      SAC
+      pressureAtDepth
+      EndingLetterGroup
+      TotalNitrogenTime
+      NextResidualNitrogenTime
+      NewStartingLetterGroup
+      NextMaxDiveTime
+    }
+    friends {
+      username
+    }
+    orders {
+      _id
     }
   }
+}
 `;

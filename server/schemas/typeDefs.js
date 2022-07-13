@@ -27,6 +27,7 @@ const typeDefs = gql`
     session: ID
   }
   type Log {
+    _id: ID
     diveNumber: Int
     location: String
     dateTime: String
@@ -108,7 +109,7 @@ const typeDefs = gql`
       actualDiveTime: Int
     ): User
     removeUser(email: String!, password: String!): Auth
-    removeLog(email: String!, password: String!, diveNumber: Int!): Auth
+    removeLog(_id: ID): User
     addFriend(username: String!, _id: String!): User
     addOrder(products: [ID]!): Order
     updateUser(
