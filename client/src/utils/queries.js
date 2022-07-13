@@ -8,6 +8,7 @@ export const QUERY_USERS = gql`
       email
       password
       logs {
+        _id
         diveNumber
         location
         dateTime
@@ -53,6 +54,7 @@ export const QUERY_ME = gql`
       email
       password
       logs {
+        _id
         diveNumber
         location
         dateTime

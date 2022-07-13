@@ -228,31 +228,22 @@ const resolvers = {
       // }
       // throw new AuthenticationError('You need to be logged in!');
     },
-    removeLog: async (parent, { email, password, diveNumber }, context) => {
-      if (context.user) {
-        const user = await User.findOne({ email });
-        if (!user) {
-          throw new AuthenticationError(
-            "No user found with this email address"
-          );
-        }
-        const correctPw = await user.isCorrectPassword(password);
-        if (!correctPw) {
-          throw new AuthenticationError("Incorrect credentials");
-        }
+    removeLog: async (parent, { _id }, context) => {
+      // if (context.user) {
+       
         return User.findOneAndUpdate(
-          { email: email },
+          { email: context.user.email },
           {
             $pull: {
               logs: {
-                diveNumber: diveNumber,
+                _id: _id,
               },
             },
           },
           { new: true }
         );
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      // }
+      // throw new AuthenticationError("You need to be logged in!");
     },
     //resolver for adding to friends list
     addFriend: async (parent, { _id, username }, context) => {
