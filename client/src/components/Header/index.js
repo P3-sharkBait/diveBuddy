@@ -21,7 +21,7 @@ const Header = () => {
           <Link className="btn-light p-0" to="/feed">
             <button className="btn btn-sm btn-light m-2">Feed</button>
           </Link>
-          <Link className="btn-light p-0" to="/dashboard">
+          <Link className="btn-light p-0" to="/account">
             <button className="btn btn-sm btn-light m-2">Account</button>
           </Link>
           {Auth.loggedIn() ? (
