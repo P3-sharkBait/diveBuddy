@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
+    <footer className="w-100 bg-secondary p-4">
       <div className="container text-center mb-2">
         <Link className="btn-light p-0" to="/about">
           <button className="btn btn-sm btn-light">About/Donate</button>
