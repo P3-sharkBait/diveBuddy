@@ -27,7 +27,7 @@ const DiveContainer = ({ filterState }) => {
                 <div>Loading...</div>
               ) : (
                 <>
-                  <Link className="btn btn-md btn-info m-1" to="/addLog">
+                  <Link className="btn btn-md btn-info m-2" to="/addLog">
                     Add Log
                   </Link>
                   <Dives users={users} title="Dive On In" />
@@ -40,7 +40,6 @@ const DiveContainer = ({ filterState }) => {
     );
   } else {
     return (
-      <main className="flex-column justify-center">
         <div className="text-dark mb-4 py-3 flex-column align-center">
           <div className="flex-column justify-space-between-lg justify-center align-center">
             <div id="diveContainer">
@@ -48,7 +47,7 @@ const DiveContainer = ({ filterState }) => {
                 <div>Loading...</div>
               ) : (
                 <>
-                  <Link className="btn btn-md btn-info m-1" to="/addLog">
+                  <Link className="btn btn-md btn-info m-2" to="/addLog">
                     Add Log
                   </Link>
                   <MyDives me={me} title="Dive On In" />
@@ -57,7 +56,6 @@ const DiveContainer = ({ filterState }) => {
             </div>
           </div>
         </div>
-      </main>
     );
   }
 };
