@@ -9,7 +9,7 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="text-dark py-3 flex-row align-center">
+    <header className="text-dark flex-row align-center">
       <div id="header" className="container flex-row justify-space-between-lg justify-center align-center">
         <div className="text-center">
           <Link className="text-light" to="/">
