@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { Navigate } from "react-router-dom";
 import Auth from "../../utils/auth";
 
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    if (!Auth.loggedIn()) {
+      return <Navigate to="/login" />;
+    }
   };
   return (
     <header className="text-dark flex-row align-center">
