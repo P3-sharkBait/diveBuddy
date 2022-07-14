@@ -43,55 +43,66 @@ Here are the steps a user would take when trying our application for the first t
 ```
 First you're going to register a unique username and password and sign in
 This will take you to your dashboard and generate a unique user ID that you will be able to exchange with other users to expand your feed
+When you create and complete a new card, that data is integrated into your existing logs
+Some of the entry is manual, but the rest is calculated from those figures on your behalf
+If you navigate over to the feed, you will see similar information from other users whose IDs you've added
+You also have the option to delete your existing account if you decide to do so
 ```
-
-## Installation 
-Npm install
-
-## Links 
-//heroku 
-
-## Processes
-
-Our application used the following processes: 
-
-### CSS
-
-* 
-
-### API
-
-* 
 
 ## Screenshots 
 
 The following screenshots demonstrate the application's appearance and intended functionality:
 
+![application screenshots](Screen%20Shot%202022-07-14%20at%202.07.36%20PM.png)
+
+![application screenshots](Screen%20Shot%202022-07-14%20at%202.07.47%20PM.png)
+
+![application screenshots](Screen%20Shot%202022-07-14%20at%202.07.53%20PM.png)
+
+![application screenshots](Screen%20Shot%202022-07-14%20at%202.08.02%20PM.png)
+
+![application screenshots](Screen%20Shot%202022-07-14%20at%202.08.05%20PM.png)
+
+![application screenshots](Screen%20Shot%202022-07-14%20at%202.08.50%20PM.png)
+
 ## Credits (or How We Baited the Sharks)
 
 ### Andrew Moody
 
-* Front end, animation, assets, design, graphics, layout, logo, UI
+* Front end
+* React
+* Styling
 
 ### Abeer Naeem
 
-* Back end, troubleshooting
+* Back end
+* Data structure
+* React
 
 ### Natalie Triffo
 
-* Front end, about us, styling, support and troubleshooting
+* About us
+* Front end
+* Styling and layout
+* Additional support and troubleshooting
 
 ### Theo Ward
 
-* Back end, initial concept, troubleshooting
+* Back-end
+* Data structure
+* React
 
 ### Will Qualls
 
-* Google Slides presentation, ReadMe, creative feedback and input, and other documentation
+* Google Slides presentation
+* ReadMe
+* Seed data
+* Creative feedback and input
+* Other documentation as needed
 
 ## URLs
 
-* Heroku: ???
+* Heroku: https://dive-buddy-app.herokuapp.com/
 
 * GitHub repository: https://github.com/P3-sharkBait/diveBuddy.git
 
