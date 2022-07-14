@@ -42,7 +42,7 @@ const DiveContainer = ({ filterState }) => {
     return (
         <div className="text-dark mb-4 py-3 flex-column align-center">
           <div className="flex-column justify-space-between-lg justify-center align-center">
-            <div id="diveContainer">
+            <div id="diveContainer" className="container">
               {loadingMe ? (
                 <div>Loading...</div>
               ) : (
