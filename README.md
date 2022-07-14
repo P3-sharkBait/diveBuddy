@@ -1,0 +1,2 @@
+# diveBuddy
+Dive Buddy is an application that calculates dive stats for divers, a pose to having to fill out a paper form. On this application a user can create an account, veiw their dashboard, and veiw a feed. Once a diver has created an account they can start creating dive forms. The dive form presents the user with the needed feilds for the app to calcuate pressure used, pressure at depth, total nitrogren time, ending letter group, next residual nitrogren, next start letter, next max diving time 
