@@ -3,10 +3,13 @@ import Auth from "../utils/auth";
 import UserInfo from "../components/Feed/UserInfo";
 import AddFriendForm from "../components/AddFriend";
 import RemoveAcountButton from "../components/DeleteAccount";
-
+import { Navigate } from "react-router-dom";
 import DashboardDiveContainer from "../components/DashboardDiveContainer";
 
 function Dashboard() {
+  if (!Auth.loggedIn()) {
+    return <Navigate to="/login" />;
+  }
   return (
     <>
       <div className="water"></div>

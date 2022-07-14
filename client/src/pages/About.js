@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // DEV PICS:
 import andrewPic from "../images/andrewPic.jpeg";
 import abeerPic from "../images/abeerPic.png";
-import willPic from "../images/willPic.JPG";
+import willPic from "../images/willPic.jpg";
 import natPic from "../images/natPic.JPG";
 import theoPic from "../images/theoPic.jpg";
 
