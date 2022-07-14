@@ -535,6 +535,12 @@ footer {
   overflow-y: auto;
 }
 
+.card-body {
+  text-align: left;
+  font-family: "Mingzat", sans-serif;
+  font-size: 1em;
+}
+
 /* MARGIN/PADDING UTILS */
 /* Margin - all sides */
 .m-0 {
@@ -1172,7 +1178,7 @@ footer {
 }
 
 .card {
-  margin-top: 7rem;
+  margin-top: 3rem;
 }
 
 .card .card-header {
@@ -1842,6 +1848,7 @@ main.container {
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
+  /* text-align: left; */
 }
 
 .dives {
@@ -1854,16 +1861,11 @@ main.container {
   margin: 10px 10px;
 }
 
-/* TODO */
+#diveContainer {
+  height: 600px;
+  overflow-y: auto;
 
-/* feed page: 
-- style dive cards
-  = text-left
-  = drop-shadow
-  = border-radius: 10px
-- APPLY TO BOTH FILTER VIEWS
-- add bottom margin to 'add log' button 
-- make dives scrollable to fix the background image
-*/
+}
+
 
 

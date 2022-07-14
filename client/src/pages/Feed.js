@@ -20,7 +20,7 @@ const Feed = (props) => {
             <UserInfo />
             <Filter filterState={filterState} setFilterState={setFilterState} />
           </div>
-          <div className="diveFeed text-center flex-column ">
+          <div className="diveFeed flex-column ">
             <DiveContainer filterState={filterState} />
           </div>
         </div>

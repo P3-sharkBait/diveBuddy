@@ -29,140 +29,150 @@ const DiveList = ({ logs = [] }) => {
         {logs &&
           logs.map((log) => (
             <div key={log._id} className="col-12 pb-3">
-              <div className="m-3 bg-dark text-dark">
+              <div
+                className="m-3 text-dark"
+                style={{
+                  backgroundColor: "rgba(128, 168, 145, 0.9)",
+                  boxShadow: "0px 0px 8px 2px #262626",
+                }}
+              >
                 <div className="card-header">
                   <h6>Dive Number {log.diveNumber}</h6>
                   <h5 className={log._id == showLog ? "" : "hideInfo"}>
                     {" "}
-                    Location {log.location || "No Location Specified"}
+                    {log.location || "No Location Specified"}
                   </h5>
                 </div>
-                <div className="card-body">
-                  <p className={log._id == showLog ? "" : "hideInfo"}>
-                    Breathing Mix {log.breathingMixture}
-                  </p>
-                  <p className={log._id == showLog ? "" : "hideInfo"}>
-                    {log.tankType} Tank
-                  </p>
-                  <ul className={log._id == showLog ? "" : "hideInfo"}>
-                    <li>
-                      <ul>
-                        Rated Capacity
-                        <li>{log.tankCapacity}</li>
-                      </ul>
-                    </li>
-                    <li>
-                      <ul>
-                        Starting Pressure
-                        <li>{log.startPressure}</li>
-                      </ul>
-                    </li>
-                    <li>
-                      <ul>
-                        Ending Pressure
-                        <li>{log.endPressure}</li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <p>Pressure Used {log.pressureUsed}</p>
-                  <p className={log._id == showLog ? "" : "hideInfo"}>
-                    Surface Air Consumption {log.SAC}
-                  </p>
-                </div>
-                <div className={log._id == showLog ? "" : "hideInfo"}>
-                  <div className="card-body">
-                    <p>Weight {log.ballast}</p>
-                    <p>Suit Type: {log.suit || "No additional suit"}</p>
-                    <section>
-                      Additional Equiptment:
-                      <p>{log.extraEquipment}</p>
-                    </section>
-                  </div>
-
-                  <div className="card-body">
-                    <ul>
-                      Air Temperature and Surface Weather
-                      <li>{log.airTemp} degrees F</li>
-                      <li>{log.weatherCond || "No weather recorded"}</li>
-                    </ul>
-                  </div>
-
-                  <div className="card-body">
-                    <ul>
-                      Water Temperature and Conditions
-                      <li>{log.waterType}</li>
-                      <li>{log.waterTemp} degrees F</li>
-                      <li>U/W Vis: {log.underwaterVisibility}</li>
-                      <li>{log.waterCond}</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="card-body">
+                <div className="card-body text-left text-left my-2">
                   <ul>
                     <li className={log._id == showLog ? "" : "hideInfo"}>
-                      <ul>
-                        Starting Letter Group
-                        <li>{log.previousEndLetter || "No Starting Letter"}</li>
-                        <li>Surface Interval {log.surfaceInt}</li>
-                      </ul>
+                      <span>Breathing Mix: </span>{" "}
+                      {log.breathingMixture ||
+                        "No Data Entered"}
+                    </li>
+                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                      <span>Tank: </span>{" "}
+                      {log.tankType ||
+                        "No Data Entered"}
+                    </li>
+                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                      <span>Rated Capacity: </span>{" "}
+                      {log.tankCapacity ||
+                        "No Data Entered"}
+                    </li>
+                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                      <span>Starting Pressure: </span>{" "}
+                      {log.startPressure ||
+                        "No Data Entered"}
+                    </li>
+                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                      <span>Ending Pressure: </span>{" "}
+                      {log.endPressure ||
+                        "No Data Entered"}
+                    </li>
+                    <li>Pressure Used: {log.pressureUsed}</li>
+                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                      Surface Air Consumption: {log.pressureUsed}
+                    </li>
+                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                      <li>
+                        <span className="">Starting Letter Group: </span>
+                        {log.previousEndLetter || "No Starting Letter"}
+                      </li>
+                      <li>
+                        <span className="">Surface Interval: </span>
+                        {log.surfaceInt}
+                      </li>
+                    </li>
+                    <li>Max Depth: {log.maxDepth}</li>
+                    <li>
+                      <span className="">Ending Letter Group: </span>
+                      {log.EndingLetterGroup}
                     </li>
                     <li>
-                      <ul>
-                        Max Depth
-                        <li>{log.maxDepth}</li>
-                      </ul>
+                      <span className="">Surface Interval: </span>
+                      {log.nextSurfaceInt}
                     </li>
                     <li>
-                      <ul>
-                        Ending Letter Group
-                        <li>{log.EndingLetterGroup}</li>
-                        <li>Surface Interval {log.nextSurfaceInt}</li>
-                      </ul>
-                    </li>
-                    <li>
-                      Residual Nitrogen Time{" "}
+                      <span>Residual Nitrogen Time: </span>{" "}
                       {log.residualNitrogenTime ||
                         "No Residual Nitrogen Time from last Dive"}
                     </li>
-                    <li>Actual Dive Time {log.actualDiveTime}</li>
-                    <li>Total Nitrogen Time {log.TotalNitrogenTime}</li>
+                    <li>
+                      <span className="">Actual Dive Time: </span>
+                      {log.actualDiveTime}
+                    </li>
+                    <li>
+                      <span className="">Total Nitrogen Time: </span>
+                      {log.TotalNitrogenTime}
+                    </li>
                   </ul>
                 </div>
                 <div className={log._id == showLog ? "" : "hideInfo"}>
-                  <div className="card-body">
-                    <h6>Next Dive Planning</h6>
+                  <div className="card-body text-left">
                     <ul>
+                      <section>
+                        <h6>Additional Equiptment</h6>
+                        <li>Suit Type: {log.suit || "No additional suit"}</li>
+                        <li>Weight {log.ballast}</li>
+                        <li>Extra: {log.extraEquipment || "No additional equipment"}</li>
+                      </section>
+                    </ul>
+                  </div>
+
+                  <div className="card-body text-left">
+                    <ul>
+                      <h6>Air Temperature and Surface Weather</h6>
+                      <li>Air Temp: {log.airTemp}º F</li>
+                      <li>Weather Conditions: {log.weatherCond || "No Weather Recorded"}</li>
+                    </ul>
+                  </div>
+
+                  <div className="card-body text-left">
+                    <ul>
+                      <h6>Water Temperature and Conditions</h6>
+                      <li>Water Type: {log.waterType || "No Data Entered"}</li>
+                      <li>Water Temp: {log.waterTemp}º F</li>
+                      <li>U/W Vis: {log.underwaterVisibility}</li>
+                      <li>Water Conditions: {log.waterCond || "No Data Entered"}</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className={log._id == showLog ? "" : "hideInfo"}>
+                  <div className="card-body text-left">
+                    <ul>
+                      <h6>Next Dive Planning</h6>
                       <li>
-                        <ul>
-                          Planned Time to Next Dive
-                          <li>{log.nextSurfaceInt}</li>
-                        </ul>
+                        <span className="">Planned Time to Next Dive: </span>
+                        {log.nextSurfaceInt}
                       </li>
                       <li>
-                        <ul>
-                          Next Planned Depth
-                          <li>{log.nextDepth}</li>
-                        </ul>
+                        <span className="">Next Planned Depth: </span>
+                        {log.nextDepth}
                       </li>
                       <li>
-                        <ul>
-                          Residual Nitrogen Time for Next Dive
-                          <li>{log.NextResidualNitrogenTime}</li>
-                        </ul>
+                        <span className="">
+                          Residual Nitrogen Time for Next Dive:{" "}
+                        </span>
+                        {log.NextResidualNitrogenTime}
                       </li>
                       <li>
-                        New Starting Letter Group will be:{" "}
+                        <span className="">
+                          New Starting Letter Group will be:{" "}
+                        </span>
                         {log.NewStartingLetterGroup}
                       </li>
                       <li>
-                        The max time at the next planned depth is{" "}
+                        <span className="">
+                          The max time at the next planned depth is:{" "}
+                        </span>
                         {log.NextMaxDiveTime} minutes
                       </li>
                     </ul>
                   </div>
                 </div>
                 <button
-                  className="btn btn-sm btn-light m-2"
+                  className="btn btn-sm btn-light m-2 text-center"
                   onClick={() => handleClick(log._id)}
                 >
                   {log._id == showLog ? "Show Less" : "Show More"}

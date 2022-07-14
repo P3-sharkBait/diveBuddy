@@ -20,7 +20,7 @@ const Dives = (
     <div className="dashContainer text-dark mb-4 py-3 flex-column align-center">
       {/* {showTitle && <h3>{title}</h3>} */}
       {/* Create for each log???? */}
-      <div className="flex-column justify-space-between-lg justify-center align-center">
+      <div className="container flex-column justify-space-between-lg justify-center align-center">
         {users &&
           users.map((user) => (
             <div>
