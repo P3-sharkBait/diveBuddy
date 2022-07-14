@@ -35,7 +35,7 @@ const RemoveAcountButton = () => {
                 email: "",
                 password: "",
             });
-            // Auth.login(data.login.token);
+            Auth.logout();
         } catch (e) {
             console.error(e);
         }

@@ -302,22 +302,26 @@ const LogForm = (props) => {
               ) : (
                 <div>
                   <form >
+                  Dive Number
                     <input
                       className="form-input"
-                      // placeholder="Dive Number2"
+                      placeholder="Number"
                       name="diveNumber"
                       type="number"
                       value={answerState.diveNumber}
                       onChange={handleChange}
                     />
+
+                    Location
                     <input
                       className="form-input"
-                      placeholder="Location"
+                      placeholder="Text"
                       name="location"
                       type="text"
                       value={answerState.location}
                       onChange={handleChange}
                     />
+                    Date
                     <input
                       className="form-input"
                       placeholder="Date"
@@ -326,169 +330,190 @@ const LogForm = (props) => {
                       value={answerState.dateTime}
                       onChange={handleChange}
                     />
+                    Breathing Mixture
                     <input
                       className="form-input"
-                      placeholder="Breathing Mixture"
+                      placeholder="Text"
                       name="breathingMixture"
                       type="text"
                       value={answerState.breathingMixture}
                       onChange={handleChange}
                     />
+                    Tank Type
                     <input
                       className="form-input"
-                      placeholder="Tank Type"
+                      placeholder="Text"
                       name="tankType"
                       type="text"
                       value={answerState.tankType}
                       onChange={handleChange}
                     />
+                    Tank Capacity
                     <input
                       className="form-input"
-                      placeholder="Tank Capacity"
+                      placeholder="Number"
                       name="tankCapacity"
                       type="number"
                       value={answerState.tankCapacity}
                       onChange={handleChange}
                     />
+                    Starting Pressure
                     <input
                       className="form-input"
-                      placeholder="Starting Pressure"
+                      placeholder="Number"
                       name="startPressure"
                       type="number"
                       value={answerState.startPressure}
                       onChange={handleChange}
                     />
+                    Ending Pressure
                     <input
                       className="form-input"
-                      placeholder="Ending Pressure"
+                      placeholder="Number"
                       name="endPressure"
                       type="number"
                       value={answerState.endPressure}
                       onChange={handleChange}
                     />
+                    Ballast
                     <input
                       className="form-input"
-                      placeholder="Ballast"
+                      placeholder="Text"
                       name="ballast"
                       type="text"
                       value={answerState.ballast}
                       onChange={handleChange}
                     />
+                    Extra Equipment
                     <input
                       className="form-input"
-                      placeholder="Extra Equipment"
+                      placeholder="Text"
                       name="extraEquipment"
                       type="text"
                       value={answerState.extraEquipment}
                       onChange={handleChange}
                     />
+                    Suit
                     <input
                       className="form-input"
-                      placeholder="Suit"
+                      placeholder="Text"
                       name="suit"
                       type="text"
                       value={answerState.suit}
                       onChange={handleChange}
                     />
+                    Weather Condition
                     <input
                       className="form-input"
-                      placeholder="Weather Condition"
+                      placeholder="Text"
                       name="weatherCond"
                       type="text"
                       value={answerState.weatherCond}
                       onChange={handleChange}
                     />
+                    Air Temperature
                     <input
                       className="form-input"
-                      placeholder="Air Temp"
+                      placeholder="Number"
                       name="airTemp"
                       type="number"
                       value={answerState.airTemp}
                       onChange={handleChange}
                     />
+                    Water Type
                     <input
                       className="form-input"
-                      placeholder="Water Type"
+                      placeholder="Text"
                       name="waterType"
                       type="text"
                       value={answerState.waterType}
                       onChange={handleChange}
                     />
+                    Underwater Visibility
                     <input
                       className="form-input"
-                      placeholder="Underwater Visibility"
+                      placeholder="Number"
                       name="underwaterVisibility"
                       type="number"
                       value={answerState.underwaterVisibility}
                       onChange={handleChange}
                     />
+                    Water Temperature
                     <input
                       className="form-input"
-                      placeholder="Water Temp"
+                      placeholder="Number"
                       name="waterTemp"
                       type="number"
                       value={answerState.waterTemp}
                       onChange={handleChange}
                     />
+                    Water Condition
                     <input
                       className="form-input"
-                      placeholder="Water Condition"
+                      placeholder="Text"
                       name="waterCond"
                       type="text"
                       value={answerState.waterCond}
                       onChange={handleChange}
                     />
+                    Surface Interval
                     <input
                       className="form-input"
-                      placeholder="SurfaceInt"
+                      placeholder="Number"
                       name="surfaceInt"
                       type="number"
                       value={answerState.surfaceInt}
                       onChange={handleChange}
                     />
+                    Next Surface Interval
                     <input
                       className="form-input"
-                      placeholder="NextSurfaceInt"
+                      placeholder="Number"
                       name="nextSurfaceInt"
                       type="number"
                       value={answerState.nextSurfaceInt}
                       onChange={handleChange}
                     />
+                    previous End Letter
                     <input
                       className="form-input"
-                      placeholder="Previous End Letter"
+                      placeholder="Text"
                       name="previousEndLetter"
                       type="text"
                       value={answerState.previousEndLetter}
                       onChange={handleChange}
                     />
+                    Max Depth
                     <input
                       className="form-input"
-                      placeholder="Max Depth"
+                      placeholder="Number"
                       name="maxDepth"
                       type="number"
                       value={answerState.maxDepth}
                       onChange={handleChange}
                     />
+                    Next Depth
                                  <input
                       className="form-input"
-                      placeholder="Next Depth"
+                      placeholder="Number"
                       name="nextDepth"
                       type="number"
                       value={answerState.maxDepth}
                       onChange={handleChange}
                     />
+                    residual Nitrogen Time
                     <input
                       className="form-input"
-                      placeholder="Residual Nitrogen Time"
+                      placeholder="Number"
                       name="residualNitrogenTime"
                       type="number"
                       value={answerState.residualNitrogenTime}
                       onChange={handleChange}
                     />
+                    Actual Dive Time
                     <input
                       className="form-input"
-                      placeholder="actual Dive Time"
+                      placeholder="Number"
                       name="actualDiveTime"
                       type="number"
                       value={answerState.actualDiveTime}

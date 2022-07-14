@@ -1,235 +1,237 @@
-const endingLetterGroup = function (depth, totalNitrogenTime,) {
-    console.log(totalNitrogenTime);
+const endingLetterGroup = function (depth, TotalNitrogenTime,) {
+    console.log(TotalNitrogenTime);
+    console.log('------------------')
+    console.log(depth)
     if (depth <= 20) {
-        if (totalNitrogenTime <= 26) {
+        if (TotalNitrogenTime <= 26) {
             return 'A';
-        } else if (27 <= totalNitrogenTime <= 43) {
+        } else if (27 <= TotalNitrogenTime && TotalNitrogenTime <= 43) {
             return 'B';
-        } else if (44 <= totalNitrogenTime <= 61) {
+        } else if (44 <= TotalNitrogenTime && TotalNitrogenTime <= 61) {
             return 'C';
-        } else if (62 <= totalNitrogenTime <= 82) {
+        } else if (62 <= TotalNitrogenTime && TotalNitrogenTime <= 82) {
             return 'D';
-        } else if (83 <= totalNitrogenTime <= 106) {
+        } else if (83 <= TotalNitrogenTime && TotalNitrogenTime <= 106) {
             return 'E';
-        } else if (107 <= totalNitrogenTime <= 133) {
+        } else if (107 <= TotalNitrogenTime && TotalNitrogenTime <= 133) {
             return 'F';
-        } else if (134 <= totalNitrogenTime <= 165) {
+        } else if (134 <= TotalNitrogenTime && TotalNitrogenTime <= 165) {
             return 'G';
-        } else if (166 <= totalNitrogenTime <= 205) {
+        } else if (166 <= TotalNitrogenTime && TotalNitrogenTime <= 205) {
             return 'H';
-        } else if (206 <= totalNitrogenTime <= 256) {
+        } else if (206 <= TotalNitrogenTime && TotalNitrogenTime <= 256) {
             return 'I';
-        } else if (257 <= totalNitrogenTime <= 330) {
+        } else if (257 <= TotalNitrogenTime && TotalNitrogenTime <= 330) {
             return 'J';
-        } else if (331 <= totalNitrogenTime <= 461) {
+        } else if (331 <= TotalNitrogenTime && TotalNitrogenTime <= 461) {
             return 'K';
         }
-    } else if (21 <= depth <= 30) {
-        if (totalNitrogenTime <= 17) {
+    } else if (21 <= depth && depth <= 30) {
+        if (TotalNitrogenTime <= 17) {
             return 'A';
-        } else if (18 <= totalNitrogenTime <= 27) {
+        } else if (18 <= TotalNitrogenTime && TotalNitrogenTime <= 27) {
             return 'B';
-        } else if (28 <= totalNitrogenTime <= 38) {
+        } else if (28 <= TotalNitrogenTime && TotalNitrogenTime <= 38) {
             return 'C';
-        } else if (39 <= totalNitrogenTime <= 50) {
+        } else if (39 <= TotalNitrogenTime && TotalNitrogenTime <= 50) {
             return 'D';
-        } else if (51 <= totalNitrogenTime <= 62) {
+        } else if (51 <= TotalNitrogenTime && TotalNitrogenTime <= 62) {
             return 'E';
-        } else if (63 <= totalNitrogenTime <= 76) {
+        } else if (63 <= TotalNitrogenTime && TotalNitrogenTime <= 76) {
             return 'F';
-        } else if (77 <= totalNitrogenTime <= 91) {
+        } else if (77 <= TotalNitrogenTime && TotalNitrogenTime <= 91) {
             return 'G';
-        } else if (92 <= totalNitrogenTime <= 107) {
+        } else if (92 <= TotalNitrogenTime && TotalNitrogenTime <= 107) {
             return 'H';
-        } else if (108 <= totalNitrogenTime <= 125) {
+        } else if (108 <= TotalNitrogenTime && TotalNitrogenTime <= 125) {
             return 'I';
-        } else if (126 <= totalNitrogenTime <= 145) {
+        } else if (126 <= TotalNitrogenTime && TotalNitrogenTime <= 145) {
             return 'J';
-        } else if (146 <= totalNitrogenTime <= 167) {
+        } else if (146 <= TotalNitrogenTime && TotalNitrogenTime <= 167) {
             return 'K';
-        } else if (168 <= totalNitrogenTime <= 193) {
+        } else if (168 <= TotalNitrogenTime && TotalNitrogenTime <= 193) {
             return 'L';
-        } else if (194 <= totalNitrogenTime <= 223) {
+        } else if (194 <= TotalNitrogenTime && TotalNitrogenTime <= 223) {
             return 'M';
         }
-    } else if (31 <= depth <= 40) {
-        if (totalNitrogenTime <= 12) {
+    } else if (31 <= depth && depth <= 40) {
+        if (TotalNitrogenTime <= 12) {
             return 'A';
-        } else if (13 <= totalNitrogenTime <= 20) {
+        } else if (13 <= TotalNitrogenTime && TotalNitrogenTime <= 20) {
             return 'B';
-        } else if (21 <= totalNitrogenTime <= 27) {
+        } else if (21 <= TotalNitrogenTime && TotalNitrogenTime <= 27) {
             return 'C';
-        } else if (28 <= totalNitrogenTime <= 36) {
+        } else if (28 <= TotalNitrogenTime && TotalNitrogenTime <= 36) {
             return 'D';
-        } else if (37 <= totalNitrogenTime <= 44) {
+        } else if (37 <= TotalNitrogenTime && TotalNitrogenTime <= 44) {
             return 'E';
-        } else if (45 <= totalNitrogenTime <= 53) {
+        } else if (45 <= TotalNitrogenTime && TotalNitrogenTime <= 53) {
             return 'F';
-        } else if (54 <= totalNitrogenTime <= 63) {
+        } else if (54 <= TotalNitrogenTime && TotalNitrogenTime <= 63) {
             return 'G';
-        } else if (64 <= totalNitrogenTime <= 73) {
+        } else if (64 <= TotalNitrogenTime && TotalNitrogenTime <= 73) {
             return 'H';
-        } else if (74 <= totalNitrogenTime <= 84) {
+        } else if (74 <= TotalNitrogenTime && TotalNitrogenTime <= 84) {
             return 'I';
-        } else if (85 <= totalNitrogenTime <= 95) {
+        } else if (85 <= TotalNitrogenTime && TotalNitrogenTime <= 95) {
             return 'J';
-        } else if (96 <= totalNitrogenTime <= 108) {
+        } else if (96 <= TotalNitrogenTime && TotalNitrogenTime <= 108) {
             return 'K';
-        } else if (109 <= totalNitrogenTime <= 121) {
+        } else if (109 <= TotalNitrogenTime && TotalNitrogenTime <= 121) {
             return 'L';
-        } else if (122 <= totalNitrogenTime <= 130) {
+        } else if (122 <= TotalNitrogenTime && TotalNitrogenTime <= 130) {
             return 'M';
         }
-    } else if (41 <= depth <= 50) {
-        if (totalNitrogenTime <= 9) {
+    } else if (41 <= depth && depth <= 50) {
+        if (TotalNitrogenTime <= 9) {
             return 'A';
-        } else if (10 <= totalNitrogenTime <= 15) {
+        } else if (10 <= TotalNitrogenTime && TotalNitrogenTime <= 15) {
             return 'B';
-        } else if (16 <= totalNitrogenTime <= 21) {
+        } else if (16 <= TotalNitrogenTime && TotalNitrogenTime <= 21) {
             return 'C';
-        } else if (22 <= totalNitrogenTime <= 28) {
+        } else if (22 <= TotalNitrogenTime && TotalNitrogenTime <= 28) {
             return 'D';
-        } else if (29 <= totalNitrogenTime <= 34) {
+        } else if (29 <= TotalNitrogenTime && TotalNitrogenTime <= 34) {
             return 'E';
-        } else if (35 <= totalNitrogenTime <= 41) {
+        } else if (35 <= TotalNitrogenTime && TotalNitrogenTime <= 41) {
             return 'F';
-        } else if (42 <= totalNitrogenTime <= 48) {
+        } else if (42 <= TotalNitrogenTime && TotalNitrogenTime <= 48) {
             return 'G';
-        } else if (49 <= totalNitrogenTime <= 56) {
+        } else if (49 <= TotalNitrogenTime && TotalNitrogenTime <= 56) {
             return 'H';
-        } else if (57 <= totalNitrogenTime <= 63) {
+        } else if (57 <= TotalNitrogenTime && TotalNitrogenTime <= 63) {
             return 'I';
-        } else if (64 <= totalNitrogenTime <= 71) {
+        } else if (64 <= TotalNitrogenTime && TotalNitrogenTime <= 71) {
             return 'J';
-        } else if (72 <= totalNitrogenTime <= 75) {
+        } else if (72 <= TotalNitrogenTime && TotalNitrogenTime <= 75) {
             return 'K';
         }
-    } else if (51 <= depth <= 60) {
-        if (totalNitrogenTime <= 7) {
+    } else if (51 <= depth && depth <= 60) {
+        if (TotalNitrogenTime <= 7) {
             return 'A';
-        } else if (8 <= totalNitrogenTime <= 12) {
+        } else if (8 <= TotalNitrogenTime && TotalNitrogenTime <= 12) {
             return 'B';
-        } else if (13 <= totalNitrogenTime <= 17) {
+        } else if (13 <= TotalNitrogenTime && TotalNitrogenTime <= 17) {
             return 'C';
-        } else if (18 <= totalNitrogenTime <= 22) {
+        } else if (18 <= TotalNitrogenTime && TotalNitrogenTime <= 22) {
             return 'D';
-        } else if (23 <= totalNitrogenTime <= 28) {
+        } else if (23 <= TotalNitrogenTime && TotalNitrogenTime <= 28) {
             return 'E';
-        } else if (29 <= totalNitrogenTime <= 33) {
+        } else if (29 <= TotalNitrogenTime && TotalNitrogenTime <= 33) {
             return 'F';
-        } else if (34 <= totalNitrogenTime <= 39) {
+        } else if (34 <= TotalNitrogenTime && TotalNitrogenTime <= 39) {
             return 'G';
-        } else if (40 <= totalNitrogenTime <= 45) {
+        } else if (40 <= TotalNitrogenTime && TotalNitrogenTime <= 45) {
             return 'H';
-        } else if (46 <= totalNitrogenTime <= 50) {
-            return 'I';
-        } 
-    } else if (61 <= depth <= 70) {
-        if (totalNitrogenTime <= 6) {
-            return 'A';
-        } else if (7 <= totalNitrogenTime <= 10) {
-            return 'B';
-        } else if (11 <= totalNitrogenTime <= 14) {
-            return 'C';
-        } else if (15 <= totalNitrogenTime <= 19) {
-            return 'D';
-        } else if (20 <= totalNitrogenTime <= 23) {
-            return 'E';
-        } else if (24 <= totalNitrogenTime <= 28) {
-            return 'F';
-        } else if (29 <= totalNitrogenTime <= 32) {
-            return 'G';
-        } else if (33 <= totalNitrogenTime <= 37) {
-            return 'H';
-        } else if (38 <= totalNitrogenTime <= 40) {
+        } else if (46 <= TotalNitrogenTime && TotalNitrogenTime <= 50) {
             return 'I';
         }
-    } else if (71 <= depth <= 80) {
-        if (totalNitrogenTime <= 5) {
+    } else if (61 <= depth && depth <= 70) {
+        if (TotalNitrogenTime <= 6) {
             return 'A';
-        } else if (6 <= totalNitrogenTime <= 9) {
+        } else if (7 <= TotalNitrogenTime && TotalNitrogenTime <= 10) {
             return 'B';
-        } else if (10 <= totalNitrogenTime <= 12) {
+        } else if (11 <= TotalNitrogenTime && TotalNitrogenTime <= 14) {
             return 'C';
-        } else if (13 <= totalNitrogenTime <= 16) {
+        } else if (15 <= TotalNitrogenTime && TotalNitrogenTime <= 19) {
             return 'D';
-        } else if (17 <= totalNitrogenTime <= 20) {
+        } else if (20 <= TotalNitrogenTime && TotalNitrogenTime <= 23) {
             return 'E';
-        } else if (21 <= totalNitrogenTime <= 24) {
+        } else if (24 <= TotalNitrogenTime && TotalNitrogenTime <= 28) {
             return 'F';
-        } else if (25 <= totalNitrogenTime <= 28) {
+        } else if (29 <= TotalNitrogenTime && TotalNitrogenTime <= 32) {
             return 'G';
-        } else if (29 <= totalNitrogenTime <= 30) {
+        } else if (33 <= TotalNitrogenTime && TotalNitrogenTime <= 37) {
             return 'H';
-        } 
-    } else if (81 <= depth <= 90) {
-        if (totalNitrogenTime <= 4) {
+        } else if (38 <= TotalNitrogenTime && TotalNitrogenTime <= 40) {
+            return 'I';
+        }
+    } else if (71 <= depth && depth <= 80) {
+        if (TotalNitrogenTime <= 5) {
             return 'A';
-        } else if (5 <= totalNitrogenTime <= 7) {
+        } else if (6 <= TotalNitrogenTime && TotalNitrogenTime <= 9) {
             return 'B';
-        } else if (8 <= totalNitrogenTime <= 11) {
+        } else if (10 <= TotalNitrogenTime && TotalNitrogenTime <= 12) {
             return 'C';
-        } else if (12 <= totalNitrogenTime <= 14) {
+        } else if (13 <= TotalNitrogenTime && TotalNitrogenTime <= 16) {
             return 'D';
-        } else if (15 <= totalNitrogenTime <= 17) {
+        } else if (17 <= TotalNitrogenTime && TotalNitrogenTime <= 20) {
             return 'E';
-        } else if (18 <= totalNitrogenTime <= 21) {
+        } else if (21 <= TotalNitrogenTime && TotalNitrogenTime <= 24) {
             return 'F';
-        } else if (22 <= totalNitrogenTime <= 24) {
+        } else if (25 <= TotalNitrogenTime && TotalNitrogenTime <= 28) {
             return 'G';
-        } else if ( totalNitrogenTime = 25) {
+        } else if (29 <= TotalNitrogenTime && TotalNitrogenTime <= 30) {
             return 'H';
         }
-    } else if (91 <= depth <= 100) {
-        if (totalNitrogenTime <= 4) {
+    } else if (81 <= depth && depth <= 90) {
+        if (TotalNitrogenTime <= 4) {
             return 'A';
-        } else if (5 <= totalNitrogenTime <= 6) {
+        } else if (5 <= TotalNitrogenTime && TotalNitrogenTime <= 7) {
             return 'B';
-        } else if (7 <= totalNitrogenTime <= 9) {
+        } else if (8 <= TotalNitrogenTime && TotalNitrogenTime <= 11) {
             return 'C';
-        } else if (10 <= totalNitrogenTime <= 12) {
+        } else if (12 <= TotalNitrogenTime && TotalNitrogenTime <= 14) {
             return 'D';
-        } else if (13 <= totalNitrogenTime <= 15) {
+        } else if (15 <= TotalNitrogenTime && TotalNitrogenTime <= 17) {
             return 'E';
-        } else if (16 <= totalNitrogenTime <= 18) {
+        } else if (18 <= TotalNitrogenTime && TotalNitrogenTime <= 21) {
             return 'F';
-        } else if (19 <= totalNitrogenTime <= 20) {
+        } else if (22 <= TotalNitrogenTime && TotalNitrogenTime <= 24) {
             return 'G';
-        } 
-    } else if (101 <= depth <= 110) {
-        if (totalNitrogenTime <= 3) {
+        } else if (TotalNitrogenTime = 25) {
+            return 'H';
+        }
+    } else if (91 <= depth && depth <= 100) {
+        if (TotalNitrogenTime <= 4) {
             return 'A';
-        } else if (4 <= totalNitrogenTime <= 6) {
+        } else if (5 <= TotalNitrogenTime && TotalNitrogenTime <= 6) {
             return 'B';
-        } else if (7 <= totalNitrogenTime <= 8) {
+        } else if (7 <= TotalNitrogenTime && TotalNitrogenTime <= 9) {
             return 'C';
-        } else if (9 <= totalNitrogenTime <= 11) {
+        } else if (10 <= TotalNitrogenTime && TotalNitrogenTime <= 12) {
             return 'D';
-        } else if (12 <= totalNitrogenTime <= 14) {
+        } else if (13 <= TotalNitrogenTime && TotalNitrogenTime <= 15) {
             return 'E';
-        } else if (totalNitrogenTime = 15) {
+        } else if (16 <= TotalNitrogenTime && TotalNitrogenTime <= 18) {
+            return 'F';
+        } else if (19 <= TotalNitrogenTime && TotalNitrogenTime <= 20) {
+            return 'G';
+        }
+    } else if (101 <= depth && depth <= 110) {
+        if (TotalNitrogenTime <= 3) {
+            return 'A';
+        } else if (4 <= TotalNitrogenTime && TotalNitrogenTime <= 6) {
+            return 'B';
+        } else if (7 <= TotalNitrogenTime && TotalNitrogenTime <= 8) {
+            return 'C';
+        } else if (9 <= TotalNitrogenTime && TotalNitrogenTime <= 11) {
+            return 'D';
+        } else if (12 <= TotalNitrogenTime && TotalNitrogenTime <= 14) {
+            return 'E';
+        } else if (TotalNitrogenTime = 15) {
             return 'F';
         }
-    } else if (111 <= depth <= 120) {
-        if (totalNitrogenTime <= 3) {
+    } else if (111 <= depth && depth <= 120) {
+        if (TotalNitrogenTime <= 3) {
             return 'A';
-        } else if (4 <= totalNitrogenTime <= 5) {
+        } else if (4 <= TotalNitrogenTime && TotalNitrogenTime <= 5) {
             return 'B';
-        } else if (6 <= totalNitrogenTime <= 7) {
+        } else if (6 <= TotalNitrogenTime && TotalNitrogenTime <= 7) {
             return 'C';
-        } else if (8 <= totalNitrogenTime <= 10) {
+        } else if (8 <= TotalNitrogenTime && TotalNitrogenTime <= 10) {
             return 'D';
-        } else if (11 <= totalNitrogenTime <= 12) {
+        } else if (11 <= TotalNitrogenTime && TotalNitrogenTime <= 12) {
             return 'E';
-        } 
-    } else if (121 <= depth <= 130) {
-        if (totalNitrogenTime <= 2) {
+        }
+    } else if (121 <= depth && depth <= 130) {
+        if (TotalNitrogenTime <= 2) {
             return 'A';
-        } else if (3 <= totalNitrogenTime <= 4) {
+        } else if (3 <= TotalNitrogenTime && TotalNitrogenTime <= 4) {
             return 'B';
-        } else if (5 <= totalNitrogenTime <= 6) {
+        } else if (5 <= TotalNitrogenTime && TotalNitrogenTime <= 6) {
             return 'C';
-        } else if (7 <= totalNitrogenTime <= 8) {
+        } else if (7 <= TotalNitrogenTime && TotalNitrogenTime <= 8) {
             return 'D';
         }
     };
