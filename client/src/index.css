@@ -1848,7 +1848,7 @@ main.container {
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  /* text-align: left; */
+  height: auto;
 }
 
 .dives {
@@ -1863,8 +1863,7 @@ main.container {
 
 #diveContainer {
   height: 600px;
-  overflow-y: auto;
-
+  /* overflow-y: auto; */
 }
 
 

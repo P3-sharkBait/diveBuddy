@@ -38,7 +38,7 @@ const AddFriendForm = () => {
   };
 
   return (
-    <>
+    <div className="my-5">
       <div className="dashContainer p-2">
         <h3>Add a Friend</h3>
         <form onSubmit={handleFormSubmit}>
@@ -60,7 +60,7 @@ const AddFriendForm = () => {
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 
