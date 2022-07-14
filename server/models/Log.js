@@ -100,7 +100,7 @@ const logSchema = new Schema({
   nextDepth: {
     type: Number
   },
-  
+
   residualNitrogenTime: {
     type: Number
   },
@@ -130,19 +130,20 @@ logSchema.virtual('pressureAtDepth').get(function () {
   const depthPressure = this.maxDepth / 33;
   return depthPressure + 1 || 0;
 });
-//Ending Letter Group
-logSchema.virtual('EndingLetterGroup').get(function () {
-  const TNT = this.TotalNitrogenTime;
-  const depth = this.maxDepth;
-
-  return endingLetterGroup(depth, TNT) || "No Letter Group";
-});
 //Total Nitrogen Time
 logSchema.virtual('TotalNitrogenTime').get(function () {
   return this.actualDiveTime + this.residualNitrogenTime || 0;
 });
+//Ending Letter Group
+logSchema.virtual('EndingLetterGroup').get(function () {
+  const totalNitrogenTime = this.actualDiveTime + this.residualNitrogenTime;
+  const depth = this.maxDepth;
+
+  return endingLetterGroup(depth, totalNitrogenTime) || "No Letter Group";
+});
+
 //create function to output residualNitrogenTime programatically
-logSchema.virtual('NextResidualNitrogenTime').get(function (){
+logSchema.virtual('NextResidualNitrogenTime').get(function () {
   const NLG = this.NewStartingLetterGroup;
   const nextDepth = this.nextDepth || 0;
 
@@ -156,7 +157,7 @@ logSchema.virtual('NewStartingLetterGroup').get(function () {
 
   return newStartingLetterGroup(ELG, SI) || "No Letter Group";
 })
-logSchema.virtual('NextMaxDiveTime').get(function (){
+logSchema.virtual('NextMaxDiveTime').get(function () {
   const NLG = this.NewStartingLetterGroup;
   const nextDepth = this.nextDepth || 0;
 

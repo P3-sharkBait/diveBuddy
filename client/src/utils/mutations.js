@@ -242,3 +242,17 @@ export const REMOVE_LOG = gql`
   }
 }
 `;
+
+export const ADD_FRIEND = gql`
+  mutation addFriend($username: String!, $id: String!) {
+  addFriend(username: $username, _id: $id) {
+    _id
+    username
+    email
+    password
+    friends {
+      _id
+    }
+  }
+}
+`;

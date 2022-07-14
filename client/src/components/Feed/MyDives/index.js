@@ -14,7 +14,7 @@ const MyDives = (
     }
     return (
         <div className="bg-primary text-light mb-4 py-3 flex-row align-center">
-            {showTitle && <h3>{title}</h3>}
+            <h3>My Dives</h3>
             {/* Create for each log???? */}
             <div className="container flex-row justify-space-between-lg justify-center align-center">
                 {me &&

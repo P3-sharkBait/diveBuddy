@@ -16,7 +16,6 @@ const DashboardDiveList = ({
     const [removeLog, { error, data }] = useMutation(REMOVE_LOG);
     const [hideForm, setHideForm] = useState('Hidden');
     const [showLog, setShowLog] = useState(false);
-
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         console.log("Working")
