@@ -53,17 +53,17 @@ You also have the option to delete your existing account if you decide to do so
 
 The following screenshots demonstrate the application's appearance and intended functionality:
 
-![application screenshots](Screen%20Shot%202022-07-14%20at%202.07.36%20PM.png)
+![application screenshots](./assets/images/Screen%20Shot%202022-07-14%20at%202.07.36%20PM.png)
 
-![application screenshots](Screen%20Shot%202022-07-14%20at%202.07.47%20PM.png)
+![application screenshots](./assets/images/Screen%20Shot%202022-07-14%20at%202.07.47%20PM.png)
 
-![application screenshots](Screen%20Shot%202022-07-14%20at%202.07.53%20PM.png)
+![application screenshots](./assets/images/Screen%20Shot%202022-07-14%20at%202.07.53%20PM.png)
 
-![application screenshots](Screen%20Shot%202022-07-14%20at%202.08.02%20PM.png)
+![application screenshots](./assets/images/Screen%20Shot%202022-07-14%20at%202.08.02%20PM.png)
 
-![application screenshots](Screen%20Shot%202022-07-14%20at%202.08.05%20PM.png)
+![application screenshots](./assets/images/Screen%20Shot%202022-07-14%20at%202.08.05%20PM.png)
 
-![application screenshots](Screen%20Shot%202022-07-14%20at%202.08.50%20PM.png)
+![application screenshots](./assets/images/Screen%20Shot%202022-07-14%20at%202.08.50%20PM.png)
 
 ## Credits (or How We Baited the Sharks)
 
