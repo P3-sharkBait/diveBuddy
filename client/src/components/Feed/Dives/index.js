@@ -17,14 +17,14 @@ const Dives = (
     return <h3>No Logs Yet</h3>;
   }
   return (
-    <div className="bg-primary text-light mb-4 py-3 flex-row align-center">
+    <div className="dashContainer text-dark mb-4 py-3 flex-column align-center">
       {/* {showTitle && <h3>{title}</h3>} */}
       {/* Create for each log???? */}
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+      <div className="flex-column justify-space-between-lg justify-center align-center">
         {users &&
           users.map((user) => (
             <div>
-              <h3>{user.username}'s Dives</h3>
+              <h6>{user.username}'s Dives</h6>
               <div className="card">
                 <DiveList logs={user.logs} />
               </div>

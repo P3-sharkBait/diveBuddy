@@ -6,83 +6,83 @@ import { useState } from "react";
 import Auth from "../../utils/auth";
 
 const DashboardDiveList = ({
-    me,
-    title,
-    showTitle = true,
-    showUsername = true,
-    display,
-    setDisplay,
+  me,
+  title,
+  showTitle = true,
+  showUsername = true,
+  display,
+  setDisplay,
 }) => {
-    const [removeLog, { error, data }] = useMutation(REMOVE_LOG);
-    const [hideForm, setHideForm] = useState('Hidden');
-    const [showLog, setShowLog] = useState(false);
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-        console.log("Working")
-        try {
-            const { data } = await removeLog({
-                variables: { id: showLog },
-            });
+  const [removeLog, { error, data }] = useMutation(REMOVE_LOG);
+  const [hideForm, setHideForm] = useState("Hidden");
+  const [showLog, setShowLog] = useState(false);
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log("Working");
+    try {
+      const { data } = await removeLog({
+        variables: { id: showLog },
+      });
 
-            console.log(showLog)
-            console.log(data)
-            setDisplay(!display)
-            // Auth.login(data.login.token);
-        } catch (e) {
-            console.error(e);
-        }
-
+      console.log(showLog);
+      console.log(data);
+      setDisplay(!display);
+      // Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
     }
-    const handleLogClick = id => {
-        console.log("handle log click", id);
-        if (showLog) {
-            setShowLog(false);
-        } else {
-            setShowLog(id)
-        }
+  };
+  const handleLogClick = (id) => {
+    console.log("handle log click", id);
+    if (showLog) {
+      setShowLog(false);
+    } else {
+      setShowLog(id);
     }
+  };
 
-
-    if (!me.logs.length) {
-        return <h3></h3>;
-    }
-    return (
-        <>
-            <h3
-                className="p-5 display-inline-block"
-                style={{ borderBottom: '1px dotted #1a1a1a' }}
-            >
-                Dives
-            </h3>
-            <div className="flex-row my-4">
-                {me.logs &&
-                    me.logs.map((log) => (
-                        <div key={log._id} className='col-12 mb-3 pb-3'>
-                            <div className="p-3 bg-dark text-light">
-                                <div className="card-header">
-                                    <h6>Dive Number {log.diveNumber}</h6>
-                                    <h5> Location {log.location || 'No Location Specified'}</h5>
-                                </div>
-                                <button type="button" className="btn btn-sm btn-danger m-2" onClick={() => handleLogClick(log._id)}>{log._id == showLog ? 'Cancel' : "Delete Log"}</button>
-                                <form onSubmit={handleFormSubmit} className={log._id == showLog ? '' : 'hideInfo'}>
-
-                                    <button
-                                        id={log.diveNumber}
-                                        className="btn btn-block btn-Danger"
-                                        style={{ cursor: "pointer" }}
-                                        type="submit"
-
-                                    >
-                                        Confirm Delete
-                                    </button>
-                                </form>
-
-                            </div>
-                        </div>
-                    ))}
+  if (!me.logs.length) {
+    return <h3></h3>;
+  }
+  return (
+    <div className="dashContainer p-1" style={{ height: "600px" }}>
+      <h3 className="text-dark p-1 display-inline-block">Dives</h3>
+      <h6 className="text-dark">Scroll for more dives...</h6>
+      <div className="flex-column my-2">
+        {me.logs &&
+          me.logs.map((log) => (
+            <div key={log._id} className="col-12 mb-3 pb-3">
+              <div className="p-3 text-dark" style={{backgroundColor: "rgba(128, 168, 145, 0.9)", boxShadow: "0px 0px 8px 2px #262626"}}>
+                <div className="card-header">
+                  <h6>Dive Number {log.diveNumber}</h6>
+                  <h5> Location {log.location || "No Location Specified"}</h5>
+                </div>
+                <button
+                  type="button"
+                  className="btn btn-sm btn-md m-2"
+                  onClick={() => handleLogClick(log._id)}
+                >
+                  {log._id == showLog ? "Cancel" : "Delete Log"}
+                </button>
+                <form
+                  onSubmit={handleFormSubmit}
+                  className={log._id == showLog ? "" : "hideInfo"}
+                >
+                  <button
+                    id={log.diveNumber}
+                    className="btn btn-block btn-danger my-1"
+                    style={{ cursor: "pointer" }}
+                    type="submit"
+                  >
+                    Confirm Delete
+                  </button>
+                </form>
+              </div>
             </div>
-        </>
-    );
+          ))}
+      </div>
+    </div>
+  );
 };
 
 export default DashboardDiveList;

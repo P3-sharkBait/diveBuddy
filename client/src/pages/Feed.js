@@ -13,14 +13,16 @@ const Feed = (props) => {
   return (
     <>
       <div className="water"></div>
-      <main className="container flex-column justify-center">
-        <div className="container text-center">
+      <main className="flex-column justify-center">
+        <div className="text-center">
           {/* Will replace with user's actual username. */}
-          <div className="flex-row justify-center">
+          <div className="dashContainer container flex-row justify-center my-4">
             <UserInfo />
             <Filter filterState={filterState} setFilterState={setFilterState} />
           </div>
-          <DiveContainer filterState={filterState} />
+          <div className="diveFeed text-center flex-column ">
+            <DiveContainer filterState={filterState} />
+          </div>
         </div>
       </main>
     </>

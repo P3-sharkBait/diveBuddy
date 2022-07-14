@@ -509,8 +509,8 @@ footer {
 }
 
 .devPic {
-  height: 300px;
-  width: 300px;
+  height: 225px;
+  width: 225px;
   border: 1px solid #262626;
   border-radius: 50%;
   box-shadow: 0px 0px 2px 2px #fff;
@@ -526,6 +526,13 @@ footer {
   background-color: rgba(255, 255, 255, 0.5);
   border: 1px solid #262626;
   border-radius: 10px;
+}
+
+.dashContainer {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #fff;
+  border-radius: 10px;
+  overflow-y: auto;
 }
 
 /* MARGIN/PADDING UTILS */
@@ -974,7 +981,7 @@ footer {
 }
 
 .text-dark {
-  color: #262626 !important;
+  color: black !important;
 }
 
 .text-white {
@@ -1825,3 +1832,37 @@ main.container {
   bottom: 0;
   z-index: 1;
 }
+
+/* .content {
+  overflow-y: auto;
+} */
+
+.diveFeed {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+
+.dives {
+  /* width: auto; */
+  /* height: auto; */
+  /* overflow-y: auto; */
+}
+
+#uNameHeader {
+  margin: 10px 10px;
+}
+
+/* TODO */
+
+/* feed page: 
+- style dive cards
+  = text-left
+  = drop-shadow
+  = border-radius: 10px
+- add bottom margin to 'add log' button 
+- make dives scrollable to fix the background image
+*/
+
+

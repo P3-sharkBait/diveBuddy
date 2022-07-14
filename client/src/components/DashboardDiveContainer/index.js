@@ -14,8 +14,8 @@ const DashboardDiveContainer = () => {
     const me = myData?.user || [];
     console.log(me);
     return (
-        <div className="bg-primary text-light mb-4 py-3 flex-row align-center">
-            <div className="container flex-row justify-space-between-lg justify-center align-center">
+        <div className="text-light mb-4 py-3 flex-row align-center">
+            <div className="flex-row justify-space-between-lg justify-center align-center">
                 <div id="diveContainer">
                     {loadingMe ? (
                         <div>Loading...</div>
