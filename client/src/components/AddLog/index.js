@@ -88,7 +88,7 @@ const LogForm = (props) => {
     "number",
     "number",
     "number",
-    "number"
+    "number",
   ];
 
   const [qState, setQstate] = useState({ q: questions[0] });
@@ -120,7 +120,7 @@ const LogForm = (props) => {
 
   // submit form
   const handleFormSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     console.log(answerState);
     const username = Auth.getProfile().data.username;
     console.log({ username: username, ...answerState });
@@ -130,24 +130,23 @@ const LogForm = (props) => {
     // const ansV = Object.keys(answerState)
 
     try {
+      const finalAns = {};
 
-      const finalAns = {}
-      
       // ans.map((value) => {
       //   const name = value[0]
-        
+
       //   if (value[1] ==="" || value[1] < 0) {
       //     value[1] = 1;
       //     return (setAnswerState({...answerState,
       //       name: value[1]}))
-      //   } 
+      //   }
       // })
-    
+
       // setAnswerState({
       //   ...finalAns
       // })
 
-      console.log(answerState)
+      console.log(answerState);
       const { data } = await addLog({
         variables: { username: username, ...answerState },
       });
@@ -178,7 +177,7 @@ const LogForm = (props) => {
       nextSurfaceInt: "",
       previousEndLetter: "",
       maxDepth: "",
-      nextDepth:"",
+      nextDepth: "",
       residualNitrogenTime: "",
       actualDiveTime: "",
     });
@@ -198,7 +197,7 @@ const LogForm = (props) => {
         setQstate({ q: questions[t + 1] });
         setTypestate({ type: type[t + 1] });
         setFormState({
-          input: ans[t+1],
+          input: ans[t + 1],
         });
       } else {
         setQstate({ q: questions[t - 1] });
@@ -212,24 +211,24 @@ const LogForm = (props) => {
 
   const changeDisplay = (event) => {
     if (display === "one") {
-      setDisplay("All")
+      setDisplay("All");
     } else {
-      setDisplay("one")
+      setDisplay("one");
     }
-  }
+  };
   if (display === "one") {
-    console.log(display)
+    console.log(display);
     return (
-      <main className="subBG flex-row justify-center mb-4">
+      <main className="flex-row justify-center mb-4">
         <div className="col-12 col-lg-10">
           <div className="card">
             <h4 className="card-header bg-dark text-light p-2">Dive Info</h4>
-            <div className="card-body">
+            <div className="card-body dashContainer p-2">
               {data ? (
                 <p>
-                  Success! You may now head{" "}
-                  <Link to="/">back to the homepage.</Link>
-                </p>
+                {" "}
+                <Link to="/feed">Success! Click here to view your feed.</Link>
+              </p>
               ) : (
                 <div>
                   <form>
@@ -245,7 +244,7 @@ const LogForm = (props) => {
 
                     <button
                       className="btn btn-block btn-primary"
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", margin: "10px 0"}}
                       type="submit"
                       id="NextBTN"
                       onClick={handleNextBack}
@@ -255,7 +254,7 @@ const LogForm = (props) => {
 
                     <button
                       className="btn btn-block btn-primary"
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", margin: "10px 0"}}
                       type="submit"
                       id="BackBTN"
                       onClick={handleNextBack}
@@ -265,12 +264,12 @@ const LogForm = (props) => {
 
                     <button
                       className="btn btn-block btn-primary"
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", margin: "10px 0"}}
                       type="submit"
                       id="BackBTN"
                       onClick={changeDisplay}
                     >
-                      Show All
+                      Show List
                     </button>
                   </form>
                 </div>
@@ -287,22 +286,22 @@ const LogForm = (props) => {
       </main>
     );
   } else if (display === "All") {
-    console.log(display)
+    console.log(display);
     return (
-      <main className="subBG flex-row justify-center mb-4">
+      <main className="flex-row justify-center mb-4">
         <div className="col-12 col-lg-10">
           <div className="card">
             <h4 className="card-header bg-dark text-light p-2">Dive Info</h4>
-            <div className="card-body">
+            <div className="card-body dashContainer p-2" style={{height: "600px"}}>
               {data ? (
                 <p>
-                  Success! You may now head{" "}
-                  <Link to="/">back to the homepage.</Link>
+                  {" "}
+                  <Link to="/feed">Success! Click here to view your feed.</Link>
                 </p>
               ) : (
                 <div>
-                  <form >
-                  Dive Number
+                  <form>
+                    Dive Number
                     <input
                       className="form-input"
                       placeholder="Number"
@@ -311,7 +310,6 @@ const LogForm = (props) => {
                       value={answerState.diveNumber}
                       onChange={handleChange}
                     />
-
                     Location
                     <input
                       className="form-input"
@@ -493,7 +491,7 @@ const LogForm = (props) => {
                       onChange={handleChange}
                     />
                     Next Depth
-                                 <input
+                    <input
                       className="form-input"
                       placeholder="Number"
                       name="nextDepth"
@@ -519,24 +517,22 @@ const LogForm = (props) => {
                       value={answerState.actualDiveTime}
                       onChange={handleChange}
                     />
-
                     <button
                       className="btn btn-block btn-primary"
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", margin: "10px 0" }}
                       type="submit"
                       onClick={handleFormSubmit}
                     >
                       Submit
                     </button>
-
                     <button
                       className="btn btn-block btn-primary"
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", margin: "10px 0" }}
                       type="submit"
                       id="BackBTN"
                       onClick={changeDisplay}
                     >
-                      Show All
+                      Show Less
                     </button>
                   </form>
                 </div>

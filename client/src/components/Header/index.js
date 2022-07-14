@@ -26,10 +26,11 @@ const Header = () => {
           </Link>
           {Auth.loggedIn() ? (
             <>
-              <span>Hey there, {Auth.getProfile().data.username}!</span>
               <button className="btn btn-sm btn-info m-2" onClick={logout}>
                 Logout
               </button>
+              <br></br>
+              <h6 id="uNameHeader" className="text-center">Hello, {Auth.getProfile().data.username}!</h6>
             </>
           ) : (
             <>

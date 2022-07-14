@@ -42,10 +42,10 @@ const RemoveAcountButton = () => {
 
     }
     return (
-        <div>
-            <button type="button" className="btn btn-sm btn-danger m-2" onClick={() => handleClickDelete(id)}>{id == show ? 'Cancel' : "Delete Account"}</button>
-            <form onSubmit={handleFormSubmit} className={id == show ? '' : 'hideInfo'}>
-                <p>Enter Username and Password to Confirm Deletion</p>
+        <div className="mt-4">
+            <button type="button" className="btn btn-sm btn-danger m-3" onClick={() => handleClickDelete(id)}>{id == show ? 'Cancel' : "Delete Account"}</button>
+            <form onSubmit={handleFormSubmit} className={id == show ? 'dashContainer p-3' : 'hideInfo'}>
+                <h6>Enter Username and Password to Confirm Deletion</h6>
                 <input
                     className="form-input"
                     placeholder="email"
@@ -64,10 +64,9 @@ const RemoveAcountButton = () => {
                 />
                 <button
                     id={id}
-                    className="btn btn-block btn-Danger"
+                    className="btn btn-block btn-danger"
                     style={{ cursor: "pointer" }}
                     type="submit"
-
                 >
                     Confirm Delete
                 </button>
