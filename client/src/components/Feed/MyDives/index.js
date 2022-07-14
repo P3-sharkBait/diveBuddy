@@ -10,12 +10,12 @@ const MyDives = ({ me, title, showTitle = true, showUsername = true }) => {
     );
   }
   else return (
-    <div className="dashContainer container text-dark mb-4 py-3 flex-column ">
-      <h3>My Dives</h3>
+    <div className="dashContainer container text-dark mb-4 py-3 flex-column align-center" style={{ height: "600px" }}>
       {/* Create for each log???? */}
-      <div className="container flex-column">
+      <div className="container flex-column justify-space-between-lg justify-center align-center">
         {me && (
           <div className="card">
+            <h3 className="align-center justify-center">My Dives</h3>
             <DiveList logs={me.logs} />
           </div>
         )}
