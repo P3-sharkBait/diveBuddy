@@ -288,11 +288,11 @@ const LogForm = (props) => {
   } else if (display === "All") {
     console.log(display);
     return (
-      <main className="flex-row justify-center mb-4">
-        <div className="col-12 col-lg-10">
-          <div className="card">
-            <h4 className="card-header bg-dark text-light p-2">Dive Info</h4>
-            <div className="card-body dashContainer p-2" style={{height: "600px"}}>
+      <main className="flex-row justify-center my-5 mb-4">
+        <div className="col-12 col-lg-10 fullList">
+          <div className="card my-5">
+            <h4 className="card-header bg-dark text-light my-5 p-2">Dive Info</h4>
+            <div className="card-body dashContainer my-4 p-2" style={{height: "600px"}}>
               {data ? (
                 <p>
                   {" "}
