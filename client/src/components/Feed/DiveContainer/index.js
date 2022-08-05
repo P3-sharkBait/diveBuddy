@@ -15,22 +15,23 @@ const DiveContainer = ({ filterState }) => {
     variables: { username: username },
   });
   const me = myData?.user || [];
+  console.log('--------------------');
   console.log(me);
-  console.log(users);
+  console.log(me.friends);
   if (filterState === "All") {
     return (
       <main className="flex-column justify-center">
         <div className="text-light mb-4 py-3 flex-column align-center">
           <div className="flex-row justify-space-between-lg justify-center align-center">
             <div id="diveContainer" className="container">
-              {loading ? (
+              {loadingMe ? (
                 <div>Loading...</div>
               ) : (
                 <>
                   <Link className="btn btn-md btn-info m-2" to="/addLog">
                     Add Log
                   </Link>
-                  <Dives users={users} title="Dive On In" />
+                  <Dives users={me.friends} me={me} title="Dive On In" />
                 </>
               )}
             </div>

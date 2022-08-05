@@ -90,6 +90,41 @@ export const QUERY_ME = gql`
       }
       friends {
         username
+        logs {
+          _id
+          diveNumber
+          location
+          dateTime
+          breathingMixture
+          tankType
+          tankCapacity
+          startPressure
+          endPressure
+          ballast
+          extraEquipment
+          suit
+          WeatherCond
+          airTemp
+          waterType
+          underwaterVisibility
+          waterTemp
+          waterCond
+          surfaceInt
+          nextSurfaceInt
+          previousEndLetter
+          maxDepth
+          nextDepth
+          residualNitrogenTime
+          actualDiveTime
+          pressureUsed
+          SAC
+          pressureAtDepth
+          EndingLetterGroup
+          TotalNitrogenTime
+          NextResidualNitrogenTime
+          NewStartingLetterGroup
+          NextMaxDiveTime
+        }
       }
     }
   }
