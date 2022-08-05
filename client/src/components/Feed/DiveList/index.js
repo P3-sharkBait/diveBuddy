@@ -13,7 +13,8 @@ const DiveList = ({ logs = [] }) => {
       setShowLog(id);
     }
   };
-
+  console.log('==================');
+  console.log(logs);
   if (!logs.length) {
     return <h3></h3>;
   }
@@ -37,6 +38,7 @@ const DiveList = ({ logs = [] }) => {
                 }}
               >
                 <div className="card-header">
+                  {/* <h6>{logs.username}</h6> */}
                   <h6>Dive Number {log.diveNumber}</h6>
                   <h5 className={log._id == showLog ? "" : "hideInfo"}>
                     {" "}

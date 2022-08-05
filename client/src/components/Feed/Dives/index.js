@@ -4,16 +4,28 @@
 
 import React from "react";
 import DiveList from "../DiveList"
-
 const Dives = (
   {
     users,
+    me,
     title,
     showTitle = true,
     showUsername = true,
   }
 ) => {
-  if (!users.length) {
+  const divers = [];
+  const allLogs = [];
+  divers.push(me);
+  users.forEach(element => {
+    divers.push(element)
+  });
+  divers.forEach(diver => {
+    diver.logs.forEach(logEl => {
+      allLogs.push(logEl)
+    })
+  })
+  // console.log(allLogs);
+  if (!divers.length) {
     return <h3>No Logs Yet</h3>;
   }
   return (
@@ -21,16 +33,12 @@ const Dives = (
       {/* {showTitle && <h3>{title}</h3>} */}
       {/* Create for each log???? */}
       <div className="container flex-column justify-space-between-lg justify-center align-center">
-        {users &&
-          users.map((user) => (
-            <div>
-              <h6>{user.username}'s Dives</h6>
-              <div className="card">
-                <DiveList logs={user.logs} />
-              </div>
-            </div>
-          ))
-        }
+        <div>
+          <h6>Friends' Dives</h6>
+          <div className="card">
+            <DiveList logs={allLogs} />
+          </div>
+        </div>
       </div>
     </div>
   );
