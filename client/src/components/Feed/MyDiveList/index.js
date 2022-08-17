@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const DiveList = ({ divers = [] }) => {
+const MyDiveList = ({ logs = [] }) => {
   const [hideInfo, setHideInfo] = useState("Hidden");
   const [showLog, setShowLog] = useState(false);
   // const logs = [];
@@ -19,16 +19,14 @@ const DiveList = ({ divers = [] }) => {
     }
   };
   console.log("==================");
-  console.log(divers);
-  if (!divers.length) {
+  if (!logs.length) {
     return <h3></h3>;
   }
   return (
     <>
       <div className="flex-row my-4">
-        {divers &&
-          divers.map((diver) =>
-            diver.logs.map((log) => (
+        {logs &&
+            logs.map((log) => (
               <div key={log._id} className="col-12 pb-3">
                 <div
                   className="m-3 text-dark card-rounded"
@@ -40,7 +38,6 @@ const DiveList = ({ divers = [] }) => {
                   {/* Require Location Entry in the Future */}
                   <div className="card-header">
                     <div className="flex flex-row justify-space-between mx-1">
-                      <h6>{diver.username}</h6>
                       <h6>
                         Dive Number {log.diveNumber} -{" "}
                         {log.location || "No Location Recorded"}
@@ -188,10 +185,10 @@ const DiveList = ({ divers = [] }) => {
                 </div>
               </div>
             ))
-          )}
+          }
       </div>
     </>
   );
 };
 
-export default DiveList;
+export default MyDiveList;

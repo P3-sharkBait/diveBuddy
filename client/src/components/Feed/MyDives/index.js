@@ -1,5 +1,5 @@
 import React from "react";
-import DiveList from "../DiveList";
+import MyDiveList from "../MyDiveList";
 
 const MyDives = ({ me, title, showTitle = true, showUsername = true }) => {
   if (!me.logs.length) {
@@ -16,7 +16,7 @@ const MyDives = ({ me, title, showTitle = true, showUsername = true }) => {
         {me && (
           <div className="card">
             <h3 className="align-center justify-center">My Dives</h3>
-            <DiveList logs={me.logs} />
+            <MyDiveList logs={me.logs} />
           </div>
         )}
       </div>
