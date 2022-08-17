@@ -1186,6 +1186,12 @@ footer {
   background-color: #262626;
   color: #d9e9e8;
   border: 1px solid #262626;
+  /* border-radius: 0.3rem; */
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.card .card-rounded {
   border-radius: 0.3rem;
 }
 

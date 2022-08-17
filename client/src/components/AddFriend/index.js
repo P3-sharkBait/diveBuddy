@@ -5,7 +5,7 @@ import { ADD_FRIEND } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const AddFriendForm = () => {
-  const [formState, setFormState] = useState({ _id: "" });
+  const [formState, setFormState] = useState({ id: "" });
   const [addFriend, { error, data }] = useMutation(ADD_FRIEND);
 
   const handleChange = (event) => {
@@ -19,7 +19,7 @@ const AddFriendForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log("adding friend");
-    console.log(formState);
+    console.log(formState.id);
     const username = Auth.getProfile().data.username;
     try {
       const { data } = await addFriend({
@@ -33,7 +33,7 @@ const AddFriendForm = () => {
 
     // clear form values
     setFormState({
-      _id: "",
+      id: "",
     });
   };
 
@@ -45,9 +45,9 @@ const AddFriendForm = () => {
           <input
             className="form-input"
             placeholder="friendID"
-            name="friendID"
+            name="id"
             type="text"
-            value={formState._id}
+            value={formState.id}
             onChange={handleChange}
           />
           <button
