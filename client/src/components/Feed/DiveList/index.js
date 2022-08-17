@@ -40,43 +40,43 @@ const DiveList = ({ logs = [] }) => {
                 <div className="card-header">
                   {/* <h6>{logs.username}</h6> */}
                   <h6>Dive Number {log.diveNumber}</h6>
-                  <h5 className={log._id == showLog ? "" : "hideInfo"}>
+                  <h5 className={log._id === showLog ? "" : "hideInfo"}>
                     {" "}
                     {log.location || "No Location Specified"}
                   </h5>
                 </div>
                 <div className="card-body text-left text-left my-2">
                   <ul>
-                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                    <li className={log._id === showLog ? "" : "hideInfo"}>
                       <span>Breathing Mix: </span>{" "}
                       {log.breathingMixture ||
                         "No Data Entered"}
                     </li>
-                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                    <li className={log._id === showLog ? "" : "hideInfo"}>
                       <span>Tank: </span>{" "}
                       {log.tankType ||
                         "No Data Entered"}
                     </li>
-                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                    <li className={log._id === showLog ? "" : "hideInfo"}>
                       <span>Rated Capacity: </span>{" "}
                       {log.tankCapacity ||
                         "No Data Entered"}
                     </li>
-                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                    <li className={log._id === showLog ? "" : "hideInfo"}>
                       <span>Starting Pressure: </span>{" "}
                       {log.startPressure ||
                         "No Data Entered"}
                     </li>
-                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                    <li className={log._id === showLog ? "" : "hideInfo"}>
                       <span>Ending Pressure: </span>{" "}
                       {log.endPressure ||
                         "No Data Entered"}
                     </li>
                     <li>Pressure Used: {log.pressureUsed}</li>
-                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                    <li className={log._id === showLog ? "" : "hideInfo"}>
                       Surface Air Consumption: {log.pressureUsed}
                     </li>
-                    <li className={log._id == showLog ? "" : "hideInfo"}>
+                    <li className={log._id === showLog ? "" : "hideInfo"}>
                       <li>
                         <span className="">Starting Letter Group: </span>
                         {log.previousEndLetter || "No Starting Letter"}
@@ -110,7 +110,7 @@ const DiveList = ({ logs = [] }) => {
                     </li>
                   </ul>
                 </div>
-                <div className={log._id == showLog ? "" : "hideInfo"}>
+                <div className={log._id === showLog ? "" : "hideInfo"}>
                   <div className="card-body text-left">
                     <ul>
                       <section>
@@ -140,7 +140,7 @@ const DiveList = ({ logs = [] }) => {
                     </ul>
                   </div>
                 </div>
-                <div className={log._id == showLog ? "" : "hideInfo"}>
+                <div className={log._id === showLog ? "" : "hideInfo"}>
                   <div className="card-body text-left">
                     <ul>
                       <h6>Next Dive Planning</h6>
@@ -177,7 +177,7 @@ const DiveList = ({ logs = [] }) => {
                   className="btn btn-sm btn-light m-2 text-center"
                   onClick={() => handleClick(log._id)}
                 >
-                  {log._id == showLog ? "Show Less" : "Show More"}
+                  {log._id === showLog ? "Show Less" : "Show More"}
                 </button>
               </div>
             </div>
