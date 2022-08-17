@@ -14,17 +14,12 @@ const Dives = (
   }
 ) => {
   const divers = [];
-  const allLogs = [];
+  console.log(me);
   divers.push(me);
   users.forEach(element => {
     divers.push(element)
   });
-  divers.forEach(diver => {
-    diver.logs.forEach(logEl => {
-      allLogs.push(logEl)
-    })
-  })
-  // console.log(allLogs);
+  
   if (!divers.length) {
     return <h3>No Logs Yet</h3>;
   }
@@ -36,7 +31,7 @@ const Dives = (
         <div>
           <h6>Friends' Dives</h6>
           <div className="card">
-            <DiveList logs={allLogs} />
+            <DiveList divers={divers} />
           </div>
         </div>
       </div>
