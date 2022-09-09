@@ -12,33 +12,44 @@ const Header = () => {
     }
   };
   return (
-    <header className="text-dark flex-row align-center">
-      <div id="header" className="container flex-row justify-space-between-lg justify-center align-center">
+    <header className="flex text-black flex-row items-center">
+      <div className="w-[85%] max-w-[1200px] mx-auto flex flex-row justify-center md:justify-between items-center">
         <div className="text-center">
-          <Link className="text-light" to="/">
-            <h1 className="m-0 text-dark" id="headerName">Dive Buddy</h1>
+          <Link className="text-black" to="/">
+            <h1 className="m-0 text-black">Dive Buddy</h1>
           </Link>
-          <p className="m-2" id="headerSubtitle">All of your logs, in one convenient spot.</p>
+          <p className="m-2">All of your logs, in one convenient spot.</p>
         </div>
         <div>
-          <Link className="btn-light p-0" to="/feed">
-            <button className="btn btn-sm btn-light m-2">Feed</button>
+          <Link className="" to="/feed">
+            <button className="button rounded-lg px-2 py-1 bg-teal-400 btn btn-sm btn-light m-2">
+              Feed
+            </button>
           </Link>
-          <Link className="btn-light p-0" to="/account">
-            <button className="btn btn-sm btn-light m-2">Account</button>
+          <Link className="" to="/account">
+            <button className="button rounded-lg px-2 py-1 bg-teal-400 btn btn-sm btn-light m-2">
+              Account
+            </button>
           </Link>
           {Auth.loggedIn() ? (
             <>
-              <button className="btn btn-sm btn-info m-2" onClick={logout}>
+              <button
+                className="button rounded-lg px-2 py-1 bg-teal-400 btn btn-sm btn-info m-2"
+                onClick={logout}
+              >
                 Logout
               </button>
               <br></br>
-              <h6 id="uNameHeader" className="text-center">Hello, {Auth.getProfile().data.username}!</h6>
+              <h6 id="uNameHeader" className="text-center">
+                Hello, {Auth.getProfile().data.username}!
+              </h6>
             </>
           ) : (
             <>
-              <Link className="btn btn-sm btn-info m-2" to="/login">
-                Login
+              <Link className="" to="/login">
+                <button className="button rounded-lg px-2 py-1 bg-teal-400 btn btn-sm btn-info m-2">
+                  Login
+                </button>
               </Link>
             </>
           )}

@@ -49,7 +49,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <div className="flex flex-col min-h-[100vh] justify-start">
           {/* don't render header on Home Page */}
           <Header />
           <div>
@@ -64,6 +64,7 @@ function App() {
             </Routes>
           </div>
         </div>
+        {/* REPLACE WITH VIDEO */}
         <svg>
           <filter id="turbulence" x="0" y="0" width="100%" height="100%">
             <feTurbulence
