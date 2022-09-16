@@ -1,0 +1,12 @@
+projects:
+  divebuddy:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/utils/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src/utils

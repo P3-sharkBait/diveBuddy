@@ -1,0 +1,14 @@
+{
+  "resourceName": "gqls3",
+  "policyUUID": "3611026c",
+  "bucketName": "amplify-divebuddy-dev-194921-deployment",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "CREATE_AND_UPDATE"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

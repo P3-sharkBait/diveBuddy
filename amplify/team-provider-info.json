@@ -1,0 +1,21 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-divebuddy-dev-194921-authRole",
+      "UnauthRoleArn": "arn:aws:iam::084002297814:role/amplify-divebuddy-dev-194921-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::084002297814:role/amplify-divebuddy-dev-194921-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-divebuddy-dev-194921-deployment",
+      "UnauthRoleName": "amplify-divebuddy-dev-194921-unauthRole",
+      "StackName": "amplify-divebuddy-dev-194921",
+      "StackId": "arn:aws:cloudformation:us-east-2:084002297814:stack/amplify-divebuddy-dev-194921/67661c20-3559-11ed-b7fe-069e31403bc6",
+      "AmplifyAppId": "dpr0yconr8bnu"
+    },
+    "categories": {
+      "auth": {
+        "divebuddy636f5caf": {},
+        "true": {}
+      }
+    }
+  }
+}

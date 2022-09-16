@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "divebuddy",
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7,
+      "apiKeyExpirationDate": "2022-09-23T01:02:22.122Z",
+      "keyDescription": "S3 Photo Bucket"
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": []
+  }
+}

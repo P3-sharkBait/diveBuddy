@@ -17,6 +17,7 @@ const typeDefs = gql`
   type User {
     _id: ID
     username: String
+    avatar: S3Object
     email: String
     password: String
     logs: [Log]!
@@ -78,6 +79,12 @@ const typeDefs = gql`
     checkout(products: [ID]!): Checkout
   }
 
+  type S3Object {
+    bucket: String!
+    region: String!
+    key: String!
+  }
+
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
@@ -117,6 +124,7 @@ const typeDefs = gql`
       lastName: String
       email: String
       password: String
+      avatar: S3Object
     ): User
     updateProduct(_id: ID!, quantity: Int!): Product
   }

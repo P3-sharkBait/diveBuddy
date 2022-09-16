@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "divebuddy",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2022-09-16T01:02:31.646Z"
+}

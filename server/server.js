@@ -2,6 +2,10 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
+// S3 Stuff
+import Amplify from 'aws-amplify'
+import config from './aws-exports'
+Amplify.configure(config)
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');

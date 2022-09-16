@@ -18,11 +18,14 @@
     "stripe": "^9.12.0"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^3.5.1",
     "apollo3-cache-persist": "^0.14.1",
+    "aws-amplify": "^4.3.35",
     "jquery": "^3.6.0",
     "react": "^18.2.0",
     "sass": "^1.53.0",
     "scss": "^0.2.4",
-    "stripe": "^9.12.0"
+    "stripe": "^9.12.0",
+    "uuid": "^9.0.0"
   }
 }

@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const Order = require('./Order');
 logSchema = require('./Log');
+const S3ObjectSchema = required('./S3Object')
 
 const userSchema = new Schema({
   username: {
@@ -10,6 +11,7 @@ const userSchema = new Schema({
     unique: true,
     trim: true,
   },
+  avatar: S3ObjectSchema,
   email: {
     type: String,
     required: true,
