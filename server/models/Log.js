@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const Image = require('./Image');
 const dateFormat = require('../utils/dateFormat');
 const endingLetterGroup = require('../utils/endingLetterGroup');
 const newStartingLetterGroup = require('../utils/newStartingLetterGroup');
@@ -109,6 +110,12 @@ const logSchema = new Schema({
     type: Number
   },
 
+  images: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Image',
+    }
+  ],
 
 },
   {
