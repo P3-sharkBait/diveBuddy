@@ -14,12 +14,23 @@ const Dives = (
   }
 ) => {
   const divers = [];
-  console.log(me);
+  const friendLogs = [];
+  // console.log(me);
   divers.push(me);
   users.forEach(element => {
     divers.push(element)
   });
-  
+  divers.forEach(diver => {
+    console.log('adding diver logs');
+    diver.logs.forEach(log => {
+      friendLogs.push(log);
+      console.log('diver log add complete');
+    })
+    console.log(friendLogs);
+    friendLogs.sort();
+    console.log(friendLogs);
+  })
+  console.log(divers);
   if (!divers.length) {
     return <h3>No Logs Yet</h3>;
   }
