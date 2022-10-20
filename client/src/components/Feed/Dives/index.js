@@ -29,6 +29,7 @@ const Dives = (
       (l1, l2) => (l1.diveNumber < l2.diveNumber) ? 1 : (l1.diveNumber > l2.diveNumber) ? -1 : 0);
     console.log(sortedLogs);
     // sorted logs are in psuedo chronological order, need to send logs to divelist not divers array
+    //try sending to MyDiveList instead of DiveList, send sortedLogs instead of Divers
   })
   console.log(divers);
   if (!divers.length) {
