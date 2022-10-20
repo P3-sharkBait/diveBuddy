@@ -2,13 +2,39 @@ const { AuthenticationError } = require("apollo-server-express");
 const { User, Log, Product, Order } = require("../models");
 const { signToken } = require("../utils/auth");
 // const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
+const { GraphQLScalarType, Kind } = require('graphql');
+
+const dateScalar = new GraphQLScalarType({
+  name: 'Date',
+  description: 'Date custom scalar type',
+  // serialize(value) {
+  //   return value.getTime(); // Convert outgoing Date to integer for JSON
+  // },
+  serialize(value) {
+    // console.log(new Date(value).toISOString())
+    return "2011-10-05T14:48:00.000Z"; // value sent to the client
+  },
+  parseValue(value) {
+    return new Date(value); // Convert incoming integer to Date
+  },
+  parseLiteral(ast) {
+    if (ast.kind === Kind.INT) {
+      // Convert hard-coded AST string to integer and then to Date
+      return new Date(parseInt(ast.value, 10));
+    }
+    // Invalid hard-coded value (not an integer)
+    return null;
+  },
+});
 
 const resolvers = {
+  Date: dateScalar,
+
   Query: {
     users: async (parent, args, context) => {
       //remember to add context back
       // if (context.user) {
-        return User.find().populate('logs').populate('friends');
+      return User.find().populate('logs').populate('friends');
       // }
       // throw new AuthenticationError('You need to be logged in!');
     },
@@ -230,18 +256,18 @@ const resolvers = {
     },
     removeLog: async (parent, { _id }, context) => {
       // if (context.user) {
-       
-        return User.findOneAndUpdate(
-          { email: context.user.email },
-          {
-            $pull: {
-              logs: {
-                _id: _id,
-              },
+
+      return User.findOneAndUpdate(
+        { email: context.user.email },
+        {
+          $pull: {
+            logs: {
+              _id: _id,
             },
           },
-          { new: true }
-        );
+        },
+        { new: true }
+      );
       // }
       // throw new AuthenticationError("You need to be logged in!");
     },

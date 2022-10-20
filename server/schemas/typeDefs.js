@@ -1,7 +1,30 @@
 const { gql } = require("apollo-server-express");
-
+const { GraphQLScalarType, Kind } = require('graphql');
+const dateScalar = new GraphQLScalarType({
+  name: 'Date',
+  description: 'Date custom scalar type',
+  // serialize(value) {
+  //   return value.getTime(); // Convert outgoing Date to integer for JSON
+  // },
+  serialize(value) {
+    // console.log(new Date(value).toISOString())
+    return "2011-10-05T14:48:00.000Z"; // value sent to the client
+  },
+  parseValue(value) {
+    return new Date(value); // Convert incoming integer to Date
+  },
+  parseLiteral(ast) {
+    if (ast.kind === Kind.INT) {
+      // Convert hard-coded AST string to integer and then to Date
+      return new Date(parseInt(ast.value, 10));
+    }
+    // Invalid hard-coded value (not an integer)
+    return null;
+  },
+});
 
 const typeDefs = gql`
+  scalar Date
   type Product {
     _id: ID
     name: String

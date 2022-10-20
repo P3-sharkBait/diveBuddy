@@ -5,6 +5,7 @@ const newStartingLetterGroup = require('../utils/newStartingLetterGroup');
 const NextResidualNitrogenTime = require('../utils/NextResidualNitrogenTime');
 const NextMaxDiveTime = require('../utils/NewMaxDiveTime');
 
+
 const logSchema = new Schema({
 
   createdAt: {

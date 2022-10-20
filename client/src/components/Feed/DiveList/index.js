@@ -73,14 +73,12 @@ const DiveList = ({ divers = [] }) => {
                         Surface Air Consumption: {log.pressureUsed}
                       </li>
                       <li className={log._id == showLog ? "" : "hideInfo"}>
-                        <li>
-                          <span className="">Starting Letter Group: </span>
-                          {log.previousEndLetter || "No Starting Letter"}
-                        </li>
-                        <li>
-                          <span className="">Surface Interval: </span>
-                          {log.surfaceInt}
-                        </li>
+                        <span className="">Starting Letter Group: </span>
+                        {log.previousEndLetter || "No Starting Letter"}
+                      </li>
+                      <li>
+                        <span className="">Surface Interval: </span>
+                        {log.surfaceInt}
                       </li>
                       <li>Max Depth: {log.maxDepth}</li>
                       <li>
