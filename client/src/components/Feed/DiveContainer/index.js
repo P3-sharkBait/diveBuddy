@@ -1,10 +1,9 @@
 import React from "react";
-// import Dives from "../Dives";
 import { useQuery } from "@apollo/client";
 import { QUERY_USERS, QUERY_ME } from "../../../utils/queries";
 import { Link } from "react-router-dom";
 import Auth from "../../../utils/auth";
-import MyDives from "../MyDives";
+import AllDives from "../AllDives";
 
 const DiveContainer = ({ filterState }) => {
   const username = Auth.getProfile().data.username;
@@ -27,7 +26,7 @@ const DiveContainer = ({ filterState }) => {
                 <Link className="btn btn-md btn-info m-2" to="/addLog">
                   Add Log
                 </Link>
-                <MyDives filterState={filterState} users={me.friends} me={me} title="Dive On In" />
+                <AllDives filterState={filterState} users={me.friends} me={me} title="Dive On In" />
               </>
             )}
           </div>

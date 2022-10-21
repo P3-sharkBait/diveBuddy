@@ -1,15 +1,9 @@
 import React from "react";
 import { useState } from "react";
 
-const MyDiveList = ({ logs = [] }) => {
+const DivesList = ({ logs = [] }) => {
   const [hideInfo, setHideInfo] = useState("Hidden");
   const [showLog, setShowLog] = useState(false);
-  // const logs = [];
-  // divers.forEach((diver) => {
-  //   diver.logs.forEach((logEl) => {
-  //     logs.push(logEl);
-  //   });
-  // });
   const handleClick = (id) => {
     console.log("handle log click", id);
     if (showLog) {
@@ -18,7 +12,6 @@ const MyDiveList = ({ logs = [] }) => {
       setShowLog(id);
     }
   };
-  console.log("==================");
   if (!logs.length) {
     return <h3></h3>;
   }
@@ -194,4 +187,4 @@ const MyDiveList = ({ logs = [] }) => {
   );
 };
 
-export default MyDiveList;
+export default DivesList;

@@ -1,7 +1,7 @@
 import React from "react";
-import MyDiveList from "../MyDiveList";
+import DivesList from "../DivesList";
 
-const MyDives = ({ me, users, filterState, title, showTitle = true, showUsername = true }) => {
+const AllDives = ({ me, users, filterState, title, showTitle = true, showUsername = true }) => {
   const divers = [];
   const friendLogs = [];
   divers.push(me);
@@ -9,7 +9,6 @@ const MyDives = ({ me, users, filterState, title, showTitle = true, showUsername
     divers.push(element)
   });
   divers.forEach(diver => {
-    console.log(diver.logs);
     diver.logs.forEach(log => {
       log['username'] = diver.username;
     })
@@ -34,7 +33,7 @@ const MyDives = ({ me, users, filterState, title, showTitle = true, showUsername
           {me && (
             <div className="card">
               <h3 className="align-center justify-center">My Dives</h3>
-              <MyDiveList logs={sortedLogs} />
+              <DivesList logs={sortedLogs} />
             </div>
           )}
         </div>
@@ -47,7 +46,7 @@ const MyDives = ({ me, users, filterState, title, showTitle = true, showUsername
           {me && (
             <div className="card">
               <h3 className="align-center justify-center">My Dives</h3>
-              <MyDiveList logs={me.logs} />
+              <DivesList logs={me.logs} />
             </div>
           )}
         </div>
@@ -56,4 +55,4 @@ const MyDives = ({ me, users, filterState, title, showTitle = true, showUsername
   };
 };
 
-export default MyDives;
+export default AllDives;
