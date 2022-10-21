@@ -4,6 +4,7 @@
 
 import React from "react";
 import DiveList from "../DiveList"
+import MyDiveList from "../MyDiveList";
 const Dives = (
   {
     users,
@@ -21,16 +22,21 @@ const Dives = (
     divers.push(element)
   });
   divers.forEach(diver => {
-    console.log('adding diver logs');
+    diver.logs.forEach(log => {
+      log['username'] = diver.username;
+      console.log('~~~~');
+      console.log(log);
+    })
     diver.logs.forEach(log => {
       friendLogs.push(log);
     })
-    let sortedLogs = friendLogs.sort(
-      (l1, l2) => (l1.diveNumber < l2.diveNumber) ? 1 : (l1.diveNumber > l2.diveNumber) ? -1 : 0);
-    console.log(sortedLogs);
     // sorted logs are in psuedo chronological order, need to send logs to divelist not divers array
     //try sending to MyDiveList instead of DiveList, send sortedLogs instead of Divers
   })
+  let sortedLogs = friendLogs.sort(
+    (l1, l2) => (l1.diveNumber < l2.diveNumber) ? 1 : (l1.diveNumber > l2.diveNumber) ? -1 : 0);
+  console.log(sortedLogs);
+  
   console.log(divers);
   if (!divers.length) {
     return <h3>No Logs Yet</h3>;
@@ -43,7 +49,8 @@ const Dives = (
         <div>
           <h6>Friends' Dives</h6>
           <div className="card">
-            <DiveList divers={divers} />
+            <MyDiveList logs={sortedLogs}/>
+            {/* <DiveList divers={divers} /> */}
           </div>
         </div>
       </div>
