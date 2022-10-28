@@ -6,12 +6,8 @@ import DiveContainer from "../components/Feed/DiveContainer";
 import { Navigate } from "react-router-dom";
 import Auth from "../utils/auth";
 
-// container component
-// If user is logged in, render their feed. Else, redirect them to Login page.
-
 const Feed = (props) => {
   const [filterState, setFilterState] = useState("All");
-  console.log(filterState);
   if (!Auth.loggedIn()) {
     return <Navigate to="/login" />;
   }

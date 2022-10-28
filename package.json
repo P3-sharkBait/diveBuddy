@@ -18,7 +18,6 @@
     "stripe": "^9.12.0"
   },
   "dependencies": {
-    "apollo3-cache-persist": "^0.14.1",
     "jquery": "^3.6.0",
     "react": "^18.2.0",
     "sass": "^1.53.0",
