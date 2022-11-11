@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_LOG } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
-const LogForm = (props) => {
+const LogForm = ({ userLocation, setUserLocation }) => {
   const [display, setDisplay] = useState("one");
   const [formState, setFormState] = useState({
     input: "",
@@ -12,7 +12,7 @@ const LogForm = (props) => {
 
   const [answerState, setAnswerState] = useState({
     diveNumber: 1,
-    location: "",
+    location: userLocation,
     dateTime: "",
     breathingMixture: "",
     tankType: "",
