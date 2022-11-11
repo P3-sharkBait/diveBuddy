@@ -120,15 +120,10 @@ const LogForm = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
     const username = Auth.getProfile().data.username;
 
-    const ans = Object.entries(answerState);
-    // const ansV = Object.keys(answerState)
-
     try {
-      const finalAns = {};
-
+      // eslint-disable-next-line
       const { data } = await addLog({
         variables: { username: username, ...answerState },
       });

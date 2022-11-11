@@ -7,7 +7,6 @@ const Home = (props) => {
       <div className="water"></div>
       <main className="container flex-column justify-center">
         <div className="content">
-          <img></img>
           <Link className="btn btn-md btn-info m-2" to="/feed">
             Dive In!
           </Link>

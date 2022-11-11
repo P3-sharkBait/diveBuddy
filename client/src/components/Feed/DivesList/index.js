@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 const DivesList = ({ logs = [] }) => {
+  // eslint-disable-next-line
   const [hideInfo, setHideInfo] = useState("Hidden");
   const [showLog, setShowLog] = useState(false);
   const handleClick = (id) => {
@@ -12,7 +13,7 @@ const DivesList = ({ logs = [] }) => {
     }
   };
   if (!logs.length) {
-    return <h3></h3>;
+    return <h3>No Logs</h3>;
   }
   return (
     <>

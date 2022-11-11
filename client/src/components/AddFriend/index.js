@@ -5,6 +5,7 @@ import Auth from "../../utils/auth";
 
 const AddFriendForm = () => {
   const [formState, setFormState] = useState({ id: "" });
+  // eslint-disable-next-line
   const [addFriend, { error, data }] = useMutation(ADD_FRIEND);
 
   const handleChange = (event) => {
