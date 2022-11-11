@@ -11,7 +11,6 @@ const dateScalar = new GraphQLScalarType({
   //   return value.getTime(); // Convert outgoing Date to integer for JSON
   // },
   serialize(value) {
-    // console.log(new Date(value).toISOString())
     return "2011-10-05T14:48:00.000Z"; // value sent to the client
   },
   parseValue(value) {

@@ -18,14 +18,11 @@ const DashboardDiveList = ({
   const [showLog, setShowLog] = useState(false);
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("Working");
     try {
       const { data } = await removeLog({
         variables: { id: showLog },
       });
 
-      console.log(showLog);
-      console.log(data);
       setDisplay(!display);
       // Auth.login(data.login.token);
     } catch (e) {
@@ -33,7 +30,6 @@ const DashboardDiveList = ({
     }
   };
   const handleLogClick = (id) => {
-    console.log("handle log click", id);
     if (showLog) {
       setShowLog(false);
     } else {

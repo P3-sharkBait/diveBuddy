@@ -26,7 +26,6 @@ const RemoveAcountButton = () => {
     };
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log("Working")
         try {
             const { data } = await removeUser({
                 variables: { ...formState },

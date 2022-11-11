@@ -1,7 +1,4 @@
 const endingLetterGroup = function (depth, TotalNitrogenTime,) {
-    console.log(TotalNitrogenTime);
-    console.log('------------------')
-    console.log(depth)
     if (depth <= 20) {
         if (TotalNitrogenTime <= 26) {
             return 'A';

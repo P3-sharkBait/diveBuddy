@@ -13,7 +13,6 @@ const AllDives = ({ me, users, filterState, title, showTitle = true, showUsernam
   diversClone.forEach(diver => {
     diver.logs.forEach(log => {
       log['username'] = diver.username;
-      console.log(log.username);
     })
     diver.logs.forEach(log => {
       friendLogs.push(log);

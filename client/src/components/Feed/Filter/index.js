@@ -7,9 +7,7 @@ import { useState } from "react";
 const Filter = ({ filterState, setFilterState }) => {
   const handleClick = (event) => {
     event.preventDefault();
-    console.log(filterState);
     setFilterState(event.target.innerHTML);
-    console.log(filterState);
   };
   return (
     <div className="text-dark mb-2 flex-column justify-center align-center">

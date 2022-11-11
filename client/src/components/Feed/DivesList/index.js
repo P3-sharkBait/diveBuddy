@@ -5,7 +5,6 @@ const DivesList = ({ logs = [] }) => {
   const [hideInfo, setHideInfo] = useState("Hidden");
   const [showLog, setShowLog] = useState(false);
   const handleClick = (id) => {
-    console.log("handle log click", id);
     if (showLog) {
       setShowLog(false);
     } else {

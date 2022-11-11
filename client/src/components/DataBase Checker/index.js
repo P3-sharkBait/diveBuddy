@@ -12,7 +12,6 @@ const Test = () => {
         variables: {"username":"anaeem"}
     });
 
-    console.log(data)
     return "Sucess"
  
 }

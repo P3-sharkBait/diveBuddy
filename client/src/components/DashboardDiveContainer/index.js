@@ -12,7 +12,6 @@ const DashboardDiveContainer = () => {
 
     const { loading: loadingMe, data: myData } = useQuery(QUERY_ME, { variables: { username: username } });
     const me = myData?.user || [];
-    console.log(me);
     return (
         <div className="text-light mb-4 py-3 flex-row align-center">
             <div className="flex-row justify-space-between-lg justify-center align-center">
