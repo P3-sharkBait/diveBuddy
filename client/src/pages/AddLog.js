@@ -5,30 +5,54 @@ import LogForm from "../components/AddLog/index";
 
 export default function ADDLOG() {
   let [userLocation, setUserLocation] = useState("");
+  let blocked = "";
 
-  function getLocation() {
+  const getLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(returnCoordinates);
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation(
+            `${position.coords.latitude} ${position.coords.longitude}`
+          );
+        },
+        () => {
+          console.error("Unable to retrieve your location");
+        }
+      );
     } else {
-      console.error("Geolocation is not supported by this browser.");
+      console.error("Geolocation is not supported by your browser");
     }
-  }
+  };
+
+  // function getLocation() {
+  //   console.log("getLocation ran");
+  //   if (navigator.geolocation) {
+  //     setUserLocation(navigator.geolocation.getCurrentPosition(returnCoordinates));
+  //   } else {
+  //     setUserLocation("");
+  //     console.error("Geolocation is not supported by this browser.");
+  //   }
+  // }
 
   function returnCoordinates(position) {
+    console.log(position);
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
     console.log(lat, lon);
-    return (lat, lon);
+    // setUserLocation(`${lat} ${lon}`);
+    console.log(userLocation);
+    return userLocation;
   }
-
-  setUserLocation = getLocation();
+  
+  console.log(userLocation);
+  // getLocation();
 
   return (
     <>
-      {getLocation()}
       <div className="water"></div>
       <main className="container flex-column justify-center">
         <div className="content">
+          <button className="w-25" onClick={getLocation}>Get Current Location</button>
           <LogForm
             userLocation={userLocation}
             setUserLocation={setUserLocation}
@@ -37,4 +61,34 @@ export default function ADDLOG() {
       </main>
     </>
   );
+
+  // if (userLocation && userLocation !== "") {
+  //   return (
+  //     <>
+  //       <div className="water"></div>
+  //       <main className="container flex-column justify-center">
+  //         <div className="content">
+  //           <LogForm
+  //             userLocation={userLocation}
+  //             setUserLocation={setUserLocation}
+  //           />
+  //         </div>
+  //       </main>
+  //     </>
+  //   );
+  // } else {
+  //   return (
+  //     <>
+  //       <div className="water"></div>
+  //       <main className="container flex-column justify-center">
+  //         <div className="content">
+  //           <LogForm
+  //             userLocation={userLocation}
+  //             setUserLocation={setUserLocation}
+  //           />
+  //         </div>
+  //       </main>
+  //     </>
+  //   );
+  // }
 }

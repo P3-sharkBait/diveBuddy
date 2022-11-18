@@ -31,3 +31,8 @@ const Feed = (props) => {
 };
 
 export default Feed;
+
+// Location button to get User Location
+// Update Filter component to add "Add Log" button. If clicked, AddLog component is conditionally rendered through All Dives. Adds to options for All and My Dives.
+
+// Allows us to pass state down to form input. 
