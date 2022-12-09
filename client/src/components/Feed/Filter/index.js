@@ -1,15 +1,9 @@
-// I envision a NavBar-esque set of 2-3 buttons. Will filter to only your dives, or all including your friends.
-// maybe: unit conversion?
-
 import React from "react";
-import { useState } from "react";
 
 const Filter = ({ filterState, setFilterState }) => {
   const handleClick = (event) => {
     event.preventDefault();
-    console.log(filterState);
     setFilterState(event.target.innerHTML);
-    console.log(filterState);
   };
   return (
     <div className="text-dark mb-2 flex-column justify-center align-center">

@@ -1,5 +1,6 @@
 import React from "react";
 import DivesList from "../DivesList";
+import _ from 'lodash';
 
 const AllDives = ({ me, users, filterState, title, showTitle = true, showUsername = true }) => {
   const divers = [];
@@ -8,7 +9,8 @@ const AllDives = ({ me, users, filterState, title, showTitle = true, showUsernam
   users.forEach(element => {
     divers.push(element)
   });
-  divers.forEach(diver => {
+  const diversClone = _.cloneDeep(divers);
+  diversClone.forEach(diver => {
     diver.logs.forEach(log => {
       log['username'] = diver.username;
     })

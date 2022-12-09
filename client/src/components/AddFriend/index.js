@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_FRIEND } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const AddFriendForm = () => {
   const [formState, setFormState] = useState({ id: "" });
+  // eslint-disable-next-line
   const [addFriend, { error, data }] = useMutation(ADD_FRIEND);
 
   const handleChange = (event) => {
@@ -18,8 +18,6 @@ const AddFriendForm = () => {
   };
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("adding friend");
-    console.log(formState.id);
     const username = Auth.getProfile().data.username;
     try {
       const { data } = await addFriend({

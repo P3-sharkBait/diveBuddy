@@ -20,8 +20,8 @@ export default function SignupForm() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
+      // eslint-disable-next-line
       const { data } = await signup({
         variables: { ...formState },
       });

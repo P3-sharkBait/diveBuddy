@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_LOG } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
-const LogForm = (props) => {
+const LogForm = ({ userLocation, setUserLocation }) => {
   const [display, setDisplay] = useState("one");
   const [formState, setFormState] = useState({
     input: "",
@@ -12,7 +12,7 @@ const LogForm = (props) => {
 
   const [answerState, setAnswerState] = useState({
     diveNumber: 1,
-    location: "",
+    location: userLocation,
     dateTime: "",
     breathingMixture: "",
     tankType: "",
@@ -106,7 +106,6 @@ const LogForm = (props) => {
     } else {
       realValue = value;
     }
-    console.log(name, realValue);
 
     setFormState({
       input: realValue,
@@ -121,32 +120,10 @@ const LogForm = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(answerState);
     const username = Auth.getProfile().data.username;
-    console.log({ username: username, ...answerState });
-    console.log(username);
-
-    const ans = Object.entries(answerState);
-    // const ansV = Object.keys(answerState)
 
     try {
-      const finalAns = {};
-
-      // ans.map((value) => {
-      //   const name = value[0]
-
-      //   if (value[1] ==="" || value[1] < 0) {
-      //     value[1] = 1;
-      //     return (setAnswerState({...answerState,
-      //       name: value[1]}))
-      //   }
-      // })
-
-      // setAnswerState({
-      //   ...finalAns
-      // })
-
-      console.log(answerState);
+      // eslint-disable-next-line
       const { data } = await addLog({
         variables: { username: username, ...answerState },
       });
@@ -186,7 +163,7 @@ const LogForm = (props) => {
   const handleNextBack = (event) => {
     event.preventDefault();
     const btn = event.target.id;
-    console.log(btn);
+
     const t = questions.indexOf(qState.q);
     const ans = Object.values(answerState);
 
@@ -217,7 +194,6 @@ const LogForm = (props) => {
     }
   };
   if (display === "one") {
-    console.log(display);
     return (
       <main className="flex-row justify-center mb-4">
         <div className="col-12 col-lg-10">
@@ -226,9 +202,9 @@ const LogForm = (props) => {
             <div className="card-body dashContainer p-2">
               {data ? (
                 <p>
-                {" "}
-                <Link to="/feed">Success! Click here to view your feed.</Link>
-              </p>
+                  {" "}
+                  <Link to="/feed">Success! Click here to view your feed.</Link>
+                </p>
               ) : (
                 <div>
                   <form>
@@ -244,7 +220,7 @@ const LogForm = (props) => {
 
                     <button
                       className="btn btn-block btn-primary"
-                      style={{ cursor: "pointer", margin: "10px 0"}}
+                      style={{ cursor: "pointer", margin: "10px 0" }}
                       type="submit"
                       id="NextBTN"
                       onClick={handleNextBack}
@@ -254,7 +230,7 @@ const LogForm = (props) => {
 
                     <button
                       className="btn btn-block btn-primary"
-                      style={{ cursor: "pointer", margin: "10px 0"}}
+                      style={{ cursor: "pointer", margin: "10px 0" }}
                       type="submit"
                       id="BackBTN"
                       onClick={handleNextBack}
@@ -264,7 +240,7 @@ const LogForm = (props) => {
 
                     <button
                       className="btn btn-block btn-primary"
-                      style={{ cursor: "pointer", margin: "10px 0"}}
+                      style={{ cursor: "pointer", margin: "10px 0" }}
                       type="submit"
                       id="BackBTN"
                       onClick={changeDisplay}
@@ -286,13 +262,17 @@ const LogForm = (props) => {
       </main>
     );
   } else if (display === "All") {
-    console.log(display);
     return (
       <main className="flex-row justify-center my-5 mb-4">
         <div className="col-12 col-lg-10 fullList">
           <div className="card my-5">
-            <h4 className="card-header bg-dark text-light my-5 p-2">Dive Info</h4>
-            <div className="card-body dashContainer my-4 p-2" style={{height: "600px"}}>
+            <h4 className="card-header bg-dark text-light my-5 p-2">
+              Dive Info
+            </h4>
+            <div
+              className="card-body dashContainer my-4 p-2"
+              style={{ height: "600px" }}
+            >
               {data ? (
                 <p>
                   {" "}

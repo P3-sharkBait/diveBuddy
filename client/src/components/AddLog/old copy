@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_LOG } from "../../utils/mutations";
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const LogForm = (props) => {
   const [formState, setFormState] = useState({
@@ -36,14 +36,13 @@ const LogForm = (props) => {
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-    var realValue = ""
+    var realValue = "";
 
-    if (parseInt(value) > 0 ) {
-       realValue = parseInt(value)
+    if (parseInt(value) > 0) {
+      realValue = parseInt(value);
     } else {
-       realValue = value
+      realValue = value;
     }
-    console.log(name, realValue)
 
     setFormState({
       ...formState,
@@ -54,14 +53,12 @@ const LogForm = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-    const username = Auth.getProfile().data.username
-    console.log({username:username, ...formState})
-    console.log(username)
-    try {
 
+    const username = Auth.getProfile().data.username;
+
+    try {
       const { data } = await addLog({
-        variables: {username:username, ...formState },
+        variables: { username: username, ...formState },
       });
     } catch (e) {
       console.error(e);

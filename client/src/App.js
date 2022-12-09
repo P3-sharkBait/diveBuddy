@@ -52,7 +52,7 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           {/* don't render header on Home Page */}
           <Header />
-          <div>
+          <div id="activePage">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />

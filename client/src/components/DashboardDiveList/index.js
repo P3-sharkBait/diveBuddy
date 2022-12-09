@@ -1,9 +1,7 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { REMOVE_LOG } from "../../utils/mutations";
-import { REMOVE_USER } from "../../utils/mutations";
 import { useState } from "react";
-import Auth from "../../utils/auth";
 
 const DashboardDiveList = ({
   me,
@@ -13,27 +11,25 @@ const DashboardDiveList = ({
   display,
   setDisplay,
 }) => {
+  // eslint-disable-next-line
   const [removeLog, { error, data }] = useMutation(REMOVE_LOG);
+  // eslint-disable-next-line
   const [hideForm, setHideForm] = useState("Hidden");
   const [showLog, setShowLog] = useState(false);
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("Working");
     try {
+      // eslint-disable-next-line
       const { data } = await removeLog({
         variables: { id: showLog },
       });
 
-      console.log(showLog);
-      console.log(data);
       setDisplay(!display);
-      // Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
   };
   const handleLogClick = (id) => {
-    console.log("handle log click", id);
     if (showLog) {
       setShowLog(false);
     } else {
@@ -42,7 +38,7 @@ const DashboardDiveList = ({
   };
 
   if (!me.logs.length) {
-    return <h3></h3>;
+    return <h3>No Logs</h3>;
   }
   return (
     <div className="dashContainer p-1" style={{ height: "600px" }}>
@@ -62,11 +58,11 @@ const DashboardDiveList = ({
                   className="btn btn-sm btn-md m-2"
                   onClick={() => handleLogClick(log._id)}
                 >
-                  {log._id == showLog ? "Cancel" : "Delete Log"}
+                  {log._id === showLog ? "Cancel" : "Delete Log"}
                 </button>
                 <form
                   onSubmit={handleFormSubmit}
-                  className={log._id == showLog ? "" : "hideInfo"}
+                  className={log._id === showLog ? "" : "hideInfo"}
                 >
                   <button
                     id={log.diveNumber}
