@@ -4,6 +4,10 @@
 
 Team 2: Sharkbait (Andrew Moody, Abeer Naeem, Nat Triffo, Theo Ward, and Will Qualls)
 
+
+## Currently Offline -- Rebuilding in RemixJS ##
+
+
 ## Our Pitch
 ```
 Dive Buddy is an application that calculates different stats for divers, a convenient alternative to filling out paper forms. On this application a user can create an account, review and update their dashboard, and view a feed that includes other registered users. 
